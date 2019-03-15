@@ -3,12 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
-import { AddPillComponent } from './add-pill/add-pill.component';
+import { AddPillComponent } from './pill/add-pill.component';
+import { PageNotFoundComponent } from './general/page-not-found.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddPillComponent
+    AddPillComponent,
+    PageNotFoundComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
