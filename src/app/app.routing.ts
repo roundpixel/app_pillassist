@@ -1,4 +1,4 @@
-import { AddPillComponent } from "./add-pill/add-pill.component";
+import { AddPillComponent } from './pill/add-pill.component';
 
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: "404"
+    redirectTo: '404'
   }
 ];
 
