@@ -9,12 +9,10 @@ Run `git clone https://github.com/roundpixel/app_pillassist.git`
 
 Run `cd pillassist`
 
-To let your browser open localhost automatically, run `npm install opener -g`
-
 Run `npm install` to install app dependencies
 
 Run `npm start` to build the TypeScript, watch for changes and launch the web server.
-After compiling, it should automatically take you to http://localhost:8000 in your browser, you'll just have to wait a moment and when it's done compiling your page should automatically reload.
+After compiling, it should automatically take you to http://localhost:8000 in your browser.
 
 ### Development
 
