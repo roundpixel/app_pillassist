@@ -7,6 +7,9 @@ import { AddPillComponent } from './pill/add-pill.component';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 import { CalendarDayComponent } from './calendar/calendar-day.component';
 
+import { FullCalendarModule } from 'primeng/fullcalendar';
+import { ListboxModule } from 'primeng/listbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +19,8 @@ import { CalendarDayComponent } from './calendar/calendar-day.component';
   ],
   imports: [
     BrowserModule,
+    FullCalendarModule,
+    ListboxModule,
     routing
   ],
   providers: [],
