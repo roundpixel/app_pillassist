@@ -12,7 +12,7 @@ import { CalendarDayComponent } from './calendar/calendar-day.component';
     AppComponent,
     AddPillComponent,
     PageNotFoundComponent,
-    CalendarDayComponent
+    CalendarDayComponent,
   ],
   imports: [
     BrowserModule,
