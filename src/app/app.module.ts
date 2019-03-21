@@ -5,14 +5,14 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { AddPillComponent } from './pill/add-pill.component';
 import { PageNotFoundComponent } from './general/page-not-found.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarDayComponent } from './calendar/calendar-day.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPillComponent,
     PageNotFoundComponent,
-    CalendarComponent
+    CalendarDayComponent
   ],
   imports: [
     BrowserModule,

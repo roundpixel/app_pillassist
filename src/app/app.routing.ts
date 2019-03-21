@@ -1,4 +1,4 @@
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarDayComponent } from './calendar/calendar-day.component';
 import { AddPillComponent } from './pill/add-pill.component';
 
 import { ModuleWithProviders } from '@angular/core';
@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './general/page-not-found.component';
 const routes: Routes = [
   {
     path: '',
-    component: CalendarComponent
+    component: CalendarDayComponent
   },
   {
     path: 'add',
