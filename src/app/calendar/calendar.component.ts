@@ -2,39 +2,39 @@ import { Component, OnInit } from '@angular/core';
 import { MockNgModuleResolver } from '@angular/compiler/testing';
 
 @Component({
-  selector: 'app-calendar-day',
-  templateUrl: './calendar-day.component.html',
+  selector: 'app-calendar',
+  templateUrl: './calendar.component.html',
   styles: []
 })
-export class CalendarDayComponent implements OnInit {
+export class CalendarComponent implements OnInit {
   events: any[];
   options: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.events = [
       {
-        'title': 'All Day Event',
-        'start': '2019-03-01'
+        title: 'All Day Event',
+        start: '2019-03-01'
       },
       {
-        'title': 'Long Event',
-        'start': '2019-03-07',
-        'end': '2019-03-10'
+        title: 'Long Event',
+        start: '2019-03-07',
+        end: '2019-03-10'
       },
       {
-        'title': 'Repeating Event',
-        'start': '2019-03-09T16:00:00'
+        title: 'Repeating Event',
+        start: '2019-03-09T16:00:00'
       },
       {
-        'title': 'Repeating Event',
-        'start': '2019-03-16T16:00:00'
+        title: 'Repeating Event',
+        start: '2019-03-16T16:00:00'
       },
       {
-        'title': 'Conference',
-        'start': '2019-03-11',
-        'end': '2019-03-13'
+        title: 'Conference',
+        start: '2019-03-11',
+        end: '2019-03-13'
       }
     ];
 
@@ -48,7 +48,7 @@ export class CalendarDayComponent implements OnInit {
         center: 'agendaWeek, month'
       },
       height: 'parent',
-      columnHeaderText: (date) => {
+      columnHeaderText: date => {
         switch (date.getDay()) {
           case 0:
             return 'Ma';
@@ -66,7 +66,7 @@ export class CalendarDayComponent implements OnInit {
             return 'Zo';
         }
       },
-      dateClick: (info) => {
+      dateClick: info => {
         const allDaysBg = document.querySelectorAll('.fc-day');
         const allDaysTxt = document.querySelectorAll('[data-date] span');
 
@@ -97,4 +97,3 @@ export class CalendarDayComponent implements OnInit {
     };
   }
 }
-
