@@ -13,31 +13,6 @@ export class CalendarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.events = [
-      {
-        title: 'All Day Event',
-        start: '2019-03-01'
-      },
-      {
-        title: 'Long Event',
-        start: '2019-03-07',
-        end: '2019-03-10'
-      },
-      {
-        title: 'Repeating Event',
-        start: '2019-03-09T16:00:00'
-      },
-      {
-        title: 'Repeating Event',
-        start: '2019-03-16T16:00:00'
-      },
-      {
-        title: 'Conference',
-        start: '2019-03-11',
-        end: '2019-03-13'
-      }
-    ];
-
     this.options = {
       header: {
         left: 'prev',
@@ -77,7 +52,8 @@ export class CalendarComponent implements OnInit {
         allDaysTxt.forEach((day: HTMLElement) => {
           day.style.color = '#51689b';
         });
-        info.dayEl.style.backgroundColor = '#51689b';
+        info.dayEl.style.borderRadius = '50%';
+        info.dayEl.style.backgroundColor = '#AFE1FD';
 
         const date =
           info.date.getFullYear() +
