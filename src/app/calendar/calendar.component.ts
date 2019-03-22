@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MockNgModuleResolver } from '@angular/compiler/testing';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-calendar',
@@ -10,7 +10,7 @@ export class CalendarComponent implements OnInit {
   events: any[];
   options: any;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.options = {
@@ -19,13 +19,7 @@ export class CalendarComponent implements OnInit {
         center: 'title',
         right: 'next'
       },
-      footer: {
-        center: 'agendaWeek, month'
-      },
       locale: 'nl',
-      buttonText: {
-        month: 'maand'
-      },
       height: 'parent',
       columnHeaderText: date => {
         switch (date.getDay()) {
@@ -46,14 +40,7 @@ export class CalendarComponent implements OnInit {
         }
       },
       dateClick: info => {
-        const allDaysBg = document.querySelectorAll('.fc-day');
-        const allDaysTxt = document.querySelectorAll('[data-date] span');
-
-        allDaysBg.forEach((day: HTMLElement) => {
-          day.classList.remove('fc-state-highlight');
-        });
-        info.dayEl.classList.add('fc-state-highlight');
-
+        // get date for span inside
         const date =
           info.date.getFullYear() +
           '-' +
@@ -61,17 +48,22 @@ export class CalendarComponent implements OnInit {
           '-' +
           ('0' + info.date.getDate()).slice(-2);
 
-        const dayText = document.querySelectorAll(
-          '[data-date=\'' + date + '\'] span'
-        );
+        // give bg to clicked element
+        $('.fc')
+          .find('.fc-day')
+          .removeClass('fc-state-highlight');
 
-        allDaysTxt.forEach((day: HTMLElement) => {
-          day.style.color = '#51689b';
-        });
+        // set all spans color to grey
+        $('.fc')
+          .find('[data-date] span')
+          .css('color', '#51689b');
 
-        dayText.forEach((day: HTMLElement) => {
-          day.style.color = 'white';
-        });
+        // set specific span to white
+        $('.fc')
+          .find('[data-date=\'' + date + '\'] span')
+          .css('color', 'white');
+
+        info.dayEl.classList.add('fc-state-highlight');
       }
     };
   }

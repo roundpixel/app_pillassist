@@ -1,0 +1,13 @@
+//typography
+
+@import url("https://fonts.googleapis.com/css?family=Hind+Guntur:500,600");
+
+$header-title: bold 25px "Hind Guntur", sans-serif;
+$title: 600 18px "Hind Guntur", sans-serif;
+$day: bold 16px "Hind Guntur", sans-serif;
+
+$body: 500 1em "Hind Guntur", sans-serif;
+
+p, span {
+  font: $body;
+}

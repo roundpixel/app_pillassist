@@ -13,6 +13,13 @@
     border: none;
   }
 
+  .fc-center {
+    h2 {
+      font: $title;
+      color: $cadet-blue;
+    }
+  }
+
   .fc-next-button,
   .fc-prev-button {
     background: $light-btn;
@@ -47,16 +54,17 @@
       td {
         border: none;
         margin-left: 2px;
+        border-radius: 50%;
         &.fc-today {
           background: $blue-today;
-          border-radius: 50%;
           border: $blue-highlight 2px solid;
         }
         &.fc-state-highlight {
           background: $blue-highlight;
-          border-radius: 50%;
+          color: white;
         }
       }
+
     }
 
     .fc-day-top {
@@ -69,7 +77,7 @@
       }
 
       span {
-        padding: 8px 0;
+        padding-top: 6px;
         display: block;
         margin-right: 3px;
       }
@@ -84,13 +92,6 @@
       background: white;
       border: none;
       color: $main-blue;
-    }
-
-    .fc-center {
-      h2 {
-        font: $title;
-        color: $cadet-blue;
-      }
     }
 
     .ui-state-highlight {
