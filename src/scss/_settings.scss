@@ -1,19 +1,24 @@
 //colors
-$light-grey: #F0F5FF;
-$light-blue: #AFE1FD;
-$charcoal-grey: #394450;
-$medium-grey: #D7DADC;
-$cadet-blue: #51689b;
-$third-blue: #AFE1FD;
+$light-grey: #f0f5ff;
 
-  //buttons
-  $light-btn: $light-grey;
-  $light-btn-hover: $light-blue;
-  $light-btn-txt: $charcoal-grey;
+$charcoal-grey: #394450;
+$medium-grey: #d7dadc;
+
+$main-blue: #35a6f5;
+$light-blue: #afe1fd;
+$cadet-blue: #51689b;
+$blue-highlight: #afe1fd;
+$blue-today: #f5faff;
+
+//buttons
+$light-btn: $light-grey;
+$light-btn-hover: $light-blue;
+$light-btn-txt: $charcoal-grey;
 
 //typography
 
-@import url('https://fonts.googleapis.com/css?family=Hind+Guntur:500,600');
+@import url("https://fonts.googleapis.com/css?family=Hind+Guntur:500,600");
 
-$header-title: bold 25px 'Hind Guntur', sans-serif;
-$title: 600 18px 'Hind Guntur', sans-serif;
+$header-title: bold 25px "Hind Guntur", sans-serif;
+$title: 600 18px "Hind Guntur", sans-serif;
+$day: bold 16px "Hind Guntur", sans-serif;

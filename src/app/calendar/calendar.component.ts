@@ -22,6 +22,10 @@ export class CalendarComponent implements OnInit {
       footer: {
         center: 'agendaWeek, month'
       },
+      locale: 'nl',
+      buttonText: {
+        month: 'maand'
+      },
       height: 'parent',
       columnHeaderText: date => {
         switch (date.getDay()) {
@@ -46,14 +50,9 @@ export class CalendarComponent implements OnInit {
         const allDaysTxt = document.querySelectorAll('[data-date] span');
 
         allDaysBg.forEach((day: HTMLElement) => {
-          day.style.backgroundColor = 'white';
+          day.classList.remove('fc-state-highlight');
         });
-
-        allDaysTxt.forEach((day: HTMLElement) => {
-          day.style.color = '#51689b';
-        });
-        info.dayEl.style.borderRadius = '50%';
-        info.dayEl.style.backgroundColor = '#AFE1FD';
+        info.dayEl.classList.add('fc-state-highlight');
 
         const date =
           info.date.getFullYear() +
@@ -65,6 +64,10 @@ export class CalendarComponent implements OnInit {
         const dayText = document.querySelectorAll(
           '[data-date=\'' + date + '\'] span'
         );
+
+        allDaysTxt.forEach((day: HTMLElement) => {
+          day.style.color = '#51689b';
+        });
 
         dayText.forEach((day: HTMLElement) => {
           day.style.color = 'white';
