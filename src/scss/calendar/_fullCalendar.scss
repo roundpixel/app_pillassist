@@ -1,7 +1,7 @@
 .fc {
   padding: 1em;
   margin: auto;
-  border: $medium-grey 2px solid;
+  border: $light-charcoal 2px solid;
   border-radius: 1em;
   width: 300px;
 
@@ -22,10 +22,10 @@
 
   .fc-next-button,
   .fc-prev-button {
-    background: $light-btn;
-    border: $light-btn 2px solid;
+    background: $light-grey;
+    border: $light-grey 2px solid;
     border-radius: 50%;
-    color: $light-btn-txt;
+    color: $charcoal-grey;
 
     width: 1.5em !important;
     height: 1.5em !important;
@@ -36,15 +36,15 @@
     }
 
     &.ui-button:enabled:hover {
-      background: $light-btn-hover;
-      border: $light-btn-hover 2px solid;
-      color: $light-btn-txt;
+      background: $charcoal-grey;
+      border: $light-blue 2px solid;
+      color: $charcoal-grey;
     }
 
     &.ui-button:focus {
-      border: $light-btn-hover 2px solid;
-      background: $light-btn;
-      color: $light-btn-txt;
+      border: $light-blue 2px solid;
+      background: $light-grey;
+      color: $charcoal-grey;
     }
   }
 

@@ -11,3 +11,7 @@ $body: 500 1em "Hind Guntur", sans-serif;
 p, span {
   font: $body;
 }
+
+h1 {
+  font: $header-title
+}
