@@ -7,8 +7,10 @@ import * as $ from 'jquery';
   styles: []
 })
 export class CalendarComponent implements OnInit {
-  events: any[];
-  options: any;
+  public events: any[];
+  public options: any;
+
+  public date = new Date();
 
   constructor() { }
 
@@ -40,8 +42,10 @@ export class CalendarComponent implements OnInit {
         }
       },
       dateClick: info => {
+        this.date = info.date;
+
         // get date for span inside
-        const date =
+        const dateClicked =
           info.date.getFullYear() +
           '-' +
           ('0' + (info.date.getMonth() + 1)).slice(-2) +
@@ -60,7 +64,7 @@ export class CalendarComponent implements OnInit {
 
         // set specific span to white
         $('.fc')
-          .find('[data-date=\'' + date + '\'] span')
+          .find('[data-date=\'' + dateClicked + '\'] span')
           .css('color', 'white');
 
         info.dayEl.classList.add('fc-state-highlight');

@@ -1,7 +1,11 @@
 <h3>'s Ochtends</h3>
 
-<p-card *ngFor="let pill of pills"  header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
-  <p-footer>
-    {{pill.description}}
-  </p-footer>
-</p-card>
+<ng-container *ngFor="let pill of pills">
+
+  <p-card *ngIf="pill.display"  header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
+    <p-footer>
+      {{pill.description}}
+    </p-footer>
+  </p-card>
+
+</ng-container>

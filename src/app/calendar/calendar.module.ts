@@ -14,6 +14,10 @@ import { CalendarDayComponent } from './calendar-day.component';
     CommonModule,
     FullCalendarModule,
     CardModule
+  ],
+  exports: [
+    CalendarComponent,
+    CalendarDayComponent
   ]
 })
 export class CalendarModule { }
