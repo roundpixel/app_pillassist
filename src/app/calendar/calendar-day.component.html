@@ -1,5 +1,7 @@
 <h3>'s Ochtends</h3>
 
-<p-card>
-  Content
+<p-card *ngFor="let pill of pills"  header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
+  <p-footer>
+    {{pill.description}}
+  </p-footer>
 </p-card>
