@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarComponent } from './calendar.component';
 import { FullCalendarModule } from 'primeng/fullcalendar';
+import { CalendarDayComponent } from './calendar-day.component';
 
 @NgModule({
   declarations: [
-    CalendarComponent
+    CalendarComponent,
+    CalendarDayComponent
   ],
   imports: [
     CommonModule,
