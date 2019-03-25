@@ -2,10 +2,12 @@
 
 <ng-container *ngFor="let pill of pills">
 
-  <p-card *ngIf="pill.display"  header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
-    <p-footer>
-      {{pill.description}}
-    </p-footer>
-  </p-card>
+  <div class="appear">
+    <p-card *ngIf="pill.display" header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
+      <p-footer>
+        {{pill.description}}
+      </p-footer>
+    </p-card>
+  </div>
 
 </ng-container>
