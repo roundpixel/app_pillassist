@@ -18,13 +18,15 @@ During development, you should be fine to just run `npm install` after pulling, 
 
 #### Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate -is folder-name/component component-name --module=module-name.module` to generate a new component. `-is` means you don't create a separate scss file, you have to fill in `component-name` yourself as well as `folder-name` and `module-name`, to match the submodule and folder in which the component is put.
+
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 #### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-#### Running end-to-end tests
+#### Running end-to-end tests'
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
