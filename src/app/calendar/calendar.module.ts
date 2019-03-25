@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CalendarComponent } from './calendar.component';
 import { FullCalendarModule } from 'primeng/fullcalendar';
+import { CardModule } from 'primeng/card';
 import { CalendarDayComponent } from './calendar-day.component';
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CalendarDayComponent } from './calendar-day.component';
   ],
   imports: [
     CommonModule,
-    FullCalendarModule
+    FullCalendarModule,
+    CardModule
   ]
 })
 export class CalendarModule { }
