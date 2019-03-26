@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -11,6 +11,24 @@ export class CalendarComponent implements OnInit {
   public options: any;
 
   public date = new Date();
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.navigateCalendar('left');
+        break;
+      case 'ArrowRight':
+        this.navigateCalendar('right');
+        break;
+      case 'ArrowUp':
+        this.navigateCalendar('up');
+        break;
+      case 'ArrowDown':
+        this.navigateCalendar('down');
+        break;
+    }
+  }
 
   constructor() { }
 
@@ -42,33 +60,60 @@ export class CalendarComponent implements OnInit {
         }
       },
       dateClick: info => {
-        this.date = info.date;
-
-        // get date for span inside
-        const dateClicked =
-          info.date.getFullYear() +
-          '-' +
-          ('0' + (info.date.getMonth() + 1)).slice(-2) +
-          '-' +
-          ('0' + info.date.getDate()).slice(-2);
-
-        // give bg to clicked element
-        $('.fc')
-          .find('.fc-day')
-          .removeClass('fc-state-highlight');
-
-        // set all spans color to grey
-        $('.fc')
-          .find('[data-date] span')
-          .css('color', '#51689b');
-
-        // set specific span to white
-        $('.fc')
-          .find('[data-date=\'' + dateClicked + '\'] span')
-          .css('color', 'white');
-
-        info.dayEl.classList.add('fc-state-highlight');
+        this.setDateDisplay(info.date);
       }
     };
+  }
+
+  public setDateDisplay(date) {
+    this.date = date;
+
+    // get date for span inside
+    const dateClicked =
+      date.getFullYear() +
+      '-' +
+      ('0' + (date.getMonth() + 1)).slice(-2) +
+      '-' +
+      ('0' + date.getDate()).slice(-2);
+
+    // remove background from other dates
+    $('.fc')
+      .find('.fc-day')
+      .removeClass('fc-state-highlight');
+
+    // set all spans color to grey
+    $('.fc')
+      .find('[data-date] span')
+      .css('color', '#51689b');
+
+    // set specific span to white
+    $('.fc')
+      .find('[data-date=\'' + dateClicked + '\'] span')
+      .css('color', 'white');
+
+    // give bg to clicked element
+    $('.fc-bg')
+      .find('[data-date=\'' + dateClicked + '\']')
+      .addClass('fc-state-highlight');
+  }
+
+  public navigateCalendar(direction) {
+    const date = new Date();
+    switch (direction) {
+      case 'left':
+        date.setDate(this.date.getDate() - 1);
+        break;
+      case 'right':
+        date.setDate(this.date.getDate() + 1);
+        break;
+      case 'up':
+        date.setDate(this.date.getDate() - 7);
+        break;
+      case 'down':
+        date.setDate(this.date.getDate() + 7);
+        break;
+    }
+    this.date = date;
+    this.setDateDisplay(date);
   }
 }
