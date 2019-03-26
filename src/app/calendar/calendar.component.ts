@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Directive } from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -30,7 +30,7 @@ export class CalendarComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.options = {
@@ -60,7 +60,14 @@ export class CalendarComponent implements OnInit {
         }
       },
       dateClick: info => {
-        this.setDateDisplay(info.date);
+        const currentDay = info.date;
+
+        this.setDateDisplay(currentDay);
+      },
+      // checks if new month is rendered
+      datesRender: info => {
+        this.date.setMonth(info.view.currentStart.getMonth());
+        this.setDateDisplay(this.date);
       }
     };
   }
@@ -99,6 +106,7 @@ export class CalendarComponent implements OnInit {
 
   public navigateCalendar(direction) {
     const date = new Date();
+    date.setMonth(this.date.getMonth());
     switch (direction) {
       case 'left':
         date.setDate(this.date.getDate() - 1);
