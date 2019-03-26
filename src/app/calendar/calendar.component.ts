@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 export class CalendarComponent implements OnInit {
   public events: any[];
   public options: any;
+  public currentMonthView: number;
 
   public date = new Date();
 
@@ -61,6 +62,7 @@ export class CalendarComponent implements OnInit {
       },
       dateClick: info => {
         const currentDay = info.date;
+        this.currentMonthView = info.view.currentStart.getMonth() + 1;
 
         this.setDateDisplay(currentDay);
       },
@@ -72,8 +74,14 @@ export class CalendarComponent implements OnInit {
     };
   }
 
-  public setDateDisplay(date) {
+  public setDateDisplay(date: Date) {
     this.date = date;
+
+    if (this.currentMonthView > (date.getMonth() + 1)) {
+      console.log('ga naar vorige maand');
+    } else if (this.currentMonthView < (date.getMonth() + 1)) {
+      console.log('ga naar volgende maand');
+    }
 
     // get date for span inside
     const dateClicked =
@@ -107,6 +115,7 @@ export class CalendarComponent implements OnInit {
   public navigateCalendar(direction) {
     const date = new Date();
     date.setMonth(this.date.getMonth());
+
     switch (direction) {
       case 'left':
         date.setDate(this.date.getDate() - 1);
@@ -121,6 +130,7 @@ export class CalendarComponent implements OnInit {
         date.setDate(this.date.getDate() + 7);
         break;
     }
+
     this.date = date;
     this.setDateDisplay(date);
   }
