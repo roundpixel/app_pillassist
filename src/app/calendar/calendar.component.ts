@@ -1,5 +1,6 @@
-import { Component, OnInit, HostListener, Directive } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
+import { fcall } from 'q';
 
 @Component({
   selector: 'app-calendar',
@@ -11,27 +12,12 @@ export class CalendarComponent implements OnInit {
   public options: any;
   public currentMonthView: number;
 
+  @ViewChild('fc') fc;
+
   public date = new Date();
+  public changingMonth = false;
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    switch (event.key) {
-      case 'ArrowLeft':
-        this.navigateCalendar('left');
-        break;
-      case 'ArrowRight':
-        this.navigateCalendar('right');
-        break;
-      case 'ArrowUp':
-        this.navigateCalendar('up');
-        break;
-      case 'ArrowDown':
-        this.navigateCalendar('down');
-        break;
-    }
-  }
-
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     this.options = {
@@ -68,8 +54,14 @@ export class CalendarComponent implements OnInit {
       },
       // checks if new month is rendered
       datesRender: info => {
-        this.date.setMonth(info.view.currentStart.getMonth());
-        this.setDateDisplay(this.date);
+        if (!this.changingMonth) {
+          this.date.setMonth(
+            info.view.currentStart.getMonth()
+          );
+          this.setDateDisplay(
+            this.date
+          );
+        }
       }
     };
   }
@@ -77,10 +69,10 @@ export class CalendarComponent implements OnInit {
   public setDateDisplay(date: Date) {
     this.date = date;
 
-    if (this.currentMonthView > (date.getMonth() + 1)) {
-      console.log('ga naar vorige maand');
-    } else if (this.currentMonthView < (date.getMonth() + 1)) {
-      console.log('ga naar volgende maand');
+    if (this.currentMonthView > date.getMonth() + 1) {
+      this.prevMonth();
+    } else if (this.currentMonthView < date.getMonth() + 1) {
+      this.nextMonth();
     }
 
     // get date for span inside
@@ -112,26 +104,15 @@ export class CalendarComponent implements OnInit {
       .addClass('fc-state-highlight');
   }
 
-  public navigateCalendar(direction) {
-    const date = new Date();
-    date.setMonth(this.date.getMonth());
+  public prevMonth() {
+    console.log('ga naar vorige maand');
+    this.changingMonth = true;
+    this.fc.calendar.prev();
+  }
 
-    switch (direction) {
-      case 'left':
-        date.setDate(this.date.getDate() - 1);
-        break;
-      case 'right':
-        date.setDate(this.date.getDate() + 1);
-        break;
-      case 'up':
-        date.setDate(this.date.getDate() - 7);
-        break;
-      case 'down':
-        date.setDate(this.date.getDate() + 7);
-        break;
-    }
-
-    this.date = date;
-    this.setDateDisplay(date);
+  public nextMonth() {
+    console.log('ga naar volgende maand');
+    this.changingMonth = true;
+    this.fc.calendar.next();
   }
 }
