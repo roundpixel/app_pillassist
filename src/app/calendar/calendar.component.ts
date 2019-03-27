@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MockNgModuleResolver } from '@angular/compiler/testing';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-calendar',
@@ -7,10 +7,15 @@ import { MockNgModuleResolver } from '@angular/compiler/testing';
   styles: []
 })
 export class CalendarComponent implements OnInit {
-  events: any[];
-  options: any;
+  public events: any[];
+  public options: any;
+  public currentMonthView: number;
 
-  constructor() {}
+  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void; }; };
+
+  public date = new Date();
+
+  constructor() { }
 
   ngOnInit() {
     this.options = {
@@ -19,9 +24,7 @@ export class CalendarComponent implements OnInit {
         center: 'title',
         right: 'next'
       },
-      footer: {
-        center: 'agendaWeek, month'
-      },
+      locale: 'nl',
       height: 'parent',
       columnHeaderText: date => {
         switch (date.getDay()) {
@@ -42,34 +45,57 @@ export class CalendarComponent implements OnInit {
         }
       },
       dateClick: info => {
-        const allDaysBg = document.querySelectorAll('.fc-day');
-        const allDaysTxt = document.querySelectorAll('[data-date] span');
+        const currentDay = info.date;
+        this.currentMonthView = info.view.currentStart.getMonth() + 1;
 
-        allDaysBg.forEach((day: HTMLElement) => {
-          day.style.backgroundColor = 'white';
-        });
-
-        allDaysTxt.forEach((day: HTMLElement) => {
-          day.style.color = '#51689b';
-        });
-        info.dayEl.style.borderRadius = '50%';
-        info.dayEl.style.backgroundColor = '#AFE1FD';
-
-        const date =
-          info.date.getFullYear() +
-          '-' +
-          ('0' + (info.date.getMonth() + 1)).slice(-2) +
-          '-' +
-          ('0' + info.date.getDate()).slice(-2);
-
-        const dayText = document.querySelectorAll(
-          '[data-date=\'' + date + '\'] span'
-        );
-
-        dayText.forEach((day: HTMLElement) => {
-          day.style.color = 'white';
-        });
+        this.setDateDisplay(currentDay);
       }
     };
+  }
+
+  public setDateDisplay(date: Date) {
+    this.date = date;
+
+    if (this.currentMonthView > date.getMonth() + 1) {
+      this.prevMonth();
+    } else if (this.currentMonthView < date.getMonth() + 1) {
+      this.nextMonth();
+    }
+
+    // get date for span inside
+    const dateClicked =
+      date.getFullYear() +
+      '-' +
+      ('0' + (date.getMonth() + 1)).slice(-2) +
+      '-' +
+      ('0' + date.getDate()).slice(-2);
+
+    // remove background from other dates
+    $('.fc')
+      .find('.fc-day')
+      .removeClass('fc-state-highlight');
+
+    // set all spans color to grey
+    $('.fc')
+      .find('[data-date] span')
+      .css('color', '#51689b');
+
+    // set specific span to white
+    $('.fc')
+      .find('[data-date=\'' + dateClicked + '\'] span')
+      .css('color', 'white');
+
+    // give bg to clicked element
+    $('.fc-bg')
+      .find('[data-date=\'' + dateClicked + '\']')
+      .addClass('fc-state-highlight');
+  }
+
+  public prevMonth() {
+    this.fc.calendar.prev();
+  }
+
+  public nextMonth() {
+    this.fc.calendar.next();
   }
 }

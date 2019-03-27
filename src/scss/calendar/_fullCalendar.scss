@@ -1,0 +1,114 @@
+.fc {
+  padding: 1em;
+  margin: auto;
+  border: $light-charcoal 2px solid;
+  border-radius: 1em;
+  width: 300px;
+
+  table {
+    border-collapse: separate;
+  }
+
+  td {
+    border: none;
+  }
+
+  .fc-center {
+    h2 {
+      font: $title;
+      color: $cadet-blue;
+    }
+  }
+
+  .fc-next-button,
+  .fc-prev-button {
+    background: $light-grey;
+    border: $light-grey 2px solid;
+    border-radius: 50%;
+    color: $charcoal-grey;
+
+    width: 1.5em !important;
+    height: 1.5em !important;
+    padding: 0 !important;
+
+    .ui-icon {
+      margin-top: 0.15em !important;
+    }
+
+    &.ui-button:enabled:hover {
+      background: $light-blue;
+      border: $light-blue 2px solid;
+      color: $charcoal-grey;
+    }
+
+    &.ui-button:focus {
+      border: $light-blue 2px solid;
+      background: $light-grey;
+      color: $charcoal-grey;
+    }
+  }
+
+  .fc-month-view {
+    .fc-bg {
+      border-spacing: 1px;
+      td {
+        border: none;
+        margin-left: 2px;
+        border-radius: 50%;
+        //transition: background 0.4s ease-out;
+        &.fc-today {
+          background: $blue-today;
+          border: $blue-highlight 2px solid;
+        }
+        &.fc-state-highlight {
+          background: $blue-highlight;
+          color: white;
+        }
+      }
+
+    }
+
+    .fc-day-top {
+      color: $cadet-blue;
+      width: 25px;
+      height: 25px;
+
+      &.fc-other-month {
+        opacity: 0.6;
+      }
+
+      span {
+        padding-top: 6px;
+        display: block;
+        margin-right: 3px;
+      }
+
+      &.fc-today {
+        border: none;
+      }
+    }
+
+    .fc-day-header {
+      font: $day;
+      background: white;
+      border: none;
+      color: $main-blue;
+    }
+
+    .ui-state-highlight {
+      color: $cadet-blue;
+    }
+
+    .fc-day-top {
+      text-align: center;
+
+      .fc-day-number {
+        float: unset !important;
+      }
+    }
+  }
+}
+
+.fc-basic-view .fc-body .fc-row {
+  min-height: 2em;
+}

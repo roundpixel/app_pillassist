@@ -1,3 +1,7 @@
-@import "_settings";
-
-@import "primeng/fullcalendar";
+//general
+@import "general/settings";
+@import "general/typoghraphy";
+@import "general/animations";
+//calendar
+@import "calendar/fullCalendar";
+@import "calendar/calendarDay"
