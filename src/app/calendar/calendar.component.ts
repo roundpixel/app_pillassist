@@ -1,6 +1,5 @@
-import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
-import { fcall } from 'q';
 
 @Component({
   selector: 'app-calendar',
@@ -12,10 +11,9 @@ export class CalendarComponent implements OnInit {
   public options: any;
   public currentMonthView: number;
 
-  @ViewChild('fc') fc;
+  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void; }; };
 
   public date = new Date();
-  public changingMonth = false;
 
   constructor() { }
 
@@ -51,17 +49,6 @@ export class CalendarComponent implements OnInit {
         this.currentMonthView = info.view.currentStart.getMonth() + 1;
 
         this.setDateDisplay(currentDay);
-      },
-      // checks if new month is rendered
-      datesRender: info => {
-        if (!this.changingMonth) {
-          this.date.setMonth(
-            info.view.currentStart.getMonth()
-          );
-          this.setDateDisplay(
-            this.date
-          );
-        }
       }
     };
   }
@@ -105,14 +92,10 @@ export class CalendarComponent implements OnInit {
   }
 
   public prevMonth() {
-    console.log('ga naar vorige maand');
-    this.changingMonth = true;
     this.fc.calendar.prev();
   }
 
   public nextMonth() {
-    console.log('ga naar volgende maand');
-    this.changingMonth = true;
     this.fc.calendar.next();
   }
 }

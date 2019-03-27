@@ -55,6 +55,7 @@
         border: none;
         margin-left: 2px;
         border-radius: 50%;
+        //transition: background 0.4s ease-out;
         &.fc-today {
           background: $blue-today;
           border: $blue-highlight 2px solid;
