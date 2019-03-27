@@ -65,11 +65,11 @@
           color: white;
         }
       }
-
     }
 
     .fc-day-top {
       color: $cadet-blue;
+      text-align: center;
       width: 25px;
       height: 25px;
 
@@ -86,9 +86,17 @@
       &.fc-today {
         border: none;
       }
+
+      .fc-day-number {
+        float: unset !important;
+        cursor: pointer;
+      }
     }
 
-
+    .fc-day-top:hover span {
+      background: $blue-highlight;
+      border-radius: 50%;
+    }
 
     .fc-day-header {
       font: $dayCalendar;
@@ -99,14 +107,6 @@
 
     .ui-state-highlight {
       color: $cadet-blue;
-    }
-
-    .fc-day-top {
-      text-align: center;
-
-      .fc-day-number {
-        float: unset !important;
-      }
     }
   }
 }
