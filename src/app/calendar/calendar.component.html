@@ -1,5 +1,12 @@
-<p-fullCalendar [events]="events" [options]="options" #fc></p-fullCalendar>
+<header>
+  <div>
+    <h1>Weekoverzicht</h1>
+    <h2>{{date | date:'fullDate'}}</h2>
+  </div>
+  <img src="assets/avatar.png" alt="">
+</header>
+<div class="header-bg"></div>
 
-<h2>{{date | date:'fullDate'}}</h2>
+<p-fullCalendar [events]="events" [options]="options" #fc></p-fullCalendar>
 
 <app-calendar-day [date]="date"></app-calendar-day>

@@ -1,13 +1,15 @@
-<h3>'s Ochtends</h3>
+<div class="days-container">
+  <h3>'s Ochtends</h3>
 
-<ng-container *ngFor="let pill of pills">
+  <ng-container *ngFor="let pill of pills">
 
-  <div class="appear">
-    <p-card *ngIf="pill.display" header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
-      <p-footer>
-        {{pill.description}}
-      </p-footer>
-    </p-card>
-  </div>
+    <div class="appear">
+      <p-card *ngIf="pill.display" header="{{pill.dose}} {{pill.name}}" subheader="Om {{pill.time}} uur">
+        <p-footer>
+          {{pill.description}}
+        </p-footer>
+      </p-card>
+    </div>
 
-</ng-container>
+  </ng-container>
+</div>

@@ -3,7 +3,8 @@
   margin: auto;
   border: $light-charcoal 2px solid;
   border-radius: 1em;
-  width: 300px;
+  width: 340px;
+  background: white;
 
   table {
     border-collapse: separate;
@@ -78,7 +79,7 @@
       }
 
       span {
-        padding-top: 6px;
+        padding-top: 9px;
         display: block;
         margin-right: 3px;
       }

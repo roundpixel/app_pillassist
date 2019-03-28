@@ -10,6 +10,10 @@ $dayCalendar: bold 16px "Hind Guntur", sans-serif;
 
 $body: 500 1em "Hind Guntur", sans-serif;
 
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
 p,
 span {
   font: $body;
@@ -21,9 +25,9 @@ h1 {
 
 h2 {
   font: $dayTitle;
-  color: $cadet-blue;
 }
 
 h2::first-letter {
   text-transform: uppercase;
 }
+
