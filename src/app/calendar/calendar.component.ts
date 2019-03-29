@@ -11,11 +11,12 @@ export class CalendarComponent implements OnInit {
   public options: any;
   public currentMonthView: number;
 
-  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void; }; };
+  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void } };
 
   public date = new Date();
+  public isVisible = true;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.options = {
@@ -97,5 +98,9 @@ export class CalendarComponent implements OnInit {
 
   public nextMonth() {
     this.fc.calendar.next();
+  }
+
+  public toggleVisibility() {
+    this.isVisible = !this.isVisible;
   }
 }
