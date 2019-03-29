@@ -21,6 +21,14 @@
     }
   }
 
+  .fc-next-button {
+    margin-right: 1.5em;
+  }
+
+  .fc-prev-button {
+    margin-left: 1.5em !important;
+  }
+
   .fc-next-button,
   .fc-prev-button {
     background: $light-grey;
