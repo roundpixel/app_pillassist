@@ -11,12 +11,11 @@
 
 <p-fullCalendar class="calendar" [ngClass]="{'invisible': !isVisible}"  [events]="events" [options]="options" #fc></p-fullCalendar>
 
-<div class="height" [ngClass]="{'height-replacement': !isVisible}"></div>
-
 <div class="flex time-of-day time-of-day--first">
   <h3>'s Ochtends</h3>
   <a (click)="toggleVisibility();">
-    see whole day
+    <img src="assets/angle-arrow-down.svg" class="arrow" [ngClass]="{'arrow-down': !isVisible, 'arrow-up': isVisible}" alt="">
+    hide calendar
   </a>
 </div>
 

@@ -14,11 +14,13 @@
 .calendar {
   .fc {
     height: 370px;
-    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
+    margin-top: 0px;
+    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
   &.invisible {
     .fc {
-      height: 150px;
+      margin-top: 8vh;
+      height: 0px;
       opacity: 0;
       * {
         display: none;
