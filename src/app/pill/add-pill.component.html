@@ -23,16 +23,16 @@
       <input type="text" placeholder="1mg">
     </div>
     <div class="input-group">
-      <label for="time">
+      <label for="time-of-days">
         Tijdstip
       </label>
-      <p-dropdown></p-dropdown>
+      <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
     </div>
     <div class="input-group">
-      <label for="name">
-        Naam medicatie
+      <label for="recurrence">
+        Herhaling
       </label>
-      <input type="text" placeholder="Vul de naam van uw medicatie in">
+      <p-dropdown></p-dropdown>
     </div>
     <div class="cancel">
       <a [routerLink]="['']">annuleer medicatie toevoegen</a>
