@@ -20,6 +20,10 @@ a {
   font: $body;
 }
 
+a, a span {
+  cursor: pointer;
+}
+
 h1 {
   font: $header-title;
 }

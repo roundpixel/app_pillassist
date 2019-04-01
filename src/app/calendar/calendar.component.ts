@@ -49,13 +49,17 @@ export class CalendarComponent implements OnInit {
         const currentDay = info.date;
         this.currentMonthView = info.view.currentStart.getMonth() + 1;
 
+        this.setDate(currentDay);
         this.setDateDisplay(currentDay);
       }
     };
   }
 
-  public setDateDisplay(date: Date) {
+  public setDate(date: Date) {
     this.date = date;
+  }
+
+  public setDateDisplay(date: Date) {
 
     if (this.currentMonthView > date.getMonth() + 1) {
       this.prevMonth();
