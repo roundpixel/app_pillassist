@@ -1,0 +1,24 @@
+form {
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5em 1em 0.5em;
+
+    label {
+      font: $dayCalendar;
+      color: $charcoal-grey
+    }
+
+    input {
+      font: $body;
+      border: none;
+      border-bottom: 2px solid $light-charcoal;
+      padding: 0.4em 0;
+
+      &:focus {
+        border-bottom: 2px solid $main-blue;
+        outline: none;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPillComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
