@@ -34,4 +34,14 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
+  transition: all 2s;
+
+  &.curved {
+    background-image: url("../assets/header-curved.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    * {
+      display: none;
+    }
+  }
 }

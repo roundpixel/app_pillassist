@@ -1,11 +1,18 @@
 <header>
   <div>
-    <h1>Weekoverzicht</h1>
+    <h1>
+      <ng-container *ngIf="isVisible" >
+        Maandoverzicht
+      </ng-container>
+      <ng-container *ngIf="!isVisible">
+        Dagoverzicht
+      </ng-container>
+    </h1>
     <h2>{{date | date:'fullDate'}}</h2>
   </div>
   <img src="assets/avatar.png" alt="">
 </header>
-<div class="header-bg">
+<div class="header-bg" [ngClass]="{'curved': !isVisible}">
   <img src="assets/bollen.png" alt="">
 </div>
 
@@ -15,7 +22,8 @@
   <h3>'s Ochtends</h3>
   <a (click)="toggleVisibility();">
     <img src="assets/angle-arrow-down.svg" class="arrow" [ngClass]="{'arrow-down': !isVisible, 'arrow-up': isVisible}" alt="">
-    hide calendar
+    <ng-container *ngIf="isVisible" >verberg kalender</ng-container>
+    <ng-container *ngIf="!isVisible" >toon kalender</ng-container>
   </a>
 </div>
 
