@@ -2,7 +2,7 @@
   text-decoration: none;
   &-plus {
     color: white;
-    background-image: linear-gradient(65deg, #35a6f5, #69C8F7 77%, #6DDDFE);
+    background-image: linear-gradient(65deg, #35a6f5, #69c8f7 77%, #6dddfe);
     position: fixed;
     width: 1.5em;
     height: 1.5em;
@@ -14,5 +14,10 @@
     right: 1em;
     justify-content: center;
     align-items: center;
+    transition: box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:hover {
+      box-shadow: 2px 4px 25px 10px rgba(76, 181, 246, 0.3);
+    }
   }
 }
