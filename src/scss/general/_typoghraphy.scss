@@ -4,14 +4,35 @@
 
 $header-title: bold 25px "Hind Guntur", sans-serif;
 $title: 600 18px "Hind Guntur", sans-serif;
-$day: bold 16px "Hind Guntur", sans-serif;
+
+$dayTitle: bold 20px "Hind Guntur", sans-serif;
+$dayCalendar: bold 16px "Hind Guntur", sans-serif;
 
 $body: 500 1em "Hind Guntur", sans-serif;
 
-p, span {
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+p,
+span,
+a {
   font: $body;
 }
 
-h1 {
-  font: $header-title
+a, a span {
+  cursor: pointer;
 }
+
+h1 {
+  font: $header-title;
+}
+
+h2 {
+  font: $dayTitle;
+}
+
+h2::first-letter {
+  text-transform: uppercase;
+}
+

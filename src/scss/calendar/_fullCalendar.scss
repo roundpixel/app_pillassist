@@ -3,7 +3,9 @@
   margin: auto;
   border: $light-charcoal 2px solid;
   border-radius: 1em;
-  width: 300px;
+  width: 340px;
+  background: white;
+  height: 370px;
 
   table {
     border-collapse: separate;
@@ -18,6 +20,14 @@
       font: $title;
       color: $cadet-blue;
     }
+  }
+
+  .fc-next-button {
+    margin-right: 1.5em;
+  }
+
+  .fc-prev-button {
+    margin-left: 1.5em !important;
   }
 
   .fc-next-button,
@@ -65,11 +75,11 @@
           color: white;
         }
       }
-
     }
 
     .fc-day-top {
       color: $cadet-blue;
+      text-align: center;
       width: 25px;
       height: 25px;
 
@@ -78,7 +88,7 @@
       }
 
       span {
-        padding-top: 6px;
+        padding-top: 9px;
         display: block;
         margin-right: 3px;
       }
@@ -86,10 +96,20 @@
       &.fc-today {
         border: none;
       }
+
+      .fc-day-number {
+        float: unset !important;
+        cursor: pointer;
+      }
+    }
+
+    .fc-day-top:hover span {
+      background: $blue-highlight;
+      border-radius: 50%;
     }
 
     .fc-day-header {
-      font: $day;
+      font: $dayCalendar;
       background: white;
       border: none;
       color: $main-blue;
@@ -97,14 +117,6 @@
 
     .ui-state-highlight {
       color: $cadet-blue;
-    }
-
-    .fc-day-top {
-      text-align: center;
-
-      .fc-day-number {
-        float: unset !important;
-      }
     }
   }
 }
