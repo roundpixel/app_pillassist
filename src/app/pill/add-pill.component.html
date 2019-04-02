@@ -32,12 +32,29 @@
       <label for="recurrence">
         Herhaling
       </label>
-      <p-dropdown [options]="recurrences"></p-dropdown>
+      <p-dropdown [options]="recurrences" (onChange)="setRecurrence($event);"></p-dropdown>
     </div>
     <div class="input-group">
       <p-accordion>
-        <p-accordionTab header="Geavanceerd">
-          opties
+        <p-accordionTab header="Geavanceerde opties">
+          <ng-container *ngIf="isEveryDay">
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="checkDays"></p-radioButton>
+              <span class="radioButton__label">Om de <input class="radioButton__input" type="number" min="0" max="20"> dag(en)</span>
+            </div>
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="everyWeekday" label="Enkel weekdagen"></p-radioButton>
+            </div>
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="everyWeekend" label="Enkel weekends"></p-radioButton>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="isEveryWeek">
+            isEveryWeek
+          </ng-container>
+          <ng-container *ngIf="isEveryMonth">
+            isEveryMonth
+          </ng-container>
         </p-accordionTab>
       </p-accordion>
     </div>
