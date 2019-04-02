@@ -6,7 +6,7 @@
       </h1>
       <h2>Hiermee wijzigt u het schema</h2>
     </div>
-    <img src="assets/avatar.png" alt="">
+    <img src="assets/avatar.png" alt="" />
   </header>
   <div class="header-bg curved"></div>
   <form action="/">
@@ -14,13 +14,13 @@
       <label for="name">
         Naam medicatie
       </label>
-      <input type="text" placeholder="Vul de naam van uw medicatie in">
+      <input type="text" placeholder="Vul de naam van uw medicatie in" />
     </div>
     <div class="input-group">
       <label for="dose">
         Dosis
       </label>
-      <input type="text" placeholder="1mg">
+      <input type="text" placeholder="1mg" />
     </div>
     <div class="input-group">
       <label for="time-of-days">
@@ -33,6 +33,13 @@
         Herhaling
       </label>
       <p-dropdown [options]="recurrences"></p-dropdown>
+    </div>
+    <div class="input-group">
+      <p-accordion>
+        <p-accordionTab header="Geavanceerd">
+          opties
+        </p-accordionTab>
+      </p-accordion>
     </div>
     <div class="cancel">
       <a [routerLink]="['']">annuleer medicatie toevoegen</a>

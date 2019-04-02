@@ -47,8 +47,8 @@ form {
       border: none;
     }
 
-    .ui-dropdown-label, .ui-state-focus {
-
+    .ui-dropdown-label,
+    .ui-state-focus {
       border-radius: unset;
       box-shadow: none;
       &:focus {
@@ -66,6 +66,28 @@ form {
       &:focus {
         border-bottom: 2px solid $main-blue;
         outline: none;
+      }
+    }
+
+    .ui-accordion-header {
+      background: transparent !important;
+      border: none;
+      width: 100%;
+
+      :focus {
+        outline: none;
+      }
+      .ng-tns-c2-2 {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        opacity: 0.7;
+
+        .ui-accordion-header-text {
+          margin-top: 0.3em;
+          margin-left: 0.5em;
+        }
       }
     }
   }
