@@ -9,12 +9,14 @@ import { AddPillComponent } from './pill/add-pill.component';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPillComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     CalendarModule,

@@ -1,3 +1,4 @@
+import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AddPillComponent } from './pill/add-pill.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddPillComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '404',
