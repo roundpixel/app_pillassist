@@ -6,6 +6,7 @@ import { CardModule } from 'primeng/card';
 import { CalendarDayComponent } from './calendar-day.component';
 import { registerLocaleData } from '@angular/common';
 import localeNlBE from "@angular/common/locales/nl-BE";
+import { routing } from "../app.routing";
 
 registerLocaleData(localeNlBE);
 
@@ -17,7 +18,8 @@ registerLocaleData(localeNlBE);
   imports: [
     CommonModule,
     FullCalendarModule,
-    CardModule
+    CardModule,
+    routing
   ],
   exports: [
     CalendarComponent,

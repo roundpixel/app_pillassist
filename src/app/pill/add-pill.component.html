@@ -1,3 +1,65 @@
-<p>
-  add-pill works!
-</p>
+<div class="add-pill">
+  <header>
+    <div>
+      <h1>
+        Medicatie toevoegen
+      </h1>
+      <h2>Hiermee wijzigt u het schema</h2>
+    </div>
+    <img src="assets/avatar.png" alt="" />
+  </header>
+  <div class="header-bg curved"></div>
+  <form action="/">
+    <div class="input-group">
+      <label for="name">
+        Naam medicatie
+      </label>
+      <input type="text" placeholder="Vul de naam van uw medicatie in" />
+    </div>
+    <div class="input-group">
+      <label for="dose">
+        Dosis
+      </label>
+      <input type="text" placeholder="1mg" />
+    </div>
+    <div class="input-group">
+      <label for="time-of-days">
+        Tijdstip
+      </label>
+      <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+    </div>
+    <div class="input-group">
+      <label for="recurrence">
+        Herhaling
+      </label>
+      <p-dropdown [options]="recurrences" (onChange)="setRecurrence($event);"></p-dropdown>
+    </div>
+    <div class="input-group">
+      <p-accordion>
+        <p-accordionTab header="Geavanceerde opties">
+          <ng-container *ngIf="isEveryDay">
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="checkDays"></p-radioButton>
+              <span class="radioButton__label">Om de <input class="radioButton__input" type="number" min="0" max="20"> dag(en)</span>
+            </div>
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="everyWeekday" label="Enkel weekdagen"></p-radioButton>
+            </div>
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="everyWeekend" label="Enkel weekends"></p-radioButton>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="isEveryWeek">
+            isEveryWeek
+          </ng-container>
+          <ng-container *ngIf="isEveryMonth">
+            isEveryMonth
+          </ng-container>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+    <div class="cancel">
+      <a [routerLink]="['']">annuleer medicatie toevoegen</a>
+    </div>
+  </form>
+</div>
