@@ -1,7 +1,11 @@
 //general
 @import "general/settings";
 @import "general/typoghraphy";
+@import "general/layout";
 @import "general/animations";
+@import "general/buttons";
+@import "general/arrows";
 //calendar
 @import "calendar/fullCalendar";
-@import "calendar/calendarDay"
+@import "calendar/calendarDay";
+@import "calendar/header";

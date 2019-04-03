@@ -11,11 +11,12 @@ export class CalendarComponent implements OnInit {
   public options: any;
   public currentMonthView: number;
 
-  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void; }; };
+  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void } };
 
   public date = new Date();
+  public isVisible = true;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.options = {
@@ -48,13 +49,17 @@ export class CalendarComponent implements OnInit {
         const currentDay = info.date;
         this.currentMonthView = info.view.currentStart.getMonth() + 1;
 
+        this.setDate(currentDay);
         this.setDateDisplay(currentDay);
       }
     };
   }
 
-  public setDateDisplay(date: Date) {
+  public setDate(date: Date) {
     this.date = date;
+  }
+
+  public setDateDisplay(date: Date) {
 
     if (this.currentMonthView > date.getMonth() + 1) {
       this.prevMonth();
@@ -97,5 +102,9 @@ export class CalendarComponent implements OnInit {
 
   public nextMonth() {
     this.fc.calendar.next();
+  }
+
+  public toggleVisibility() {
+    this.isVisible = !this.isVisible;
   }
 }

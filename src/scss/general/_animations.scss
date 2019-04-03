@@ -10,3 +10,21 @@
 .appear {
   animation: appear 0.5s forwards;
 }
+
+.calendar {
+  .fc {
+    height: 370px;
+    margin-top: 0px;
+    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1), margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  &.invisible {
+    .fc {
+      margin-top: 8vh;
+      height: 0px;
+      opacity: 0;
+      * {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,5 +1,30 @@
-<p-fullCalendar [events]="events" [options]="options" #fc></p-fullCalendar>
+<header>
+  <div>
+    <h1>
+      <ng-container *ngIf="isVisible" >
+        Maandoverzicht
+      </ng-container>
+      <ng-container *ngIf="!isVisible">
+        Dagoverzicht
+      </ng-container>
+    </h1>
+    <h2>{{date | date:'fullDate'}}</h2>
+  </div>
+  <img src="assets/avatar.png" alt="">
+</header>
+<div class="header-bg" [ngClass]="{'curved': !isVisible}">
+  <img src="assets/bollen.png" alt="">
+</div>
 
-<p>{{date | date:'fullDate'}}</p>
+<p-fullCalendar class="calendar" [ngClass]="{'invisible': !isVisible}"  [events]="events" [options]="options" #fc></p-fullCalendar>
+
+<div class="flex time-of-day time-of-day--first">
+  <h3>'s Ochtends</h3>
+  <a (click)="toggleVisibility();">
+    <img src="assets/angle-arrow-down.svg" class="arrow" [ngClass]="{'arrow-down': !isVisible, 'arrow-up': isVisible}" alt="">
+    <ng-container *ngIf="isVisible" >verberg kalender</ng-container>
+    <ng-container *ngIf="!isVisible" >toon kalender</ng-container>
+  </a>
+</div>
 
 <app-calendar-day [date]="date"></app-calendar-day>
