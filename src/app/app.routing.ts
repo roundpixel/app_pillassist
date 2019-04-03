@@ -15,6 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'add',
+    canActivate: [AuthGuard],
     component: AddPillComponent
   },
   {
