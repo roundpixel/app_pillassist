@@ -24,6 +24,7 @@ const routes: Routes = [
   },
   {
     path: '404',
+    canActivate: [AuthGuard],
     component: PageNotFoundComponent
   },
   {
