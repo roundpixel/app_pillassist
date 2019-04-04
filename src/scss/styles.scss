@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 //general
 @import "general/settings";
 @import "general/typoghraphy";
@@ -12,3 +16,5 @@
 @import "calendar/header";
 //add-pill
 @import "add-pill/add-pill";
+//login
+@import "login/login";

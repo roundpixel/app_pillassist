@@ -1,27 +1,34 @@
 //typography
 
-@import url("https://fonts.googleapis.com/css?family=Hind+Guntur:500,600");
+@import url("https://fonts.googleapis.com/css?family=Hind+Guntur:500,600,700");
 
-$header-title: bold 25px "Hind Guntur", sans-serif;
-$title: 600 18px "Hind Guntur", sans-serif;
+$header-title: 700 25px "Hind Guntur", sans-serif;
+$title: 700 18px "Hind Guntur", sans-serif;
 
-$dayTitle: bold 20px "Hind Guntur", sans-serif;
-$dayCalendar: bold 16px "Hind Guntur", sans-serif;
+$dayTitle: 600 20px "Hind Guntur", sans-serif;
+$dayCalendar: 600 16px "Hind Guntur", sans-serif;
 
-$body: 500 1em "Hind Guntur", sans-serif;
+$body: 500 14px "Hind Guntur", sans-serif;
+$small: 500 12px "Hind Guntur", sans-serif;
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
 p,
 span,
-a {
+a,
+input,
+label {
   font: $body;
   color: $charcoal-grey;
 }
 
-a, a span {
+a,
+a span {
   cursor: pointer;
 }
 
@@ -36,4 +43,3 @@ h2 {
 h2::first-letter {
   text-transform: uppercase;
 }
-
