@@ -10,12 +10,14 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 import { LoginComponent } from './auth/login/login.component';
+import { HeaderTopComponent } from './general/header-top.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderTopComponent
   ],
   imports: [
     CalendarModule,

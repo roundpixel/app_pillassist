@@ -1,5 +1,31 @@
-<h2>LOGIN</h2>
-<p>{{message}}</p>
-<p>
-  <button (click)="login()" *ngIf="!authService.isLoggedIn">Login</button>
-</p>
+<header class="header-start">
+  <app-header-top></app-header-top>
+  <h2>
+    <ng-container *ngIf="!authService.isLoggedIn && !isLoading">
+      Fijn dat u terug bent.
+    </ng-container>
+    <ng-container *ngIf="isLoading">Aan het inloggen ...</ng-container>
+    <ng-container *ngIf="authService.isLoggedIn">
+      U bent ingelogd.
+    </ng-container>
+  </h2>
+  <p *ngIf="!authService.isLoggedIn">
+    Log in met uw account en vergeet nooit meer uw medicatie in te nemen.
+  </p>
+</header>
+
+<ng-container *ngIf="!authService.isLoggedIn">
+  <form>
+    <div class="input-group">
+      <input type="text" placeholder="E-mailadres" />
+    </div>
+
+    <div class="input-group">
+      <input type="password" placeholder="Wachtwoord" />
+    </div>
+
+    <a class="small-link" href="/">Wachtwoord vergeten?</a>
+  </form>
+
+  <button (click)="login()">Login</button>
+</ng-container>
