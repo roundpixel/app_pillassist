@@ -1,4 +1,6 @@
+import { AuthService } from './auth/auth.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pillassist';
+
+  constructor(public authService: AuthService, public router: Router) {}
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
+  }
 }
