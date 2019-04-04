@@ -1,3 +1,9 @@
 <router-outlet></router-outlet>
 
-<button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>
+<button
+  class="btn btn-blue btn-main"
+  (click)="logout()"
+  *ngIf="authService.isLoggedIn"
+>
+  Logout
+</button>
