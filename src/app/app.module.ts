@@ -2,7 +2,7 @@ import { PillModule } from './pill/pill.module';
 import { CalendarModule } from './calendar/calendar.module';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { routing } from './app.routing';
