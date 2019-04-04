@@ -4,7 +4,9 @@
     <ng-container *ngIf="!authService.isLoggedIn && !isLoading">
       Fijn dat u terug bent.
     </ng-container>
-    <ng-container *ngIf="isLoading">Aan het inloggen ...</ng-container>
+    <ng-container *ngIf="isLoading">
+      Aan het inloggen ...
+    </ng-container>
     <ng-container *ngIf="authService.isLoggedIn">
       U bent ingelogd.
     </ng-container>
