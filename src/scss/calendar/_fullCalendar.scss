@@ -63,7 +63,6 @@
       border-spacing: 1px;
       td {
         border: none;
-        margin-left: 2px;
         border-radius: 50%;
         //transition: background 0.4s ease-out;
         &.fc-today {
@@ -71,6 +70,7 @@
           border: $blue-highlight 2px solid;
         }
         &.fc-state-highlight {
+          width: 42px;
           background: $blue-highlight;
           color: white;
         }
@@ -80,8 +80,6 @@
     .fc-day-top {
       color: $cadet-blue;
       text-align: center;
-      width: 25px;
-      height: 25px;
 
       &.fc-other-month {
         opacity: 0.6;
@@ -103,9 +101,13 @@
       }
     }
 
+    .fc-day-top span {
+      width: 42px;
+      border-radius: 50%;
+    }
+
     .fc-day-top:hover span {
       background: $blue-highlight;
-      border-radius: 50%;
     }
 
     .fc-day-header {
