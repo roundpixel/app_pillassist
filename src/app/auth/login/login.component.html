@@ -19,11 +19,27 @@
 <ng-container *ngIf="!authService.isLoggedIn">
   <form>
     <div class="input-group">
-      <input type="text" placeholder="E-mailadres" />
+      <label *ngIf="showEmailLabel" for="email" class="appear"
+        >E-mailadres</label
+      >
+      <input
+        type="text"
+        placeholder="E-mailadres"
+        (keyup)="checkInput(email.value, 'email')"
+        #email
+      />
     </div>
 
     <div class="input-group">
-      <input type="password" placeholder="Wachtwoord" />
+      <label *ngIf="showPasswordLabel" for="password" class="appear"
+        >Wachtwoord</label
+      >
+      <input
+        type="password"
+        placeholder="Wachtwoord"
+        (keyup)="checkInput(password.value, 'password')"
+        #password
+      />
     </div>
 
     <a class="small-link" href="/">Wachtwoord vergeten?</a>

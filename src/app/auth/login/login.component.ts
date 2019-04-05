@@ -8,10 +8,12 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
   public isLoading = false;
+  public showEmailLabel = false;
+  public showPasswordLabel = false;
 
   constructor(public authService: AuthService, public router: Router) {}
 
-  login() {
+  public login() {
     this.isLoading = true;
 
     this.authService.login().subscribe(() => {
@@ -27,5 +29,21 @@ export class LoginComponent {
         this.router.navigateByUrl(redirect);
       }
     });
+  }
+
+  public checkInput(value, field) {
+    if (value !== '') {
+      if (field === 'email') {
+        this.showEmailLabel = true;
+      } else if (field === 'password') {
+        this.showPasswordLabel = true;
+      }
+    } else {
+      if (field === 'email') {
+        this.showEmailLabel = false;
+      } else if (field === 'password') {
+        this.showPasswordLabel = false;
+      }
+    }
   }
 }
