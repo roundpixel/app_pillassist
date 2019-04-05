@@ -1,3 +1,20 @@
-@import "_settings";
+body {
+  margin: 0;
+}
 
-@import "primeng/fullcalendar";
+//general
+@import "general/settings";
+@import "general/typoghraphy";
+@import "general/layout";
+@import "general/animations";
+@import "general/buttons";
+@import "general/arrows";
+@import "general/forms";
+//calendar
+@import "calendar/fullCalendar";
+@import "calendar/calendarDay";
+@import "calendar/header";
+//add-pill
+@import "add-pill/add-pill";
+//login
+@import "login/login";

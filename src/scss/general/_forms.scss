@@ -1,0 +1,111 @@
+form {
+  padding: 1em;
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5em 1em 0.5em;
+
+    label {
+      color: $charcoal-grey;
+    }
+
+    .ui-calendar,
+    .ui-dropdown {
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+      input {
+        border-radius: unset;
+        &:hover {
+          border-bottom: 2px solid $light-charcoal;
+          box-shadow: none;
+        }
+        &:focus {
+          border-bottom: 2px solid $main-blue;
+          box-shadow: none;
+        }
+      }
+
+      .ui-timepicker {
+        background: white;
+      }
+    }
+
+    .ui-dropdown {
+      border: none;
+      border-bottom: 2px solid $light-charcoal;
+      border-radius: unset;
+      &.ui-dropdown:not(.ui-state-disabled):hover {
+        border: none;
+        border-bottom: 2px solid $main-blue;
+      }
+    }
+
+    .ui-dropdown-trigger {
+      border: none;
+    }
+
+    .ui-dropdown-label,
+    .ui-state-focus {
+      border-radius: unset;
+      box-shadow: none;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    input {
+      font: $body;
+      border: none;
+      border-bottom: 2px solid $light-charcoal;
+      padding: 0.4em 0;
+      width: 100%;
+
+      &:focus {
+        border-bottom: 2px solid $main-blue;
+        outline: none;
+      }
+    }
+
+    .ui-accordion-header {
+      background: transparent !important;
+      border: none;
+      width: 100%;
+
+      :focus {
+        outline: none;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        opacity: 0.9;
+
+        .ui-accordion-header-text {
+          margin-top: 0.3em;
+          margin-left: 0.5em;
+        }
+      }
+    }
+
+    .ui-accordion-content {
+      padding: 0;
+    }
+
+    .radioButton-group {
+      label,
+      .radioButton__label {
+        font-weight: normal;
+        margin-left: 0.5em;
+      }
+
+      input[type="number"] {
+        width: 30px;
+      }
+    }
+  }
+}
