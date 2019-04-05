@@ -18,7 +18,7 @@ During development, you should be fine to just run `npm install` after pulling, 
 
 #### Code scaffolding
 
-Run `ng generate component -is --flat folder-name/component-name --module=module-name.module` to generate a new component.
+Run `ng g c -is --flat folder-name/component-name --module=module-name.module` to generate a new component.
 - `-is` means you don't create a separate scss file;
 - `--flat` means it won't create a subfolder;
 - you have to fill in `component-name` yourself;
