@@ -1,34 +1,45 @@
-<header>
+<header class="header-app">
   <div>
     <h1>
-      <ng-container *ngIf="isVisible" >
+      <ng-container *ngIf="isVisible">
         Maandoverzicht
       </ng-container>
       <ng-container *ngIf="!isVisible">
         Dagoverzicht
       </ng-container>
     </h1>
-    <h2>{{date | date:'fullDate'}}</h2>
+    <h2>{{ date | date: 'fullDate' }}</h2>
   </div>
-  <img src="assets/img/avatar.png" alt="">
+  <img src="assets/img/avatar.png" alt="" />
 </header>
-<div class="header-bg" [ngClass]="{'curved': !isVisible}">
-  <img src="assets/img/bollen.png" alt="">
+<div class="header-bg" [ngClass]="{ curved: !isVisible }">
+  <img src="assets/img/bollen.png" alt="" />
 </div>
 
-<p-fullCalendar class="calendar" [ngClass]="{'invisible': !isVisible}"  [events]="events" [options]="options" #fc></p-fullCalendar>
+<p-fullCalendar
+  class="calendar"
+  [ngClass]="{ invisible: !isVisible }"
+  [events]="events"
+  [options]="options"
+  #fc
+></p-fullCalendar>
 
 <div class="flex time-of-day time-of-day--first">
   <h3>'s Ochtends</h3>
-  <a (click)="toggleVisibility();">
-    <img src="assets/img/angle-arrow-down.svg" class="arrow" [ngClass]="{'arrow-down': !isVisible, 'arrow-up': isVisible}" alt="">
-    <ng-container *ngIf="isVisible" >verberg kalender</ng-container>
-    <ng-container *ngIf="!isVisible" >toon kalender</ng-container>
+  <a (click)="toggleVisibility()">
+    <img
+      src="assets/img/angle-arrow-down.svg"
+      class="arrow"
+      [ngClass]="{ 'arrow-down': !isVisible, 'arrow-up': isVisible }"
+      alt=""
+    />
+    <ng-container *ngIf="isVisible">verberg kalender</ng-container>
+    <ng-container *ngIf="!isVisible">toon kalender</ng-container>
   </a>
 </div>
 
 <app-calendar-day [date]="date"></app-calendar-day>
 
 <div>
-    <a class="btn btn-plus" [routerLink]="['add']">+</a>
+  <a class="btn btn-blue btn-plus" [routerLink]="['add']">+</a>
 </div>

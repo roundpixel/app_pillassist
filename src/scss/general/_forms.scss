@@ -1,11 +1,12 @@
 form {
+  padding: 1em;
+
   .input-group {
     display: flex;
     flex-direction: column;
     padding: 0 0.5em 1em 0.5em;
 
     label {
-      font: $dayCalendar;
       color: $charcoal-grey;
     }
 

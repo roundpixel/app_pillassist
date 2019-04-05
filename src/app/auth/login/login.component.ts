@@ -7,22 +7,18 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  message: string;
+  public isLoading = false;
+  public showEmailLabel = false;
+  public showPasswordLabel = false;
 
-  constructor(public authService: AuthService, public router: Router) {
-    this.setMessage();
-  }
+  constructor(public authService: AuthService, public router: Router) {}
 
-  setMessage() {
-    this.message = 'Logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
-  }
-
-  login() {
-    this.message = 'Trying to log in ...';
+  public login() {
+    this.isLoading = true;
 
     this.authService.login().subscribe(() => {
-      this.setMessage();
       if (this.authService.isLoggedIn) {
+        this.isLoading = false;
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
         const redirect = this.authService.redirectUrl
@@ -33,5 +29,21 @@ export class LoginComponent {
         this.router.navigateByUrl(redirect);
       }
     });
+  }
+
+  public checkInput(value, field) {
+    if (value !== '') {
+      if (field === 'email') {
+        this.showEmailLabel = true;
+      } else if (field === 'password') {
+        this.showPasswordLabel = true;
+      }
+    } else {
+      if (field === 'email') {
+        this.showEmailLabel = false;
+      } else if (field === 'password') {
+        this.showPasswordLabel = false;
+      }
+    }
   }
 }
