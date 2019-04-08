@@ -65,12 +65,29 @@
             </div>
           </ng-container>
           <ng-container *ngIf="isEveryWeek">
-            isEveryWeek
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="monday" label="Maandag"></p-checkbox>
+            </div>
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="tuesday" label="Dinsdag"></p-checkbox>
+            </div>
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="wednesday" label="Woensdag"></p-checkbox>
+            </div>
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="thursday" label="Donderdag"></p-checkbox>
+            </div>
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="friday" label="Vrijdag"></p-checkbox>
+            </div>
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="saturday" label="Zaterdag"></p-checkbox>
+            </div>
+            <div class="checkBox-group">
+              <p-checkbox name="dayOfWeek" value="sunday" label="Zondag"></p-checkbox>
+            </div>
           </ng-container>
-          <ng-container *ngIf="isEveryMonth">
-            isEveryMonth
-          </ng-container>
-          <h4 class="ui-accordion-subtitle">Stopdatum</h4>
+          <h4 class="ui-accordion-subtitle">Einddatum</h4>
           <div class="radioButton-group">
             <p-radioButton name="stopDate" value="noStopDate" label="Niet stopzetten"></p-radioButton>
           </div>
@@ -82,7 +99,8 @@
           </div>
           <div class="radioButton-group">
             <p-radioButton name="stopDate" value="stopDateAfterDate"></p-radioButton>
-            <span class="radioButton__label">Stopzetten na <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+            <span class="radioButton__label">Stopzetten na <p-calendar [timeOnly]="true" [touchUI]="true">
+              </p-calendar>
               dag(en)</span>
           </div>
         </p-accordionTab>

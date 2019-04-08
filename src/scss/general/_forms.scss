@@ -105,10 +105,19 @@ form {
       color: $charcoal-grey;
     }
 
-    .radioButton-group {
+    .radioButton-group,
+    .checkBox-group {
       display: flex;
       align-items: baseline;
       p-radiobutton {
+        display: flex;
+        align-items: baseline;
+        .ui-state-focus {
+          border-radius: 100%;
+        }
+      }
+
+      p-checkbox {
         display: flex;
         align-items: baseline;
       }
@@ -127,14 +136,12 @@ form {
         padding: 0;
       }
 
-      .ui-state-focus {
-        border-radius: 100%;
-      }
-
+      .ui-chkbox-box,
       .ui-chkbox-box.ui-state-active,
-      .ui-radiobutton-box.ui-state-active {
+      .ui-radiobutton-box.ui-state-active,
+      .ui-chkbox-box:not(.ui-state-disabled):not(.ui-state-active):hover {
         background: white;
-        border-color: $charcoal-grey;
+        border-color: $medium-charcoal;
       }
     }
   }

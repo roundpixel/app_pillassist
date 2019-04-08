@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { tokenKey } from '@angular/core/src/view';
 
 @Component({
   selector: 'app-add-pill',
