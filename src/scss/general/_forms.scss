@@ -45,6 +45,12 @@ form {
         border: none;
         border-bottom: 2px solid $main-blue;
       }
+
+      li.ui-state-highlight {
+        span {
+          color: white;
+        }
+      }
     }
 
     .ui-dropdown-trigger {
@@ -77,7 +83,6 @@ form {
       background: transparent !important;
       border: none;
       width: 100%;
-
       :focus {
         outline: none;
       }
@@ -86,7 +91,6 @@ form {
         align-items: center;
         width: 100%;
         padding: 0;
-        opacity: 0.9;
 
         .ui-accordion-header-text {
           margin-top: 0.3em;
@@ -95,19 +99,42 @@ form {
       }
     }
 
-    .ui-accordion-content {
-      padding: 0;
+    .ui-accordion-subtitle {
+      margin: 0.7em 0;
+      font: $dayCalendar;
+      color: $charcoal-grey;
     }
 
     .radioButton-group {
+      display: flex;
+      align-items: baseline;
+      p-radiobutton {
+        display: flex;
+        align-items: baseline;
+      }
+
       label,
       .radioButton__label {
         font-weight: normal;
-        margin-left: 0.5em;
+        margin: 0 0 0.2em 0.5em;
+        display: flex;
+        transform: translateY(-0.25em);
       }
 
-      input[type="number"] {
+      .radioButton__input,
+      .ui-calendar input {
         width: 30px;
+        padding: 0;
+      }
+
+      .ui-state-focus {
+        border-radius: 100%;
+      }
+
+      .ui-chkbox-box.ui-state-active,
+      .ui-radiobutton-box.ui-state-active {
+        background: white;
+        border-color: $charcoal-grey;
       }
     }
   }
@@ -126,5 +153,9 @@ form {
     span {
       font-size: 20px;
     }
+  }
+
+  .added-input-group {
+    animation: appear 0.3s ease-out forwards;
   }
 }

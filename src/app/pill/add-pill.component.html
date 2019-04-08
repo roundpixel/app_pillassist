@@ -29,7 +29,7 @@
       <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
     </div>
     <ng-container *ngFor="let timeOfDay of timeOfDays">
-      <div class="input-group {{timeOfDay}}">
+      <div class="input-group {{timeOfDay}} added-input-group">
         <div class="flex">
           <label for="time-of-days">
             Tijdstip {{timeOfDay}}
@@ -50,18 +50,18 @@
     </div>
     <div class="input-group">
       <p-accordion>
-        <p-accordionTab header="Geavanceerde opties">
+        <p-accordionTab header="Meer opties voor herhaling">
           <ng-container *ngIf="isEveryDay">
-            <div class="radioButton-group">
-              <p-radioButton name="dayRecurrence" value="checkDays"></p-radioButton>
-              <span class="radioButton__label">Om de <input class="radioButton__input" type="number" min="0" max="20">
-                dag(en)</span>
-            </div>
             <div class="radioButton-group">
               <p-radioButton name="dayRecurrence" value="everyWeekday" label="Enkel weekdagen"></p-radioButton>
             </div>
             <div class="radioButton-group">
               <p-radioButton name="dayRecurrence" value="everyWeekend" label="Enkel weekends"></p-radioButton>
+            </div>
+            <div class="radioButton-group">
+              <p-radioButton name="dayRecurrence" value="checkDays"></p-radioButton>
+              <span class="radioButton__label">Om de <input class="radioButton__input" type="number" min="1" max="20">
+                dag(en)</span>
             </div>
           </ng-container>
           <ng-container *ngIf="isEveryWeek">
@@ -70,6 +70,21 @@
           <ng-container *ngIf="isEveryMonth">
             isEveryMonth
           </ng-container>
+          <h4 class="ui-accordion-subtitle">Stopdatum</h4>
+          <div class="radioButton-group">
+            <p-radioButton name="stopDate" value="noStopDate" label="Niet stopzetten"></p-radioButton>
+          </div>
+          <div class="radioButton-group">
+            <p-radioButton name="stopDate" value="stopDateAfterNumber"></p-radioButton>
+            <span class="radioButton__label">Stopzetten na <input class="radioButton__input" type="number" min="1"
+                max="20">
+              dag(en)</span>
+          </div>
+          <div class="radioButton-group">
+            <p-radioButton name="stopDate" value="stopDateAfterDate"></p-radioButton>
+            <span class="radioButton__label">Stopzetten na <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+              dag(en)</span>
+          </div>
         </p-accordionTab>
       </p-accordion>
     </div>
