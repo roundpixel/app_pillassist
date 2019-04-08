@@ -4,6 +4,10 @@ form {
     flex-direction: column;
     padding: 0 0.5em 1em 0.5em;
 
+    .flex {
+      justify-content: space-between;
+    }
+
     label {
       font: $dayCalendar;
       color: $charcoal-grey;
@@ -117,6 +121,10 @@ form {
     a,
     span {
       color: $main-blue;
+    }
+
+    span {
+      font-size: 20px;
     }
   }
 }

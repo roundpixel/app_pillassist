@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tokenKey } from '@angular/core/src/view';
 
 @Component({
   selector: 'app-add-pill',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddPillComponent implements OnInit {
   public recurrences = [];
   public selectedDayRecurrences: string[] = [];
-  public timeOfDays = [''];
+  public timeOfDays = [];
   public timeOfDayNumber = 1;
 
   public isEveryDay = true;
@@ -27,6 +28,20 @@ export class AddPillComponent implements OnInit {
   public addTimeInput() {
     this.timeOfDayNumber++;
     this.timeOfDays.push('' + this.timeOfDayNumber);
+  }
+
+  public deleteTimeInput(e) {
+    this.timeOfDayNumber--;
+
+    const inputGroup = e.target.parentNode.parentNode;
+    const numberToRemove = inputGroup.classList[1];
+
+    for (let i = 0; i < this.timeOfDays.length; i++) {
+      if (this.timeOfDays[i] === numberToRemove) {
+        this.timeOfDays.splice(i, 1);
+      }
+    }
+    inputGroup.remove();
   }
 
   public setRecurrence(event) {
