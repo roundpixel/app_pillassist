@@ -107,4 +107,16 @@ form {
       }
     }
   }
+
+  .add-input-group {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    cursor: pointer;
+
+    a,
+    span {
+      color: $main-blue;
+    }
+  }
 }

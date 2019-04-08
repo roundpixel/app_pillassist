@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddPillComponent implements OnInit {
   public recurrences = [];
   public selectedDayRecurrences: string[] = [];
+  public timeOfDays = [''];
+  public timeOfDayNumber = 1;
 
   public isEveryDay = true;
   public isEveryWeek: boolean;
@@ -20,6 +22,11 @@ export class AddPillComponent implements OnInit {
       { label: 'Elke week', value: 'everyWeek' },
       { label: 'Elke maand', value: 'everyMonth' }
     ];
+  }
+
+  public addTimeInput() {
+    this.timeOfDayNumber++;
+    this.timeOfDays.push('' + this.timeOfDayNumber);
   }
 
   public setRecurrence(event) {

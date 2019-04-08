@@ -22,11 +22,16 @@
       </label>
       <input type="text" placeholder="1mg" />
     </div>
-    <div class="input-group">
-      <label for="time-of-days">
-        Tijdstip
-      </label>
-      <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+    <ng-container *ngFor="let timeOfDay of timeOfDays">
+      <div class="input-group">
+        <label for="time-of-days">
+          Tijdstip {{timeOfDay}}
+        </label>
+        <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+      </div>
+    </ng-container>
+    <div class="input-group add-input-group" (click)="addTimeInput()">
+      <a>Voeg een tijdstip toe</a><span>+</span>
     </div>
     <div class="input-group">
       <label for="recurrence">
