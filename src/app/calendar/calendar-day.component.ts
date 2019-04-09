@@ -8,7 +8,7 @@ export class CalendarDayComponent implements OnInit {
   public pills = [];
   @Input() public _date: Date;
 
-  constructor() { }
+  constructor() {}
 
   // update Date when it's clicked on in other component
   @Input()
@@ -33,7 +33,7 @@ export class CalendarDayComponent implements OnInit {
       {
         name: 'prolopa',
         dose: 1,
-        date: new Date(2019, 2, 24, 10, 33, 30, 0),
+        date: new Date(2019, 3, 24, 10, 33, 30, 0),
         time: '10:33',
         description: 'neem doosje 2 om 10u30',
         display: false
@@ -41,7 +41,7 @@ export class CalendarDayComponent implements OnInit {
       {
         name: 'azilect',
         dose: 1,
-        date: new Date(2019, 2, 25, 10, 33, 30, 0),
+        date: new Date(2019, 3, 25, 10, 33, 30, 0),
         time: '10:33',
         description: 'neem doosje 2 om 10u33',
         display: false
