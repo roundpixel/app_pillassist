@@ -61,7 +61,7 @@ header {
   height: 23vh;
   position: absolute;
   object-fit: contain;
-  background-image: linear-gradient(65deg, #314fd4, #49bef5 77%, #50dfff);
+  background-image: $main-gradient;
   z-index: -1;
   top: 0;
   left: 0;

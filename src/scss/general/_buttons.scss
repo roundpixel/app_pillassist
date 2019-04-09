@@ -3,7 +3,7 @@
   font: $body;
 
   &-plus {
-    background-image: linear-gradient(65deg, #35a6f5, #69c8f7 77%, #6dddfe);
+    background-image: $subtle-gradient;
     font-family: sans-serif;
     position: fixed;
     width: 1.5em;
@@ -24,7 +24,7 @@
   }
 
   &-main {
-    background-image: linear-gradient(74deg, #314fd4, #49bef5 77%, #50dfff);
+    background-image: $main-gradient;
     color: white;
     padding: 0.8em;
     width: 180px;
