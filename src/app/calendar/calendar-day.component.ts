@@ -1,11 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Pill } from '../pill/pill.model';
 @Component({
   selector: 'app-calendar-day',
   templateUrl: './calendar-day.component.html',
   styles: []
 })
 export class CalendarDayComponent implements OnInit {
-  public pills = [];
+  public pills: Array<Pill> = new Array<Pill>();
   @Input() public _date: Date;
 
   constructor() {}
@@ -32,18 +33,18 @@ export class CalendarDayComponent implements OnInit {
     this.pills = [
       {
         name: 'prolopa',
-        dose: 1,
-        date: new Date(2019, 3, 24, 10, 33, 30, 0),
+        dose: '1',
+        date: new Date(2019, 3, 9, 10, 33, 30, 0),
         time: '10:33',
-        description: 'neem doosje 2 om 10u30',
+        description: 'neem doosje 2',
         display: false
       },
       {
         name: 'azilect',
-        dose: 1,
-        date: new Date(2019, 3, 25, 10, 33, 30, 0),
+        dose: '1',
+        date: new Date(2019, 3, 9, 10, 33, 30, 0),
         time: '10:33',
-        description: 'neem doosje 2 om 10u33',
+        description: 'neem doosje 2',
         display: false
       }
     ];
