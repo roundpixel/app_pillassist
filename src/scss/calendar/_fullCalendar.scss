@@ -5,7 +5,7 @@
   width: 340px;
   background: white;
   height: 370px;
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: $subtle-shadow;
 
   table {
     border-collapse: separate;
