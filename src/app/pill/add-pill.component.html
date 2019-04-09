@@ -26,7 +26,7 @@
       <label for="time-of-days">
         Tijdstip
       </label>
-      <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+      <p-calendar [timeOnly]="true"></p-calendar>
     </div>
     <ng-container *ngFor="let timeOfDay of timeOfDays">
       <div class="input-group {{timeOfDay}} added-input-group">
@@ -36,7 +36,7 @@
           </label>
           <a class="close-icon" (click)="deleteTimeInput($event)">x</a>
         </div>
-        <p-calendar [timeOnly]="true" [touchUI]="true"></p-calendar>
+        <p-calendar [timeOnly]="true"></p-calendar>
       </div>
     </ng-container>
     <div class="input-group add-input-group" (click)="addTimeInput()">
@@ -46,10 +46,10 @@
       <label for="recurrence">
         Herhaling
       </label>
-      <p-dropdown [options]="recurrences" (onChange)="setRecurrence($event);"></p-dropdown>
+      <p-dropdown [options]="recurrences" (onChange)="setRecurrence($event);" (onHide)="isActive = 0"></p-dropdown>
     </div>
     <div class="input-group">
-      <p-accordion>
+      <p-accordion [activeIndex]="isActive">
         <p-accordionTab header="Meer opties voor herhaling">
           <ng-container *ngIf="isEveryDay">
             <div class="radioButton-group">

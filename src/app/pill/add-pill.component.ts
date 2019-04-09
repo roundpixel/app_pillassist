@@ -10,6 +10,7 @@ export class AddPillComponent implements OnInit {
   public timeOfDays = [];
   public timeOfDayNumber = 1;
 
+  public isActive = null;
   public isEveryDay = true;
   public isEveryWeek: boolean;
   public isEveryMonth: boolean;
