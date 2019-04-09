@@ -69,13 +69,4 @@ header {
   justify-content: flex-end;
   align-items: baseline;
   transition: background-image 0.5s;
-
-  &.curved {
-    background-image: url("../assets/img/header-curved.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    * {
-      display: none;
-    }
-  }
 }
