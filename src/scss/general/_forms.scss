@@ -18,9 +18,6 @@ form {
     .ui-dropdown {
       width: 100%;
 
-      &:focus {
-        outline: none;
-      }
       input {
         border-radius: unset;
         &:hover {
@@ -76,7 +73,6 @@ form {
 
       &:focus {
         border-bottom: 2px solid $main-blue;
-        outline: none;
       }
     }
 
@@ -84,9 +80,7 @@ form {
       background: transparent !important;
       border: none;
       width: 100%;
-      :focus {
-        outline: none;
-      }
+
       a {
         display: flex;
         align-items: center;
@@ -131,10 +125,16 @@ form {
         transform: translateY(-0.25em);
       }
 
-      .radioButton__input,
-      .ui-calendar input {
-        width: 30px;
+      .radioButton__input {
+        width: 40px;
         padding: 0;
+        text-align: center;
+      }
+
+      .ui-calendar input {
+        width: 100px;
+        padding: 0;
+        text-align: center;
       }
 
       .ui-chkbox-box,
@@ -164,6 +164,6 @@ form {
   }
 
   .added-input-group {
-    animation: appear 0.3s ease-out forwards;
+    animation: appearHeight 0.1s ease-out forwards;
   }
 }

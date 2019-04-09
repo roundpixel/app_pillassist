@@ -32,6 +32,12 @@
     border-radius: 2em;
     display: block;
     margin: 0 auto;
+    box-shadow: $subtle-shadow;
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: $hover-shadow;
+    }
   }
 }
 
