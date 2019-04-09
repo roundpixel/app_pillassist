@@ -30,20 +30,23 @@ export class CalendarDayComponent implements OnInit {
       '-' +
       this._date.getFullYear();
 
+    const date1 = new Date(2019, 3, 9, 10, 33, 30, 0);
+    const date2 = new Date(2019, 3, 9, 8, 33, 30, 0);
+
     this.pills = [
       {
         name: 'prolopa',
         dose: '1',
-        date: new Date(2019, 3, 9, 10, 33, 30, 0),
-        time: '10:33',
+        date: date1,
+        time: date1.getHours() + ':' + date1.getMinutes(),
         description: 'neem doosje 2',
         display: false
       },
       {
         name: 'azilect',
         dose: '1',
-        date: new Date(2019, 3, 9, 10, 33, 30, 0),
-        time: '10:33',
+        date: date2,
+        time: date2.getHours() + ':' + date2.getMinutes(),
         description: 'neem doosje 2',
         display: false
       }
