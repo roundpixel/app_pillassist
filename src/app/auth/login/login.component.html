@@ -19,27 +19,13 @@
 <ng-container *ngIf="!authService.isLoggedIn">
   <form>
     <div class="input-group">
-      <label *ngIf="showEmailLabel" for="email" class="appear"
-        >E-mailadres</label
-      >
-      <input
-        type="text"
-        placeholder="E-mailadres"
-        (keyup)="checkInput(email.value, 'email')"
-        #email
-      />
+      <label *ngIf="showEmailLabel" for="email" class="appear">E-mailadres</label>
+      <input type="text" placeholder="E-mailadres" (keyup)="checkInput(email.value, 'email')" #email />
     </div>
 
     <div class="input-group">
-      <label *ngIf="showPasswordLabel" for="password" class="appear"
-        >Wachtwoord</label
-      >
-      <input
-        type="password"
-        placeholder="Wachtwoord"
-        (keyup)="checkInput(password.value, 'password')"
-        #password
-      />
+      <label *ngIf="showPasswordLabel" for="password" class="appear">Wachtwoord</label>
+      <input type="password" placeholder="Wachtwoord" (keyup)="checkInput(password.value, 'password')" #password />
     </div>
 
     <a class="small-link" href="/">Wachtwoord vergeten?</a>
@@ -47,9 +33,11 @@
 
   <div class="login-height"></div>
 
-  <button class="btn btn-blue btn-main" (click)="login()">Log in</button>
-  <p class="register-link">
-    Heb je nog geen account? Maak <a class="small-link" href="/">hier</a> een
-    account aan.
-  </p>
+  <div class="actions">
+    <button class="btn btn-blue btn-main" (click)="login()">Log in</button>
+    <p class="smaller-link">
+      Heb je nog geen account? Maak <a class="small-link" href="/">hier</a> een
+      account aan.
+    </p>
+  </div>
 </ng-container>
