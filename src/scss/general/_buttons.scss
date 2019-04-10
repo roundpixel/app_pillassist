@@ -1,6 +1,8 @@
 .btn {
   text-decoration: none;
-  font: $body;
+  span {
+    font: $body;
+  }
 
   &-plus {
     background-image: $subtle-gradient;
@@ -25,7 +27,6 @@
 
   &-main {
     background-image: $main-gradient;
-    color: white;
     padding: 0.8em;
     width: 180px;
     border: none;
@@ -34,9 +35,23 @@
     margin: 0 auto;
     box-shadow: $subtle-shadow;
     transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: white;
+    }
 
     &:hover {
       box-shadow: $hover-shadow;
+    }
+
+    .icon {
+      width: 25px;
+      height: 15px;
+      margin-bottom: 0.3em;
+      margin-left: 1em;
     }
   }
 }

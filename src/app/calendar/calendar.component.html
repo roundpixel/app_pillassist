@@ -20,9 +20,9 @@
 </p-fullCalendar>
 
 <div class="flex time-of-day time-of-day--first">
-  <h3>'s Ochtends</h3>
+  <h2>Jouw dag</h2>
   <a (click)="toggleVisibility()">
-    <img src="assets/img/angle-arrow-down.svg" class="arrow"
+    <img class="icon" src="assets/img/icons/chevron-down.svg" class="arrow"
       [ngClass]="{ 'arrow-down': !isVisible, 'arrow-up': isVisible }" alt="" />
     <ng-container *ngIf="isVisible">verberg kalender</ng-container>
     <ng-container *ngIf="!isVisible">toon kalender</ng-container>
@@ -32,5 +32,6 @@
 <app-calendar-day [date]="date"></app-calendar-day>
 
 <div>
-  <a class="btn btn-blue btn-plus" [routerLink]="['add']">+</a>
+  <a class="btn btn-blue btn-plus" [routerLink]="['add']"><img class="icon" src="assets/img/icons/plus-white.svg"
+      alt=""></a>
 </div>

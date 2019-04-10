@@ -6,9 +6,12 @@ app-calendar-day {
 
 .time-of-day {
   padding: 1em;
-  h3 {
+  h2 {
     color: $main-blue;
-    font: $title;
+  }
+
+  h3 {
+    color: $cadet-blue;
   }
 
   &--first {
