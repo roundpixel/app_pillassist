@@ -2,6 +2,7 @@
   box-shadow: $subtle-shadow;
   border-radius: 1em;
   padding: 1em 1.5em;
+  margin-bottom: 2em;
 
   display: flex;
   justify-content: space-between;
@@ -41,6 +42,28 @@
   &__check {
     width: 25px;
   }
+}
 
-  margin-bottom: 1em;
+.ui-overlaypanel {
+  border: none;
+  box-shadow: none;
+  &-content {
+    border-radius: 1em;
+    box-shadow: $subtle-shadow-small;
+    padding: 0;
+    .edit,
+    .delete {
+      padding: 0.5em 1em;
+      background: white;
+    }
+
+    .edit {
+      border-bottom: 2px solid $light-charcoal;
+    }
+    img {
+      width: 12px;
+      height: 12px;
+      margin-right: 10px;
+    }
+  }
 }

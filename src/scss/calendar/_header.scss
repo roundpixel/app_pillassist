@@ -41,12 +41,12 @@ header {
   }
 
   h1 {
-    font-size: 20px;
+    font-size: $dayTitle;
   }
 
   h2 {
     font-weight: normal;
-    font-size: 15px;
+    font-size: $dayCalendar;
   }
 
   img,

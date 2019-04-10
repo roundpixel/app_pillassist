@@ -4,12 +4,24 @@
 
     <div *ngIf="pill.display" class="card card-pill appear">
       <div class="card__icon">
-        <img src="assets/img/check.svg" alt="check">
+        <img class="check" src="assets/img/icons/check.svg" alt="check">
       </div>
       <div class="card__body">
         <h2 class="card__title">{{pill.dose}} {{pill.name}}</h2>
         <h3 class="card__subtitle">Om {{pill.time}}</h3>
         <p class="card__desc">{{pill.description}}</p>
+      </div>
+      <div>
+        <p-overlayPanel #op appendTo="body">
+          <div class="edit">
+            <img src="assets/img/icons/edit.svg" alt="edit"> <span>Bewerken</span>
+          </div>
+          <div class="delete">
+            <img src="assets/img/icons/trash-2.svg" alt="delete"> <span>Verwijderen</span>
+          </div>
+        </p-overlayPanel>
+
+        <img src="assets/img/icons/more-horizontal.svg" (click)="op.toggle($event)" />
       </div>
     </div>
   </ng-container>
