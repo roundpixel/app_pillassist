@@ -35,13 +35,31 @@ form {
       }
     }
 
+    .ui-calendar {
+      &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: block;
+        background: url("/assets/img/icons/watch.svg") no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 0.2em;
+        transform: translateY(-2.4em);
+        opacity: 0.5;
+      }
+    }
+
     .ui-dropdown {
       border: none;
       border-bottom: 2px solid $light-charcoal;
       border-radius: unset;
+      padding: 0.4em 0;
+
       &.ui-dropdown:not(.ui-state-disabled):hover {
         border: none;
         border-bottom: 2px solid $main-blue;
+        background: white;
       }
 
       li.ui-state-highlight {
@@ -152,15 +170,20 @@ form {
     justify-content: space-between;
     flex-direction: row;
     cursor: pointer;
+    margin: 0.4em 0;
 
     a,
     span {
       color: $main-blue;
     }
 
-    span {
-      font-size: 20px;
+    .icon {
+      margin-right: 0.5em;
     }
+  }
+
+  .ui-dropdown-trigger-icon {
+    margin-left: -0.8em !important;
   }
 
   .added-input-group {
