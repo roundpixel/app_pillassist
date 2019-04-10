@@ -4,16 +4,12 @@
 
     <div *ngIf="pill.display" class="card card-pill appear">
       <div class="card__icon">
-        <div class="pill-icon"></div>
+        <img src="assets/img/check.svg" alt="check">
       </div>
       <div class="card__body">
         <h2 class="card__title">{{pill.dose}} {{pill.name}}</h2>
         <h3 class="card__subtitle">Om {{pill.time}}</h3>
         <p class="card__desc">{{pill.description}}</p>
-      </div>
-
-      <div class="card__check">
-
       </div>
     </div>
   </ng-container>

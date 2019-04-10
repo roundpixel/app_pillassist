@@ -9,16 +9,13 @@
   &__icon {
     width: 25px;
 
-    .pill-icon {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background-image: $subtle-gradient;
+    img {
+      margin-top: 0.5em;
     }
   }
 
   &__body {
-    width: 70%;
+    width: 80%;
   }
 
   &__title {
