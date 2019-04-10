@@ -35,7 +35,7 @@ form {
       }
     }
 
-    .ui-calendar {
+    .ui-calendar-timeonly {
       &::after {
         content: "";
         width: 20px;
@@ -45,7 +45,7 @@ form {
         background-size: contain;
         position: absolute;
         right: 0.2em;
-        transform: translateY(-2.4em);
+        transform: translateY(-2.2em);
         opacity: 0.5;
       }
     }
