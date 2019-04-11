@@ -8,12 +8,11 @@ import { registerLocaleData } from '@angular/common';
 import localeNlBE from '@angular/common/locales/nl-BE';
 import { routing } from '../app.routing';
 import { ResponsiveModule } from 'ngx-responsive';
-import { CalendarDayTomorrowComponent } from './calendar-day-tomorrow.component';
 
 registerLocaleData(localeNlBE);
 
 @NgModule({
-  declarations: [CalendarComponent, CalendarDayComponent, CalendarDayTomorrowComponent],
+  declarations: [CalendarComponent, CalendarDayComponent],
   imports: [
     CommonModule,
     FullCalendarModule,

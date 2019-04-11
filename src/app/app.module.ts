@@ -1,3 +1,4 @@
+import { CalendarDayTomorrowComponent } from './calendar/calendar-day-tomorrow.component';
 import { PillModule } from './pill/pill.module';
 import { CalendarModule } from './calendar/calendar.module';
 import { CommonModule } from '@angular/common';
@@ -18,7 +19,8 @@ import { HeaderTopComponent } from './general/header-top.component';
     AppComponent,
     PageNotFoundComponent,
     LoginComponent,
-    HeaderTopComponent
+    HeaderTopComponent,
+    CalendarDayTomorrowComponent
   ],
   imports: [
     CalendarModule,
