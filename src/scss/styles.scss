@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow-y: overlay;
 }
 
 * {
@@ -16,6 +17,7 @@ body {
 @import "general/forms";
 @import "general/cards";
 @import "general/icons";
+@import "general/scrollbar";
 //calendar
 @import "calendar/fullCalendar";
 @import "calendar/calendarDay";
