@@ -19,17 +19,6 @@ export class CalendarDayComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadPills();
-  }
-
-  public loadPills() {
-    const dateClicked =
-      this._date.getDate() +
-      '-' +
-      this._date.getMonth() +
-      '-' +
-      this._date.getFullYear();
-
     const date1 = new Date(2019, 3, 9, 10, 33, 30, 0);
     const date2 = new Date(2019, 3, 9, 8, 33, 30, 0);
 
@@ -51,6 +40,17 @@ export class CalendarDayComponent implements OnInit {
         display: false
       }
     ];
+
+    this.loadPills();
+  }
+
+  public loadPills() {
+    const dateClicked =
+      this._date.getDate() +
+      '-' +
+      this._date.getMonth() +
+      '-' +
+      this._date.getFullYear();
 
     this.pills.forEach(pill => {
       const pillDate =
