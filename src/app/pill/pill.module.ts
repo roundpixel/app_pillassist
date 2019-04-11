@@ -9,6 +9,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 
 import { AddPillComponent } from './add-pill.component';
 import { routing } from '../app.routing';
+import { ResponsiveModule } from 'ngx-responsive';
 
 @NgModule({
   declarations: [AddPillComponent],
@@ -20,7 +21,8 @@ import { routing } from '../app.routing';
     CalendarModule,
     AccordionModule,
     RadioButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    ResponsiveModule
   ],
   exports: []
 })

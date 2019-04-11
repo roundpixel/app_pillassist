@@ -74,14 +74,28 @@ header {
 }
 
 @media (min-width: 1024px) {
-  header {
-    margin-bottom: 5vh;
+  header,
+  .add-pill header {
+    margin-bottom: 5vh !important;
     img {
       margin-top: -0.5em;
     }
   }
 
-  .header-bg {
+  .header-bg,
+  .header-search {
     height: 10vh;
+  }
+
+  .header-search {
+    margin-top: 0;
+    box-shadow: $subtle-shadow;
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      padding-left: 2em;
+    }
   }
 }
