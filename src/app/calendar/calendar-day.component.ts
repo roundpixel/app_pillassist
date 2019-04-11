@@ -62,6 +62,8 @@ export class CalendarDayComponent implements OnInit {
 
       if (dateClicked === pillDate) {
         pill.display = true;
+      } else {
+        pill.display = false;
       }
     });
   }
