@@ -1,10 +1,9 @@
 <router-outlet></router-outlet>
 
-<p *xl>xl</p>
-<p *lg>lg</p>
-<p *md>md</p>
-<p *sm>sm</p>
-<p *xs>xs</p>
+<ng-container *responsive="{sizes:{min:1024}}">
+
+</ng-container>
+
 
 <button class="btn btn-blue btn-main" (click)="logout()" *ngIf="authService.isLoggedIn">
   <span>Logout</span>

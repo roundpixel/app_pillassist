@@ -1,14 +1,19 @@
 <header class="header-app">
   <div>
-    <h1>
-      <ng-container *ngIf="isVisible">
-        Maandoverzicht
-      </ng-container>
-      <ng-container *ngIf="!isVisible">
-        Dagoverzicht
-      </ng-container>
-    </h1>
-    <h2>{{ date | date: 'fullDate' }}</h2>
+    <ng-container *responsive="{sizes:{max:1024}}">
+      <h1>
+        <ng-container *ngIf="isMonthView">
+          Maandoverzicht
+        </ng-container>
+        <ng-container *ngIf="!isMonthView">
+          Dagoverzicht
+        </ng-container>
+      </h1>
+      <h2>{{ date | date: 'fullDate' }}</h2>
+    </ng-container>
+    <ng-container *responsive="{sizes:{min:1024}}">
+      <h1>Louis Bracke</h1>
+    </ng-container>
   </div>
   <img src="assets/img/avatar.png" alt="" />
 </header>
@@ -16,16 +21,16 @@
   <img src="assets/img/bollen.png" alt="" />
 </div>
 
-<p-fullCalendar class="calendar" [ngClass]="{ invisible: !isVisible }" [events]="events" [options]="options" #fc>
+<p-fullCalendar class="calendar" [ngClass]="{ invisible: !isMonthView }" [events]="events" [options]="options" #fc>
 </p-fullCalendar>
 
 <div class="flex time-of-day time-of-day--first">
   <h2>Jouw dag</h2>
   <a (click)="toggleVisibility()">
     <img class="icon" src="assets/img/icons/chevron-down.svg" class="arrow"
-      [ngClass]="{ 'arrow-down': !isVisible, 'arrow-up': isVisible }" alt="" />
-    <ng-container *ngIf="isVisible">verberg kalender</ng-container>
-    <ng-container *ngIf="!isVisible">toon kalender</ng-container>
+      [ngClass]="{ 'arrow-down': !isMonthView, 'arrow-up': isMonthView }" alt="" />
+    <ng-container *ngIf="isMonthView">verberg kalender</ng-container>
+    <ng-container *ngIf="!isMonthView">toon kalender</ng-container>
   </a>
 </div>
 

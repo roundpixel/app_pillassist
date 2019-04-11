@@ -70,4 +70,18 @@ header {
   align-items: baseline;
   transition: background-image 0.5s;
   box-shadow: $subtle-shadow-inset;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  header {
+    margin-bottom: 5vh;
+    img {
+      margin-top: -0.5em;
+    }
+  }
+
+  .header-bg {
+    height: 10vh;
+  }
 }

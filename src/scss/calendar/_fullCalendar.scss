@@ -2,7 +2,7 @@
   padding: 1em;
   margin: auto;
   border-radius: 1em;
-  width: 340px;
+  width: 320px;
   background: white;
   height: 380px;
   box-shadow: $subtle-shadow;
@@ -125,4 +125,10 @@
 
 .fc-basic-view .fc-body .fc-row {
   min-height: 2em;
+}
+
+@media (min-width: 1024px) {
+  app-calendar {
+    display: block;
+  }
 }
