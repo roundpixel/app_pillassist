@@ -18,9 +18,6 @@ form {
     .ui-dropdown {
       width: 100%;
 
-      &:focus {
-        outline: none;
-      }
       input {
         border-radius: unset;
         &:hover {
@@ -38,13 +35,31 @@ form {
       }
     }
 
+    .ui-calendar-timeonly {
+      &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: block;
+        background: url("/assets/img/icons/watch.svg") no-repeat;
+        background-size: contain;
+        position: absolute;
+        right: 0.2em;
+        transform: translateY(-2.2em);
+        opacity: 0.5;
+      }
+    }
+
     .ui-dropdown {
       border: none;
       border-bottom: 2px solid $light-charcoal;
       border-radius: unset;
+      padding: 0.4em 0;
+
       &.ui-dropdown:not(.ui-state-disabled):hover {
         border: none;
         border-bottom: 2px solid $main-blue;
+        background: white;
       }
 
       li.ui-state-highlight {
@@ -76,7 +91,6 @@ form {
 
       &:focus {
         border-bottom: 2px solid $main-blue;
-        outline: none;
       }
     }
 
@@ -84,9 +98,7 @@ form {
       background: transparent !important;
       border: none;
       width: 100%;
-      :focus {
-        outline: none;
-      }
+
       a {
         display: flex;
         align-items: center;
@@ -131,10 +143,16 @@ form {
         transform: translateY(-0.25em);
       }
 
-      .radioButton__input,
-      .ui-calendar input {
-        width: 30px;
+      .radioButton__input {
+        width: 40px;
         padding: 0;
+        text-align: center;
+      }
+
+      .ui-calendar input {
+        width: 100px;
+        padding: 0;
+        text-align: center;
       }
 
       .ui-chkbox-box,
@@ -152,18 +170,23 @@ form {
     justify-content: space-between;
     flex-direction: row;
     cursor: pointer;
+    margin: 0.4em 0;
 
     a,
     span {
       color: $main-blue;
     }
 
-    span {
-      font-size: 20px;
+    .icon {
+      margin-right: 0.5em;
     }
   }
 
+  .ui-dropdown-trigger-icon {
+    margin-left: -0.8em !important;
+  }
+
   .added-input-group {
-    animation: appear 0.3s ease-out forwards;
+    animation: appearHeight 0.1s ease-out forwards;
   }
 }

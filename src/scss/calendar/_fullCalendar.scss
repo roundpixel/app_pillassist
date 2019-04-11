@@ -1,11 +1,11 @@
 .fc {
   padding: 1em;
   margin: auto;
-  border: $light-charcoal 2px solid;
   border-radius: 1em;
   width: 340px;
   background: white;
-  height: 370px;
+  height: 380px;
+  box-shadow: $subtle-shadow;
 
   table {
     border-collapse: separate;

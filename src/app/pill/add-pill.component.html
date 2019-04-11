@@ -24,25 +24,27 @@
       </label>
       <input type="text" placeholder="1mg" />
     </div>
-    <div class="input-group">
-      <label for="time-of-days">
-        Tijdstip
-      </label>
-      <p-calendar [timeOnly]="true"></p-calendar>
-    </div>
-    <ng-container *ngFor="let timeOfDay of timeOfDays">
-      <div class="input-group {{timeOfDay}} added-input-group">
-        <div class="flex">
-          <label for="time-of-days">
-            Tijdstip {{timeOfDay}}
-          </label>
-          <a class="close-icon" (click)="deleteTimeInput($event)">x</a>
-        </div>
+    <div class="padding">
+      <div class="input-group">
+        <label for="time-of-days">
+          Tijdstip
+        </label>
         <p-calendar [timeOnly]="true"></p-calendar>
       </div>
-    </ng-container>
-    <div class="input-group add-input-group" (click)="addTimeInput()">
-      <a>Voeg een tijdstip toe</a><span>+</span>
+      <ng-container *ngFor="let timeOfDay of timeOfDays">
+        <div class="input-group {{timeOfDay}} added-input-group">
+          <div class="flex">
+            <label for="time-of-days">
+              Tijdstip {{timeOfDay}}
+            </label>
+            <img class="close-icon" (click)="deleteTimeInput($event)" src=" assets/img/icons/x.svg" alt="close" />
+          </div>
+          <p-calendar [timeOnly]="true"></p-calendar>
+        </div>
+      </ng-container>
+      <div class="input-group add-input-group" (click)="addTimeInput()">
+        <a>Voeg een tijdstip toe</a><img class="icon" src="assets/img/icons/plus-blue.svg" alt="">
+      </div>
     </div>
     <div class="input-group">
       <label for="recurrence">
@@ -110,8 +112,10 @@
       </p-accordion>
     </div>
     <div class="actions">
-      <button class="btn btn-main" [routerLink]="['']">Toevoegen</button>
-      <a [routerLink]="['']">annuleer medicatie toevoegen</a>
+      <button class="btn btn-main" [routerLink]="['']">
+        <span>Toevoegen</span>
+        <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
+      <a class="smaller-link" [routerLink]="['']">annuleer medicatie toevoegen</a>
     </div>
   </form>
 </div>

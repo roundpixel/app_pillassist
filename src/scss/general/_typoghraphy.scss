@@ -8,8 +8,8 @@ $title: 700 18px "Hind Guntur", sans-serif;
 $dayTitle: 600 20px "Hind Guntur", sans-serif;
 $dayCalendar: 600 16px "Hind Guntur", sans-serif;
 
-$body: 500 14px "Hind Guntur", sans-serif;
-$small: 500 12px "Hind Guntur", sans-serif;
+$body: 500 16px "Hind Guntur", sans-serif;
+$small: 500 14px "Hind Guntur", sans-serif;
 
 h1,
 h2,
@@ -43,4 +43,8 @@ h2 {
 
 h2::first-letter {
   text-transform: uppercase;
+}
+
+h3 {
+  font: $dayCalendar;
 }

@@ -1,9 +1,11 @@
 .btn {
   text-decoration: none;
-  font: $body;
+  span {
+    font: $body;
+  }
 
   &-plus {
-    background-image: linear-gradient(65deg, #35a6f5, #69c8f7 77%, #6dddfe);
+    background-image: $subtle-gradient;
     font-family: sans-serif;
     position: fixed;
     width: 1.5em;
@@ -19,24 +21,52 @@
     color: white;
 
     &:hover {
-      box-shadow: 2px 4px 25px 10px rgba(76, 181, 246, 0.3);
+      box-shadow: $blue-shadow;
     }
   }
 
   &-main {
-    background-image: linear-gradient(74deg, #314fd4, #49bef5 77%, #50dfff);
-    color: white;
+    background-image: $main-gradient;
     padding: 0.8em;
     width: 180px;
     border: none;
     border-radius: 2em;
     display: block;
     margin: 0 auto;
+    box-shadow: $subtle-shadow;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: white;
+    }
+
+    &:hover {
+      box-shadow: $hover-shadow;
+    }
+
+    .icon {
+      width: 25px;
+      height: 15px;
+      margin-bottom: 0.3em;
+      margin-left: 1em;
+    }
   }
 }
 
 .close-icon {
   display: block;
-  font-size: 20px;
+  margin-right: 0.5em;
   cursor: pointer;
+}
+
+.actions {
+  text-align: center;
+
+  .smaller-link {
+    display: inline-block;
+    margin-top: 1em;
+  }
 }
