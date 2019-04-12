@@ -1,6 +1,15 @@
 <div class="main-content__card week-overview">
   <h1>Weekoverzicht</h1>
-  <div class="chart">
-    <p-chart type="doughnut" [data]="data"></p-chart>
+  <div class="week-overview__content">
+    <div class="chart">
+      <p-chart type="doughnut" [data]="data" [options]="options"></p-chart>
+    </div>
+    <div class="legend">
+      <ul>
+        <ng-container *ngFor="let label of data.labels">
+          <li>{{label}}</li>
+        </ng-container>
+      </ul>
+    </div>
   </div>
 </div>

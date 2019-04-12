@@ -1,0 +1,12 @@
+.week-overview {
+  &__content {
+    display: flex;
+    .chart {
+      padding: 1em 2em;
+      canvas {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}
