@@ -1,6 +1,6 @@
 <header class="header-app">
   <div>
-    <ng-container *responsive="{sizes:{max:1024}}">
+    <ng-container *responsive="{sizes:{max:850}}">
       <h1>
         <ng-container *ngIf="isMonthView">
           Maandoverzicht
@@ -11,7 +11,7 @@
       </h1>
       <h2>{{ date | date: 'fullDate' }}</h2>
     </ng-container>
-    <ng-container *responsive="{sizes:{min:1024}}">
+    <ng-container *responsive="{sizes:{min:850}}">
       <h1>Louis Bracke</h1>
     </ng-container>
   </div>
