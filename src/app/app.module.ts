@@ -8,11 +8,13 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { routing } from './app.routing';
 import { ResponsiveModule } from 'ngx-responsive';
+import { ChartModule } from 'primeng/chart';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderTopComponent } from './general/header-top.component';
+import { CalendarWeekOverviewComponent } from './calendar/calendar-week-overview.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import { HeaderTopComponent } from './general/header-top.component';
     PageNotFoundComponent,
     LoginComponent,
     HeaderTopComponent,
-    CalendarDayTomorrowComponent
+    CalendarDayTomorrowComponent,
+    CalendarWeekOverviewComponent
   ],
   imports: [
     CalendarModule,
+    ChartModule,
     PillModule,
     BrowserModule,
     routing,
