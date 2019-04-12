@@ -1,15 +1,16 @@
 .calendar-tomorrow {
   background: white;
-  padding: 1em 2em;
+  padding: 0;
   box-shadow: $subtle-shadow;
   border-radius: 1em;
 
-  h2 {
+  h1 {
     color: $charcoal-grey;
     font-weight: 500;
+    padding: 1em;
     span {
       color: $main-blue;
-      font: $dayTitle;
+      font: $header-title;
     }
   }
 }
