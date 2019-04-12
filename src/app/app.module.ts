@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { routing } from './app.routing';
+import { ResponsiveModule } from 'ngx-responsive';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './general/page-not-found.component';
@@ -23,14 +24,11 @@ import { HeaderTopComponent } from './general/header-top.component';
     CalendarModule,
     PillModule,
     BrowserModule,
-    routing
+    routing,
+    ResponsiveModule.forRoot()
   ],
-  exports: [
-    CommonModule,
-    RouterModule,
-    BrowserModule,
-  ],
+  exports: [CommonModule, RouterModule, BrowserModule],
   providers: [{ provide: LOCALE_ID, useValue: 'nl-BE' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
