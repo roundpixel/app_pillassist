@@ -8,6 +8,10 @@
       grid-row: 1;
       background: $light-grey;
       min-height: 100vh;
+
+      .main-content {
+        padding: 0 2em;
+      }
     }
 
     app-calendar,
