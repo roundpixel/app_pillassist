@@ -6,18 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CalendarDayTomorrowComponent implements OnInit {
-  public date = new Date();
+  public today = new Date();
+  public tomorrow: string;
 
   constructor() {}
 
   ngOnInit() {
-    this.date.setDate(this.date.getDate() + 1);
-    const tommorow =
-      this.date.getDate() +
+    this.today.setDate(this.today.getDate() + 1);
+    this.tomorrow =
+      this.today.getDate() +
       '-' +
-      (this.date.getMonth() + 1) +
+      (this.today.getMonth() + 1) +
       '-' +
-      this.date.getFullYear();
-    console.log(tommorow);
+      this.today.getFullYear();
+    console.log(this.tomorrow);
   }
 }
