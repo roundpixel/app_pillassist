@@ -1,3 +1,14 @@
 .flex {
   display: flex;
 }
+
+.col-2 {
+  height: 300px;
+  overflow: overlay;
+  padding: 1em 2em;
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 2em;
+  }
+}

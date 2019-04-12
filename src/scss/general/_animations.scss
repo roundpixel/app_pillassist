@@ -37,3 +37,14 @@
     }
   }
 }
+
+@media (min-width: 850px) {
+  .calendar {
+    &.invisible {
+      .fc {
+        margin-top: 0vh;
+        padding: 0 !important;
+      }
+    }
+  }
+}

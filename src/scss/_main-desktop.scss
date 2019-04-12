@@ -1,0 +1,32 @@
+@media (min-width: 850px) {
+  app-root {
+    display: grid;
+    grid-template-columns: 5em 3fr minmax(400px, 1fr);
+
+    main {
+      grid-column: 2;
+      grid-row: 1;
+      background: $light-grey;
+      min-height: 100vh;
+
+      .main-content {
+        padding: 0 2em;
+      }
+    }
+
+    app-calendar,
+    app-add-pill {
+      grid-column: 3;
+      padding: 0 1em;
+      position: relative;
+      overflow: overlay;
+      height: 100vh;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  app-root {
+    grid-template-columns: 1fr 3fr minmax(400px, 1fr);
+  }
+}

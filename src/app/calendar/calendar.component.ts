@@ -14,7 +14,7 @@ export class CalendarComponent implements OnInit {
   @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void } };
 
   public date = new Date();
-  public isVisible = true;
+  public isMonthView = true;
 
   constructor() {}
 
@@ -60,7 +60,6 @@ export class CalendarComponent implements OnInit {
   }
 
   public setDateDisplay(date: Date) {
-
     if (this.currentMonthView > date.getMonth() + 1) {
       this.prevMonth();
     } else if (this.currentMonthView < date.getMonth() + 1) {
@@ -87,12 +86,12 @@ export class CalendarComponent implements OnInit {
 
     // set specific span to white
     $('.fc')
-      .find('[data-date=\'' + dateClicked + '\'] span')
+      .find("[data-date='" + dateClicked + "'] span")
       .css('color', 'white');
 
     // give bg to clicked element
     $('.fc-bg')
-      .find('[data-date=\'' + dateClicked + '\']')
+      .find("[data-date='" + dateClicked + "']")
       .addClass('fc-state-highlight');
   }
 
@@ -105,6 +104,6 @@ export class CalendarComponent implements OnInit {
   }
 
   public toggleVisibility() {
-    this.isVisible = !this.isVisible;
+    this.isMonthView = !this.isMonthView;
   }
 }
