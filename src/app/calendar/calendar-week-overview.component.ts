@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-calendar-week-overview',
@@ -16,7 +16,7 @@ export class CalendarWeekOverviewComponent implements OnInit {
       labels: ['Op tijd', 'Te laat'],
       datasets: [
         {
-          data: [300, 50],
+          data: [22, 11],
           backgroundColor: ['#35A6F5', '#52699B']
         }
       ]
@@ -27,6 +27,9 @@ export class CalendarWeekOverviewComponent implements OnInit {
       aspectRatio: 1,
       legend: {
         display: false
+      },
+      tooltips: {
+        enabled: false
       }
     };
   }
