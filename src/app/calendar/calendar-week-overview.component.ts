@@ -16,7 +16,7 @@ export class CalendarWeekOverviewComponent implements OnInit {
       labels: ['Op tijd', 'Te laat'],
       datasets: [
         {
-          data: [22, 11],
+          data: [22, 2],
           backgroundColor: ['#35A6F5', '#52699B']
         }
       ]
