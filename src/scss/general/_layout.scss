@@ -11,4 +11,18 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 0 2em;
   }
+  &::after {
+    content: "";
+    width: 95%;
+    height: 25px;
+    z-index: 100;
+    background: -moz-linear-gradient(bottom, rgba(240, 245, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(240, 245, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to top, rgba(240, 245, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFF4FE', endColorstr='#00ffffff',GradientType=0 );
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    transform: translateX(-2%);
+  }
 }
