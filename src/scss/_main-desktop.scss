@@ -52,6 +52,6 @@
 
 @media (min-width: 1200px) {
   app-root {
-    grid-template-columns: 1fr 3fr minmax(400px, 1fr);
+    grid-template-columns: minmax(270px, 1fr) 3fr minmax(400px, 1fr);
   }
 }

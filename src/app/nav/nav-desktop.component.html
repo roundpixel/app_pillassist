@@ -7,17 +7,18 @@
 
 <nav class="nav">
   <a class="nav__link">
-    <img src="assets/img/icons/patients.svg" alt="">
-    <span @textTrigger *responsive="{sizes:{min:1200}}">Patiënten</span>
+    <img class="icon--nav" src="assets/img/icons/patients.svg" alt="">
+    <span *responsive="{sizes:{min:1200}}">Patiënten</span>
   </a>
   <div class="indented-lg">
     <div class="indentation" *responsive="{sizes:{min:1200}}"></div>
     <div class="patients">
-      <a class="patient-avatar nav__link" *ngFor="let patientAvatar of patientAvatars">
-        <ngx-avatar size="35" bgColor="#84D1FB" name={{patientAvatar.name}} src="assets/img/{{patientAvatar.img}}.png">
+      <a class="patient nav__link" *ngFor="let patient of patients" (click)="setActivePatient($event)"
+        [ngClass]="{active: patient.active}">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.name}} src="assets/img/{{patient.img}}.png">
         </ngx-avatar>
         <span class="patient-avatar__name" *responsive="{sizes:{min:1200}}">
-          {{patientAvatar.name}}
+          {{patient.name}}
         </span>
       </a>
     </div>
