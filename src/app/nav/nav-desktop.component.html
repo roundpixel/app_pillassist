@@ -5,4 +5,21 @@
   </a>
 </header>
 
-<ngx-avatar name={{patientName}} src="assets/img/azer.png"></ngx-avatar>
+<nav class="nav">
+  <a class="nav__link">
+    <img src="assets/img/icons/patients.svg" alt="">
+    <span @textTrigger *responsive="{sizes:{min:1200}}">Patiënten</span>
+  </a>
+  <div class="indented-lg">
+    <div class="indentation" *responsive="{sizes:{min:1200}}"></div>
+    <div class="patients">
+      <a class="patient-avatar nav__link" *ngFor="let patientAvatar of patientAvatars">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patientAvatar.name}} src="assets/img/{{patientAvatar.img}}.png">
+        </ngx-avatar>
+        <span class="patient-avatar__name" *responsive="{sizes:{min:1200}}">
+          {{patientAvatar.name}}
+        </span>
+      </a>
+    </div>
+  </div>
+</nav>

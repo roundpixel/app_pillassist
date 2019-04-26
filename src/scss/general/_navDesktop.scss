@@ -1,0 +1,33 @@
+nav {
+  padding: 1.5em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a {
+    display: flex;
+    margin: 1em 0;
+    align-items: center;
+
+    &:first-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .patient-avatar {
+    &__name {
+      white-space: nowrap;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  nav {
+    display: block;
+    ngx-avatar,
+    img {
+      margin-right: 0.5em;
+    }
+  }
+}
