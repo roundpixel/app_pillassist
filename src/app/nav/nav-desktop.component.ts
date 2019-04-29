@@ -34,7 +34,6 @@ export class NavDesktopComponent implements OnInit {
         event.target.classList.add('active');
         break;
       case 'SPAN':
-        console.log(event.target.parentNode);
         const parentSibs = this.getAllSiblings(event.target.parentNode);
         parentSibs.forEach(sibling => {
           if (sibling.nodeType === Node.ELEMENT_NODE) {
@@ -46,7 +45,16 @@ export class NavDesktopComponent implements OnInit {
       case 'DIV':
       case 'IMG':
         // TODO
-        console.log(event.target.parentNode.parentNode);
+        const parentParentSibs = this.getAllSiblings(
+          event.target.parentNode.parentNode.parentNode
+        );
+        parentParentSibs.forEach(sibling => {
+          if (sibling.nodeType === Node.ELEMENT_NODE) {
+            sibling.classList.remove('active');
+          }
+        });
+        event.target.parentNode.parentNode.parentNode.classList.add('active');
+        break;
     }
   }
 

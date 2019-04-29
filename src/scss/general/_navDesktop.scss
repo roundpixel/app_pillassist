@@ -41,4 +41,5 @@ nav {
   left: 0;
   background: $light-grey;
   z-index: -1;
+  animation: appear 0.3s ease-out forwards;
 }
