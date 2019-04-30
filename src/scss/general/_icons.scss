@@ -3,7 +3,10 @@
   height: 16px;
 
   &--nav {
-    width: 30px;
-    height: auto;
+    &--middle {
+      width: 30px;
+      display: flex;
+      justify-content: center;
+    }
   }
 }

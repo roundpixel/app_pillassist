@@ -1,24 +1,34 @@
+import { AuthService } from '../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-desktop',
   templateUrl: './nav-desktop.component.html'
 })
 export class NavDesktopComponent implements OnInit {
-  public patientNames = [];
   public patients = [];
 
-  constructor() {}
+  constructor(public authService: AuthService, public router: Router) {}
 
   ngOnInit() {
-    this.patientNames = ['John Doe', 'Louis Bracke', 'Thomas Harris'];
-
-    this.patientNames.forEach(patientName => {
-      // TODO: spaces should also be removed in db
-      const patientImg = patientName.replace(/\s/g, '');
-      const patient = { name: patientName, img: patientImg, active: false };
-      this.patients.push(patient);
-    });
+    this.patients = [
+      {
+        name: 'Louis Bracke',
+        img: 'LouisBracke',
+        active: true
+      },
+      {
+        name: 'John Doe',
+        img: 'JohnDoe',
+        active: false
+      },
+      {
+        name: 'Yvette Van Lankveld',
+        img: 'LouisBrackeVanLankveld',
+        active: false
+      }
+    ];
   }
 
   public setActivePatient(event) {
@@ -44,7 +54,6 @@ export class NavDesktopComponent implements OnInit {
         break;
       case 'DIV':
       case 'IMG':
-        // TODO
         const parentParentSibs = this.getAllSiblings(
           event.target.parentNode.parentNode.parentNode
         );
@@ -61,5 +70,10 @@ export class NavDesktopComponent implements OnInit {
   public getAllSiblings(elem) {
     const children = elem.parentNode.childNodes;
     return children;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/login');
   }
 }
