@@ -1,5 +1,10 @@
 body {
   margin: 0;
+  overflow-y: overlay;
+}
+
+* {
+  outline: none;
 }
 
 //general
@@ -10,11 +15,18 @@ body {
 @import "general/buttons";
 @import "general/arrows";
 @import "general/forms";
+@import "general/cards";
+@import "general/icons";
+@import "general/scrollbar";
+@import "general/navDesktop";
 //calendar
 @import "calendar/fullCalendar";
 @import "calendar/calendarDay";
 @import "calendar/header";
+@import "calendar/tomorrow";
+@import "calendar/weekOverview";
 //add-pill
 @import "add-pill/add-pill";
 //login
 @import "login/login";
+@import "main-desktop";

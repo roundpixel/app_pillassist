@@ -1,16 +1,17 @@
-import { PillModule } from './pill/pill.module';
+import { AppComponent } from './app.component';
+import { AvatarModule } from 'ngx-avatar';
+import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from './calendar/calendar.module';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { NgModule, LOCALE_ID } from '@angular/core';
-
-import { routing } from './app.routing';
-
-import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './general/page-not-found.component';
-import { LoginComponent } from './auth/login/login.component';
 import { HeaderTopComponent } from './general/header-top.component';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { LoginComponent } from './auth/login/login.component';
+import { NavModule } from './nav/nav.module';
+import { PageNotFoundComponent } from './general/page-not-found.component';
+import { PillModule } from './pill/pill.module';
+import { ResponsiveModule } from 'ngx-responsive';
+import { RouterModule } from '@angular/router';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -22,15 +23,14 @@ import { HeaderTopComponent } from './general/header-top.component';
   imports: [
     CalendarModule,
     PillModule,
+    NavModule,
     BrowserModule,
-    routing
+    routing,
+    ResponsiveModule.forRoot(),
+    AvatarModule
   ],
-  exports: [
-    CommonModule,
-    RouterModule,
-    BrowserModule,
-  ],
+  exports: [CommonModule, RouterModule, BrowserModule, AvatarModule],
   providers: [{ provide: LOCALE_ID, useValue: 'nl-BE' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

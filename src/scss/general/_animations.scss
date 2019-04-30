@@ -7,15 +7,24 @@
   }
 }
 
+@keyframes appearHeight {
+  from {
+    height: 0;
+  }
+  to {
+    height: 77px;
+  }
+}
+
 .appear {
   animation: appear 0.5s forwards;
 }
 
 .calendar {
   .fc {
-    height: 370px;
     margin-top: 0px;
-    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s cubic-bezier(0,.7,.24,1.47), margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: height 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s cubic-bezier(0, 0.7, 0.24, 1.47),
+      margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
   &.invisible {
     .fc {
@@ -24,6 +33,17 @@
       opacity: 0;
       * {
         display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  .calendar {
+    &.invisible {
+      .fc {
+        margin-top: 0vh;
+        padding: 0 !important;
       }
     }
   }

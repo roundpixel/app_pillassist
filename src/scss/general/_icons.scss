@@ -1,0 +1,12 @@
+.icon {
+  width: 15px;
+  height: 16px;
+
+  &--nav {
+    &--middle {
+      width: 30px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

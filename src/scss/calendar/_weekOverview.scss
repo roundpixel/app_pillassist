@@ -1,0 +1,53 @@
+.week-overview {
+  &__content {
+    display: flex;
+    .legend {
+      ul {
+        padding: 2em 0 0;
+        li {
+          list-style-type: none;
+          display: flex;
+          margin-bottom: 1em;
+
+          &:first-child {
+            .legend__number {
+              background-color: $main-blue;
+            }
+          }
+
+          &:nth-child(2) {
+            .legend__number {
+              background: $cadet-blue;
+            }
+          }
+        }
+      }
+
+      &__number {
+        display: block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        margin-right: 1em;
+        padding: 5px;
+        transform: translateY(-5px);
+        box-shadow: $subtle-shadow;
+      }
+    }
+
+    .chart {
+      padding: 1em 2em;
+      canvas {
+        width: 150px;
+        height: 150px;
+      }
+
+      .chart-img {
+        position: absolute;
+        transform: translate(20px, -130px);
+      }
+    }
+  }
+}

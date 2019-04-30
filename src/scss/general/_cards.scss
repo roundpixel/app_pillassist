@@ -1,0 +1,70 @@
+.card {
+  box-shadow: $subtle-shadow;
+  border-radius: 1em;
+  padding: 1em 1.5em;
+  margin-bottom: 2em;
+  background: white;
+
+  display: flex;
+  justify-content: space-between;
+
+  &__icon {
+    width: 25px;
+
+    img {
+      margin-top: 0.5em;
+    }
+  }
+
+  &__body {
+    width: 80%;
+  }
+
+  &__title {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: $main-blue;
+  }
+
+  &__subtitle {
+    color: $cadet-blue;
+    margin-bottom: 0;
+  }
+
+  &__desc {
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__check {
+    width: 25px;
+  }
+}
+
+.ui-overlaypanel {
+  border: none;
+  box-shadow: none;
+  &-content {
+    border-radius: 1em;
+    box-shadow: $subtle-shadow-small;
+    padding: 0;
+    .edit,
+    .delete {
+      padding: 0.5em 1em;
+      background: white;
+    }
+
+    .edit {
+      border-bottom: 2px solid $light-charcoal;
+    }
+    img {
+      width: 12px;
+      height: 12px;
+      margin-right: 10px;
+    }
+  }
+}

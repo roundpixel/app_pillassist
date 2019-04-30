@@ -1,0 +1,16 @@
+<div class="main-content__card week-overview">
+  <h1>Weekoverzicht <span class="title-blue">Louis Bracke</span></h1>
+  <div class="week-overview__content">
+    <div class="chart">
+      <p-chart id="chart" type="doughnut" [data]="data" [options]="options"></p-chart>
+      <img class="chart-img" src="assets/img/LouisBracke.png" alt="avatar">
+    </div>
+    <div class="legend">
+      <ul>
+        <li *ngFor="let label of data.labels; index as i">
+          <span class="legend__number">{{data.datasets[0].data[i]}}</span> <span class="legend__label">{{label}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

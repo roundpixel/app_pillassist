@@ -10,12 +10,12 @@ import { PageNotFoundComponent } from './general/page-not-found.component';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: CalendarComponent
   },
   {
     path: 'add',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: AddPillComponent
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: '404',
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     component: PageNotFoundComponent
   },
   {

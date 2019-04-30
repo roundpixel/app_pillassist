@@ -1,14 +1,17 @@
 app-calendar-day {
   .days-container {
-    padding: 0 1.5em 1.5em;
+    padding: 0 1em 1.5em;
   }
 }
 
 .time-of-day {
   padding: 1em;
-  h3 {
+  h2 {
     color: $main-blue;
-    font: $title;
+  }
+
+  h3 {
+    color: $cadet-blue;
   }
 
   &--first {
