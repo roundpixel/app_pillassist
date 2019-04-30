@@ -1,22 +1,17 @@
-import { LoginComponent } from './auth/login/login.component';
-import { AuthGuard } from './auth/auth.guard';
-import { CalendarComponent } from './calendar/calendar.component';
 import { AddPillComponent } from './pill/add-pill.component';
-
+import { AppComponent } from './app.component';
+import { AuthGuard } from './auth/auth.guard';
+import { CalendarComponent } from './agenda/calendar.component';
+import { LoginComponent } from './auth/login/login.component';
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './general/page-not-found.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
     // canActivate: [AuthGuard],
-    component: CalendarComponent
-  },
-  {
-    path: 'add',
-    // canActivate: [AuthGuard],
-    component: AddPillComponent
+    component: AppComponent
   },
   {
     path: 'login',

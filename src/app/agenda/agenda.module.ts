@@ -36,4 +36,4 @@ registerLocaleData(localeNlBE);
     CalendarWeekOverviewComponent
   ]
 })
-export class CalendarModule {}
+export class AgendaModule {}

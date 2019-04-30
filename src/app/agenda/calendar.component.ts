@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-calendar',
@@ -10,6 +10,7 @@ export class CalendarComponent implements OnInit {
   public events: any[];
   public options: any;
   public currentMonthView: number;
+  public isAddPillVisible: boolean;
 
   @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void } };
 

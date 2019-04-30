@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pillassist';
+  public isCalendarVisible = true;
+  public isAddPillVisible: boolean;
 
   constructor() {}
 }

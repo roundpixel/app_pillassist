@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+  } from '@angular/core';
 import { Pill } from '../pill/pill.model';
 @Component({
   selector: 'app-calendar-day',
