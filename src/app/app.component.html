@@ -1,4 +1,8 @@
-<router-outlet></router-outlet>
+<ng-container *responsive="{sizes:{min:850}}">
+  <app-nav-desktop></app-nav-desktop>
+</ng-container>
+
+<router-outlet style="display: none"></router-outlet>
 
 <ng-container *responsive="{sizes:{min:850}}">
   <main>
@@ -11,9 +15,3 @@
     </div>
   </main>
 </ng-container>
-
-
-<button class="btn btn-blue btn-main" (click)="logout()" *ngIf="authService.isLoggedIn">
-  <span>Logout</span>
-  <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon">
-</button>
