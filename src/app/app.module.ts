@@ -18,6 +18,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
+import { MainComponent } from './general/main.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { routing } from './app.routing';
     PageNotFoundComponent,
     LoginComponent,
     HeaderTopComponent,
-    AddPillComponent
+    AddPillComponent,
+    MainComponent
   ],
   imports: [
     AgendaModule,

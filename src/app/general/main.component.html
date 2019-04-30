@@ -1,0 +1,20 @@
+<app-calendar *ngIf="isCalendarVisible"></app-calendar>
+<app-add-pill (onHide)="isAddPillVisible = false; isCalendarVisible = true" *ngIf="isAddPillVisible"></app-add-pill>
+
+<ng-container *responsive="{sizes:{min:850}}">
+  <main>
+    <header class="header-search">
+      <input type="text" placeholder="Zoek medicatie">
+    </header>
+    <div class="main-content">
+      <app-calendar-day-tomorrow></app-calendar-day-tomorrow>
+      <app-calendar-week-overview></app-calendar-week-overview>
+    </div>
+  </main>
+</ng-container>
+
+<div>
+  <a class="btn btn-blue btn-plus" *ngIf="!isAddPillVisible"
+    (click)="isAddPillVisible = true; isCalendarVisible = false"><img class="icon" src="assets/img/icons/plus-white.svg"
+      alt=""></a>
+</div>

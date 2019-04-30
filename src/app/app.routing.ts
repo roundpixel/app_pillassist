@@ -1,8 +1,6 @@
-import { AddPillComponent } from './pill/add-pill.component';
-import { AppComponent } from './app.component';
 import { AuthGuard } from './auth/auth.guard';
-import { CalendarComponent } from './agenda/calendar.component';
 import { LoginComponent } from './auth/login/login.component';
+import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,8 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
-    component: AppComponent
+    canActivate: [AuthGuard],
+    component: MainComponent
   },
   {
     path: 'login',
