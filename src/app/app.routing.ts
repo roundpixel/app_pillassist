@@ -4,6 +4,7 @@ import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 import { PatientComponent } from './patient/patient.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'patient/:name',
     component: MainComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   },
   {
     path: 'login',
