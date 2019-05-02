@@ -3,12 +3,21 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
 import { PageNotFoundComponent } from './general/page-not-found.component';
+import { PatientComponent } from './patient/patient.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    redirectTo: '/patients',
+    pathMatch: 'full'
+  },
+  {
+    path: 'patients',
+    component: PatientComponent
+  },
+  {
+    path: 'patient/:name',
     component: MainComponent
   },
   {

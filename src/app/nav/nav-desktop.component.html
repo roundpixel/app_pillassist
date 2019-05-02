@@ -6,7 +6,7 @@
 </header>
 
 <nav class="nav">
-  <a class="nav__link">
+  <a class="nav__link" [routerLink]="['/patients']" routerLinkActive="active">
     <div class="icon--nav--middle">
       <img class="icon--nav" src="assets/img/icons/patients.svg" alt="">
     </div>
@@ -15,9 +15,9 @@
   <div class="indented-lg">
     <div class="indentation" *responsive="{sizes:{min:1200}}"></div>
     <div class="patients">
-      <a class="patient nav__link" *ngFor="let patient of patients" (click)="setActivePatient($event)"
-        [ngClass]="{active: patient.active}">
-        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.name}} src="assets/img/{{patient.img}}.png">
+      <a class="patient nav__link" *ngFor="let patient of patients" [routerLink]="['/patient/', patient.url]"
+        routerLinkActive="active">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.name}} src="assets/img/{{patient.url}}.png">
         </ngx-avatar>
         <span class="patient-avatar__name" *responsive="{sizes:{min:1200}}">
           {{patient.name}}

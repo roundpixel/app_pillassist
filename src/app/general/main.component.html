@@ -1,4 +1,4 @@
-<app-calendar *ngIf="isCalendarVisible"></app-calendar>
+<app-calendar [patient]="patient" *ngIf="isCalendarVisible"></app-calendar>
 <app-add-pill (onHide)="isAddPillVisible = false; isCalendarVisible = true" *ngIf="isAddPillVisible"></app-add-pill>
 
 <ng-container *responsive="{sizes:{min:850}}">
@@ -8,7 +8,7 @@
     </header>
     <div class="main-content">
       <app-calendar-day-tomorrow></app-calendar-day-tomorrow>
-      <app-calendar-week-overview></app-calendar-week-overview>
+      <app-calendar-week-overview [patient]="patient"></app-calendar-week-overview>
     </div>
   </main>
 </ng-container>

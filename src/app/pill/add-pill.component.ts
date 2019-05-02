@@ -45,7 +45,7 @@ export class AddPillComponent implements OnInit {
 
     const inputGroup = e.target.parentNode.parentNode;
     const numberToRemove = inputGroup.classList[1];
-    console.log(numberToRemove);
+
     for (let i = 0; i < this.timeOfDays.length; i++) {
       if (this.timeOfDays[i] === numberToRemove) {
         this.timeOfDays.splice(i, 1);

@@ -1,4 +1,5 @@
 import localeNlBE from '@angular/common/locales/nl-BE';
+import { AvatarModule } from 'ngx-avatar';
 import { CalendarComponent } from './calendar.component';
 import { CalendarDayComponent } from './calendar-day.component';
 import { CalendarDayTomorrowComponent } from './calendar-day-tomorrow.component';
@@ -25,6 +26,7 @@ registerLocaleData(localeNlBE);
     CommonModule,
     ChartModule,
     FullCalendarModule,
+    AvatarModule,
     routing,
     OverlayPanelModule,
     ResponsiveModule.forRoot()

@@ -14,10 +14,11 @@
         <h2>{{ date | date: 'fullDate' }}</h2>
       </ng-container>
       <ng-container *responsive="{sizes:{min:850}}">
-        <h1>Louis Bracke</h1>
+        <h1>{{patient.name}}</h1>
       </ng-container>
     </div>
-    <img src="assets/img/avatar.png" alt="" />
+    <ngx-avatar size="55" bgColor="#84D1FB" name="{{patient.name}}" src="assets/img/{{patient.url}}.png">
+    </ngx-avatar>
   </header>
   <div class="header-bg">
     <img src="assets/img/bollen.png" alt="" />
