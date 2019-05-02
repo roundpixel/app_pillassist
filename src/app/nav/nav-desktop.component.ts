@@ -1,6 +1,6 @@
 import { AuthService } from '../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../patient/patient.model';
+import { Patient } from '../shared/patient.model';
 import { Router } from '@angular/router';
 
 @Component({

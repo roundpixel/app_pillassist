@@ -1,6 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Patient } from './../patient/patient.model';
+import { Patient } from '../shared/patient.model';
 
 @Component({
   selector: 'app-main',

@@ -5,7 +5,7 @@ import {
   OnInit,
   Output
   } from '@angular/core';
-import { Pill } from '../pill/pill.model';
+import { Pill } from '../shared/pill.model';
 @Component({
   selector: 'app-calendar-day',
   templateUrl: './calendar-day.component.html',

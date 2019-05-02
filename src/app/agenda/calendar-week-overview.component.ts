@@ -6,7 +6,7 @@ import {
   SimpleChange,
   SimpleChanges
   } from '@angular/core';
-import { Patient } from '../patient/patient.model';
+import { Patient } from '../shared/patient.model';
 
 @Component({
   selector: 'app-calendar-week-overview',
