@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output
+  } from '@angular/core';
 
 @Component({
   selector: 'app-add-pill',
@@ -14,6 +19,11 @@ export class AddPillComponent implements OnInit {
   public isEveryDay = true;
   public isEveryWeek: boolean;
   public isEveryMonth: boolean;
+
+  @Output() onHide = new EventEmitter<boolean>();
+  setHide() {
+    this.onHide.emit(true);
+  }
 
   constructor() {}
 
@@ -35,7 +45,7 @@ export class AddPillComponent implements OnInit {
 
     const inputGroup = e.target.parentNode.parentNode;
     const numberToRemove = inputGroup.classList[1];
-    console.log(numberToRemove);
+
     for (let i = 0; i < this.timeOfDays.length; i++) {
       if (this.timeOfDays[i] === numberToRemove) {
         this.timeOfDays.splice(i, 1);
@@ -62,5 +72,9 @@ export class AddPillComponent implements OnInit {
         this.isEveryDay = false;
         break;
     }
+  }
+
+  public hide() {
+    this.setHide();
   }
 }

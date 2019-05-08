@@ -19,6 +19,5 @@ export class CalendarDayTomorrowComponent implements OnInit {
       (this.today.getMonth() + 1) +
       '-' +
       this.today.getFullYear();
-    console.log(this.tomorrow);
   }
 }

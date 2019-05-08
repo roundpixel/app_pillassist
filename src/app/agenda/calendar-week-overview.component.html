@@ -1,9 +1,11 @@
 <div class="main-content__card week-overview">
-  <h1>Weekoverzicht <span class="title-blue">Louis Bracke</span></h1>
+  <h1>Weekoverzicht <span class="title-blue">{{patient.name}}</span></h1>
   <div class="week-overview__content">
     <div class="chart">
       <p-chart id="chart" type="doughnut" [data]="data" [options]="options"></p-chart>
-      <img class="chart-img" src="assets/img/LouisBracke.png" alt="avatar">
+      <ngx-avatar class="chart-img" size="110" bgColor="#84D1FB" name={{patient.name}}
+        src="assets/img/{{patient.url}}.png">
+      </ngx-avatar>
     </div>
     <div class="legend">
       <ul>

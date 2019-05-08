@@ -1,14 +1,22 @@
+import { AccordionModule } from 'primeng/accordion';
+import { AddPillComponent } from './pill/add-pill.component';
+import { AgendaModule } from './agenda/agenda.module';
 import { AppComponent } from './app.component';
 import { AvatarModule } from 'ngx-avatar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { CalendarModule } from './calendar/calendar.module';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
+import { DropdownModule } from 'primeng/dropdown';
 import { HeaderTopComponent } from './general/header-top.component';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
+import { MainComponent } from './general/main.component';
 import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './general/page-not-found.component';
-import { PillModule } from './pill/pill.module';
+import { ProfileModule } from './profile/profile.module';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
@@ -18,11 +26,19 @@ import { routing } from './app.routing';
     AppComponent,
     PageNotFoundComponent,
     LoginComponent,
-    HeaderTopComponent
+    HeaderTopComponent,
+    AddPillComponent,
+    MainComponent
   ],
   imports: [
+    AgendaModule,
+    BrowserAnimationsModule,
+    DropdownModule,
     CalendarModule,
-    PillModule,
+    AccordionModule,
+    RadioButtonModule,
+    ProfileModule,
+    CheckboxModule,
     NavModule,
     BrowserModule,
     routing,

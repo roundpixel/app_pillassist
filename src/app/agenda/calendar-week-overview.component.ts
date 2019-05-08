@@ -1,15 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChange,
+  SimpleChanges
+  } from '@angular/core';
+import { Patient } from '../shared/patient.model';
 
 @Component({
   selector: 'app-calendar-week-overview',
   templateUrl: './calendar-week-overview.component.html',
   styles: []
 })
-export class CalendarWeekOverviewComponent implements OnInit {
+export class CalendarWeekOverviewComponent implements OnInit, OnChanges {
   public data: any;
   public options: any;
 
   constructor() {}
+
+  @Input() patient: Patient;
+  private _patient: Patient;
 
   ngOnInit() {
     this.data = {
@@ -32,5 +43,10 @@ export class CalendarWeekOverviewComponent implements OnInit {
         enabled: false
       }
     };
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const patient: SimpleChange = changes.patient;
+    this._patient = patient.currentValue;
   }
 }

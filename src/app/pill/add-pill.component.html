@@ -114,10 +114,10 @@
       </p-accordion>
     </div>
     <div class="actions">
-      <button class="btn btn-main" [routerLink]="['']">
+      <button class="btn btn-main" (click)="hide()">
         <span>Toevoegen</span>
         <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
-      <a class="smaller-link" [routerLink]="['']">annuleer medicatie toevoegen</a>
+      <a class="smaller-link" (click)="hide()">annuleer medicatie toevoegen</a>
     </div>
   </form>
 </div>
