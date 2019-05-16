@@ -5,6 +5,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { PageNotFoundComponent } from './general/page-not-found.component';
 import { PatientComponent } from './patient/patient.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '404',

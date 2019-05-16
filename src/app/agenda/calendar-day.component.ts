@@ -6,6 +6,7 @@ import {
   Output
   } from '@angular/core';
 import { Pill } from '../shared/pill.model';
+import { PillService } from './../services/pill.service';
 @Component({
   selector: 'app-calendar-day',
   templateUrl: './calendar-day.component.html',
@@ -13,9 +14,10 @@ import { Pill } from '../shared/pill.model';
 })
 export class CalendarDayComponent implements OnInit {
   public pills: Array<Pill> = new Array<Pill>();
+  public error: string;
   @Input() public _date: Date;
 
-  constructor() {}
+  constructor(private pillService: PillService) {}
 
   // update Date when it's clicked on in other component
   @Input()
@@ -28,26 +30,19 @@ export class CalendarDayComponent implements OnInit {
     const date1 = new Date(2019, 3, 9, 10, 33, 30, 0);
     const date2 = new Date(2019, 3, 9, 8, 33, 30, 0);
 
-    this.pills = [
-      {
-        name: 'prolopa',
-        dose: '1',
-        date: date1,
-        time: date1.getHours() + ':' + date1.getMinutes(),
-        description: 'neem doosje 2',
-        display: false
-      },
-      {
-        name: 'azilect',
-        dose: '1',
-        date: date2,
-        time: date2.getHours() + ':' + date2.getMinutes(),
-        description: 'neem doosje 2',
-        display: false
-      }
-    ];
-
+    this.getPills();
     this.loadPills();
+  }
+
+  public getPills() {
+    this.pillService.getAll().subscribe(
+      (res: Pill[]) => {
+        this.pills = res;
+      },
+      err => {
+        this.error = err;
+      }
+    );
   }
 
   public loadPills() {
