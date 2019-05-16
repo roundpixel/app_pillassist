@@ -8,6 +8,7 @@ import {
   SimpleChanges,
   ViewChild
   } from '@angular/core';
+import { DateService } from './../services/date.service';
 import { Patient } from '../shared/patient.model';
 
 @Component({
@@ -28,7 +29,7 @@ export class CalendarComponent implements OnInit {
   public date = new Date();
   public isMonthView = true;
 
-  constructor() {}
+  constructor(private dateService: DateService) {}
 
   ngOnInit() {
     this.options = {
@@ -69,6 +70,7 @@ export class CalendarComponent implements OnInit {
 
   public setDate(date: Date) {
     this.date = date;
+    this.dateService.changeDate(this.date);
   }
 
   public setDateDisplay(date: Date) {

@@ -5,6 +5,7 @@ import {
   OnInit,
   Output
   } from '@angular/core';
+import { DateService } from './../services/date.service';
 import { Pill } from '../shared/pill.model';
 @Component({
   selector: 'app-calendar-day',
@@ -13,20 +14,16 @@ import { Pill } from '../shared/pill.model';
 })
 export class CalendarDayComponent implements OnInit {
   public pills: Array<Pill> = new Array<Pill>();
-  @Input() public _date: Date;
+  public _date: Date;
 
-  constructor() {}
-
-  // update Date when it's clicked on in other component
-  @Input()
-  set date(date: Date) {
-    this._date = date;
-    this.loadPills();
-  }
+  constructor(private dateService: DateService) {}
 
   ngOnInit() {
-    const date1 = new Date(2019, 3, 9, 10, 33, 30, 0);
-    const date2 = new Date(2019, 3, 9, 8, 33, 30, 0);
+    this.dateService.currentDate.subscribe(
+      date => ((this._date = date), this.loadPills())
+    );
+    const date1 = new Date(2019, 6, 16, 10, 33, 30, 0);
+    const date2 = new Date(2019, 6, 16, 8, 33, 30, 0);
 
     this.pills = [
       {
@@ -46,8 +43,6 @@ export class CalendarDayComponent implements OnInit {
         display: false
       }
     ];
-
-    this.loadPills();
   }
 
   public loadPills() {

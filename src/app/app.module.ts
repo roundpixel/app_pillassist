@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
+import { DateService } from './services/date.service';
 import { DropdownModule } from 'primeng/dropdown';
 import { HeaderTopComponent } from './general/header-top.component';
 import { LOCALE_ID, NgModule } from '@angular/core';
@@ -46,7 +47,7 @@ import { routing } from './app.routing';
     AvatarModule
   ],
   exports: [CommonModule, RouterModule, BrowserModule, AvatarModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'nl-BE' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'nl-BE' }, DateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
