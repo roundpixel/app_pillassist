@@ -27,7 +27,6 @@ export class CalendarComponent implements OnInit {
   public _patient: Patient;
 
   public date = new Date();
-  public isMonthView = true;
 
   constructor(private dateService: DateService) {}
 
@@ -115,9 +114,5 @@ export class CalendarComponent implements OnInit {
 
   public nextMonth() {
     this.fc.calendar.next();
-  }
-
-  public toggleVisibility() {
-    this.isMonthView = !this.isMonthView;
   }
 }

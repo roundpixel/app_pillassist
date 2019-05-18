@@ -2,7 +2,6 @@ import localeNlBE from '@angular/common/locales/nl-BE';
 import { AvatarModule } from 'ngx-avatar';
 import { CalendarComponent } from './calendar.component';
 import { CalendarDayComponent } from './calendar-day.component';
-import { CalendarDayTomorrowComponent } from './calendar-day-tomorrow.component';
 import { CalendarWeekOverviewComponent } from './calendar-week-overview.component';
 import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
@@ -19,7 +18,6 @@ registerLocaleData(localeNlBE);
   declarations: [
     CalendarComponent,
     CalendarDayComponent,
-    CalendarDayTomorrowComponent,
     CalendarWeekOverviewComponent
   ],
   imports: [
@@ -34,7 +32,6 @@ registerLocaleData(localeNlBE);
   exports: [
     CalendarComponent,
     CalendarDayComponent,
-    CalendarDayTomorrowComponent,
     CalendarWeekOverviewComponent
   ]
 })

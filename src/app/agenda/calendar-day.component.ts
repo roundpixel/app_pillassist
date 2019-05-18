@@ -22,8 +22,8 @@ export class CalendarDayComponent implements OnInit {
     this.dateService.currentDate.subscribe(
       date => ((this._date = date), this.loadPills())
     );
-    const date1 = new Date(2019, 6, 16, 10, 33, 30, 0);
-    const date2 = new Date(2019, 6, 16, 8, 33, 30, 0);
+    const date1 = new Date(2019, 4, 16, 10, 33, 30, 0);
+    const date2 = new Date(2019, 4, 16, 8, 33, 30, 0);
 
     this.pills = [
       {
@@ -31,6 +31,14 @@ export class CalendarDayComponent implements OnInit {
         dose: '1',
         date: date1,
         time: date1.getHours() + ':' + date1.getMinutes(),
+        description: 'neem doosje 2',
+        display: false
+      },
+      {
+        name: 'azilect',
+        dose: '1',
+        date: date2,
+        time: date2.getHours() + ':' + date2.getMinutes(),
         description: 'neem doosje 2',
         display: false
       },
@@ -60,6 +68,8 @@ export class CalendarDayComponent implements OnInit {
         pill.date.getMonth() +
         '-' +
         pill.date.getFullYear();
+
+      console.log(pillDate, dateClicked);
 
       if (dateClicked === pillDate) {
         pill.display = true;
