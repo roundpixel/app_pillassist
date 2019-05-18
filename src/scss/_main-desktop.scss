@@ -1,43 +1,42 @@
+main {
+  grid-column: 1;
+  grid-row: 1;
+  background: $light-grey;
+  min-height: 100vh;
+
+  .main-content {
+    &__card {
+      border-radius: 1em;
+      padding: 1em;
+      position: relative;
+      &__body {
+        padding: 1em 1.6em;
+      }
+      h1 {
+        padding: 1em 1em 0;
+        color: $charcoal-grey;
+        font-weight: 500;
+      }
+
+      h2 {
+        color: $light-blue;
+      }
+    }
+
+    form {
+      padding: 0;
+    }
+  }
+}
+
 @media (min-width: 850px) {
+  .main-content {
+    padding: 0 2em;
+  }
+
   app-root {
     display: grid;
     grid-template-columns: 5em 5fr;
-
-    main {
-      grid-column: 1;
-      grid-row: 1;
-      background: $light-grey;
-      min-height: 100vh;
-
-      .main-content {
-        padding: 0 2em;
-        &__card {
-          border-radius: 1em;
-          padding: 1em;
-          margin-top: 1em;
-          position: relative;
-          h1 {
-            padding: 1em 1em 0;
-            color: $charcoal-grey;
-            font-weight: 500;
-
-            &::after {
-              content: "";
-              width: 95%;
-              height: 25px;
-              z-index: 100;
-              background: -moz-linear-gradient(top, rgba(240, 245, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-              background: -webkit-linear-gradient(top, rgba(240, 245, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-              background: linear-gradient(to bottom, rgba(240, 245, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFF4FE', endColorstr='#00ffffff',GradientType=0 );
-              display: block;
-              position: absolute;
-              transform: translateX(-2%);
-            }
-          }
-        }
-      }
-    }
 
     app-calendar,
     app-add-pill {

@@ -70,11 +70,11 @@ app-calendar {
           //transition: background 0.4s ease-out;
           &.fc-today {
             background: $blue-today;
-            border: $blue-highlight 2px solid;
+            border: $light-blue 2px solid;
           }
           &.fc-state-highlight {
             width: 42px;
-            background: $blue-highlight;
+            background: $light-blue;
             color: white;
           }
         }
@@ -110,7 +110,7 @@ app-calendar {
       }
 
       .fc-day-top:hover span {
-        background: $blue-highlight;
+        background: $light-blue;
       }
 
       .fc-day-header {
