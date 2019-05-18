@@ -18,7 +18,7 @@ const routes: Routes = [
     component: PatientComponent
   },
   {
-    path: 'patient/:name',
+    path: 'patient/:firstName/:lastName',
     component: MainComponent
   },
   {

@@ -1,6 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../shared/patient.model';
+import { PatientService } from './../services/patient.service';
 
 @Component({
   selector: 'app-main',
@@ -13,15 +14,16 @@ export class MainComponent implements OnInit {
   public isAddPillVisible: boolean;
   public patient: Patient;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private patientService: PatientService) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const url = params.get('name');
-      const name = this.prettify(url);
+    this.patientService.currentPatient.subscribe(patient => {
       this.patient = {
-        name: name,
-        url: url
+        firstName: patient.firstName,
+        lastName: patient.lastName,
+        email: patient.email,
+        tel: patient.tel,
+        url: patient.url
       };
     });
   }

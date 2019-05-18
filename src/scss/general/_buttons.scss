@@ -55,6 +55,24 @@
       margin-left: 1em;
     }
   }
+
+  &-white {
+    background-color: white;
+    padding: 0.8em;
+    width: 180px;
+    border: none;
+    border-radius: 2em;
+    display: block;
+    box-shadow: $subtle-shadow;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      color: $cadet-blue;
+    }
+  }
 }
 
 .close-icon {

@@ -15,12 +15,13 @@
   <div class="indented-lg">
     <div class="indentation" *responsive="{sizes:{min:1200}}"></div>
     <div class="patients">
-      <a class="patient nav__link" *ngFor="let patient of patients" [routerLink]="['/patient/', patient.url]"
-        routerLinkActive="active">
-        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.name}} src="assets/img/{{patient.url}}.png">
+      <a class="patient nav__link" *ngFor="let patient of patients"
+        [routerLink]="['/patient/', patient.firstName, patient.lastName]" routerLinkActive="active"
+        (click)="changePatient(patient)">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}} src="assets/img/{{patient.url}}.png">
         </ngx-avatar>
         <span class="patient-avatar__name" *responsive="{sizes:{min:1200}}">
-          {{patient.name}}
+          {{patient.firstName}} {{patient.lastName}}
         </span>
       </a>
     </div>

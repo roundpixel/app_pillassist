@@ -1,18 +1,21 @@
 <div class="main-content__card week-overview">
-  <h1>Weekoverzicht <span class="title-blue">{{patient.name}}</span></h1>
-  <div class="week-overview__content">
-    <div class="chart">
-      <p-chart id="chart" type="doughnut" [data]="data" [options]="options"></p-chart>
-      <ngx-avatar class="chart-img" size="110" bgColor="#84D1FB" name={{patient.name}}
-        src="assets/img/{{patient.url}}.png">
-      </ngx-avatar>
-    </div>
-    <div class="legend">
-      <ul>
-        <li *ngFor="let label of data.labels; index as i">
-          <span class="legend__number">{{data.datasets[0].data[i]}}</span> <span class="legend__label">{{label}}</span>
-        </li>
-      </ul>
+  <h1>Weekoverzicht <span class="title-blue">{{patient.firstName}} {{patient.lastName}}</span></h1>
+  <div class="flex">
+    <div class="week-overview__content">
+      <div class="chart">
+        <p-chart id="chart" type="doughnut" [data]="data" [options]="options"></p-chart>
+        <ngx-avatar class="chart-img" size="110" bgColor="#84D1FB" name={{patient.firstName}}
+          src="assets/img/{{patient.url}}.png">
+        </ngx-avatar>
+      </div>
+      <div class="legend">
+        <ul>
+          <li *ngFor="let label of data.labels; index as i">
+            <span class="legend__number">{{data.datasets[0].data[i]}}</span> <span
+              class="legend__label">{{label}}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

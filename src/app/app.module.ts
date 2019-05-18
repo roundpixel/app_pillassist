@@ -16,6 +16,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './general/page-not-found.component';
+import { PatientModule } from './patient/patient.module';
+import { PatientService } from './services/patient.service';
 import { ProfileModule } from './profile/profile.module';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ResponsiveModule } from 'ngx-responsive';
@@ -42,12 +44,17 @@ import { routing } from './app.routing';
     CheckboxModule,
     NavModule,
     BrowserModule,
+    PatientModule,
     routing,
     ResponsiveModule.forRoot(),
     AvatarModule
   ],
   exports: [CommonModule, RouterModule, BrowserModule, AvatarModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'nl-BE' }, DateService],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'nl-BE' },
+    DateService,
+    PatientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
