@@ -6,6 +6,12 @@ form {
     flex-direction: column;
     padding: 0 0.5em 1em 0.5em;
 
+    &--dark {
+      input {
+        background-color: $light-grey;
+      }
+    }
+
     .flex {
       justify-content: space-between;
     }

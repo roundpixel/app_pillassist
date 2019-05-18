@@ -16,10 +16,6 @@ export class NavDesktopComponent implements OnInit {
   ngOnInit() {
     this.patients = [
       {
-        name: 'Louis Bracke',
-        url: 'louis-bracke'
-      },
-      {
         name: 'John Doe',
         url: 'john-doe'
       },

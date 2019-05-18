@@ -1,6 +1,6 @@
 <div class="main-content__card calendar-tomorrow">
   <h1>Klaarzetten voor <span class="title-blue">{{_date | date: 'fullDate' }}</span></h1>
-  <div class="col-2">
+  <div class="main-content__card__body col-2">
     <ng-container *ngFor="let pill of pills">
       <div *ngIf="pill.display" class="card card-pill appear">
         <div class="card__icon">

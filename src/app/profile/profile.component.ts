@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ProfileComponent implements OnInit {
+  public caregiver: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.caregiver = {
+      firstName: 'Louis',
+      lastName: 'Bracke',
+      url: 'louis-bracke'
+    };
   }
-
 }
