@@ -1,0 +1,36 @@
+<main class="profile">
+  <div class="main-content">
+    <div class="main-content__card">
+      <h1>Uw profiel - {{patient.firstName}}</h1>
+
+      <div class="main-content__card__body">
+        <div class="profile__picture">
+          <ngx-avatar size="200" bgColor="#84D1FB" name={{patient.firstName}} src="assets/img/{{patient.url}}.png">
+          </ngx-avatar>
+          <a>Verander profielfoto</a>
+        </div>
+
+        <form class="profile__info">
+          <div class="input-group input-group--dark">
+            <label for="firstName">Voornaam</label>
+            <input type="text" name="firstName" [(ngModel)]="patient.firstName">
+          </div>
+          <div class="input-group input-group--dark">
+            <label for="lastName">Achternaam</label>
+            <input type="text" name="lastName" [(ngModel)]="patient.lastName">
+          </div>
+          <div class="input-group input-group--dark">
+            <label for="email">Email</label>
+            <input type="text" name="email" [(ngModel)]="patient.email">
+          </div>
+          <div class="input-group input-group--dark">
+            <label for="tel">Telefoonnummer</label>
+            <input type="text" name="tel" [(ngModel)]="patient.tel">
+          </div>
+
+          <a class="btn btn-main"><span>Opslaan</span></a>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
