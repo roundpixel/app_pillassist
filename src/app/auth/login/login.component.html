@@ -1,14 +1,8 @@
 <header class="header-start">
   <app-header-top></app-header-top>
   <h2>
-    <ng-container *ngIf="!authService.isLoggedIn() && !isLoading">
+    <ng-container *ngIf="!authService.isLoggedIn() && !loginError">
       Fijn dat u terug bent.
-    </ng-container>
-    <ng-container *ngIf="isLoading">
-      Aan het inloggen ...
-    </ng-container>
-    <ng-container *ngIf="authService.isLoggedIn()">
-      U bent ingelogd.
     </ng-container>
     {{loginError}}
   </h2>
@@ -21,13 +15,14 @@
   <form #f="ngForm" (ngSubmit)="login(f)">
     <div class="input-group">
       <label *ngIf="showEmailLabel" for="email" class="appear">E-mailadres</label>
-      <input type="text" placeholder="E-mailadres" name="email" (keyup)="checkInput(email.value, 'email')" #email ngModel/>
+      <input type="text" placeholder="E-mailadres" name="email" (keyup)="checkInput(email.value, 'email')" #email
+        ngModel />
     </div>
 
     <div class="input-group">
       <label *ngIf="showPasswordLabel" for="password" class="appear">Wachtwoord</label>
       <input type="password" placeholder="Wachtwoord" name="password" (keyup)="checkInput(password.value, 'password')"
-        #password ngModel/>
+        #password ngModel />
     </div>
 
     <a class="small-link" href="/">Wachtwoord vergeten?</a>

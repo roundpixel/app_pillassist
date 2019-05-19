@@ -9,17 +9,15 @@ import { Observable, throwError } from 'rxjs';
 })
 export class CaregiverService {
   private baseUrl = 'http://localhost/api_pillassist/caregiver';
-  private caregivers: Caregiver[];
 
   constructor(private http: HttpClient) {}
 
-  create(caregiver: Caregiver): Observable<Caregiver[]> {
+  create(caregiver: Caregiver): Observable<any> {
     return this.http
       .post(`${this.baseUrl}/create.php`, { data: caregiver })
       .pipe(
         map(res => {
-          this.caregivers.push(res['data']);
-          return this.caregivers;
+          return res;
         }),
         catchError(this.handleError)
       );

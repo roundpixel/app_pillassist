@@ -55,12 +55,8 @@ export class AuthService {
         `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );
     }
-
-    // return an observable with a user-facing error message
-    this.errorData = {
-      errorTitle: 'Oops! Request for document failed',
-      errorDesc: 'Something bad happened. Please try again later.'
-    };
-    return throwError(this.errorData);
+    return throwError(
+      'Oei, er ging iets mis. Check of je emailadres en paswoord zeker klopt.'
+    );
   }
 }
