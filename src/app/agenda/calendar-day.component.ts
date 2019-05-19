@@ -23,23 +23,20 @@ export class CalendarDayComponent implements OnInit {
     this.dateService.currentDate.subscribe(
       date => ((this._date = date), this.loadPills())
     );
-    const date1 = new Date(2019, 4, 16, 10, 33, 30, 0);
-    const date2 = new Date(2019, 4, 16, 8, 33, 30, 0);
 
     this.getPills();
     this.loadPills();
   }
 
   public getPills() {
-    this.pillService.getAll().subscribe(
-      (res: Pill[]) => {
-        this.pills = res;
-      },
+    const date1 = new Date(2019, 4, 16, 10, 33, 30, 0);
+    const date2 = new Date(2019, 4, 16, 8, 33, 30, 0);
+    this.pills = [
       {
         name: 'azilect',
         dose: '1',
-        date: date2,
-        time: date2.getHours() + ':' + date2.getMinutes(),
+        date: date1,
+        time: date1.getHours() + ':' + date1.getMinutes(),
         description: 'neem doosje 2',
         display: false
       },
