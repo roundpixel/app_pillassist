@@ -15,25 +15,25 @@
 </header>
 
 <ng-container>
-  <form #f="ngForm" (submit)="createCaregiver()">
+  <form #f="ngForm" (ngSubmit)="createCaregiver(f)">
     <div class="input-group">
       <label for="firstName" class="appear">Voornaam</label>
-      <input type="text" placeholder="Voornaam" #firstName name="firstName" />
+      <input type="text" placeholder="Voornaam" name="firstName" ngModel />
     </div>
 
     <div class="input-group">
       <label for="lastName" class="appear">Achternaam</label>
-      <input type="text" placeholder="Achternaam" #lastName name="lastName" />
+      <input type="text" placeholder="Achternaam" name="lastName" ngModel />
     </div>
 
     <div class="input-group">
       <label for="email" class="appear">E-mailadres</label>
-      <input type="text" placeholder="E-mailadres" #email name="email" />
+      <input type="text" placeholder="E-mailadres" name="email" ngModel />
     </div>
 
     <div class="input-group">
       <label for="password" class="appear">Wachtwoord</label>
-      <input type="password" placeholder="Wachtwoord" #password name="password" />
+      <input type="password" placeholder="Wachtwoord" name="password" ngModel />
     </div>
 
     <div class="login-height"></div>
