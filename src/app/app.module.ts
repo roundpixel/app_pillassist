@@ -10,7 +10,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
 import { DateService } from './services/date.service';
 import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 import { HeaderTopComponent } from './general/header-top.component';
+import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
@@ -20,6 +22,7 @@ import { PatientModule } from './patient/patient.module';
 import { PatientService } from './services/patient.service';
 import { ProfileModule } from './profile/profile.module';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { RegisterComponent } from './auth/register/register.component';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
@@ -31,7 +34,8 @@ import { routing } from './app.routing';
     LoginComponent,
     HeaderTopComponent,
     AddPillComponent,
-    MainComponent
+    MainComponent,
+    RegisterComponent
   ],
   imports: [
     AgendaModule,
@@ -47,7 +51,8 @@ import { routing } from './app.routing';
     PatientModule,
     routing,
     ResponsiveModule.forRoot(),
-    AvatarModule
+    AvatarModule,
+    FormsModule
   ],
   exports: [CommonModule, RouterModule, BrowserModule, AvatarModule],
   providers: [
