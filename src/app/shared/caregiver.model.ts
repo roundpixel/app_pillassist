@@ -3,6 +3,7 @@ export class Caregiver {
     firstName: string,
     lastName: string,
     email: string,
-    password: string
+    password: string,
+    token: string
   ) {}
 }

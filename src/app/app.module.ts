@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { HeaderTopComponent } from './general/header-top.component';
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './http-interceptors';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
@@ -58,7 +59,8 @@ import { routing } from './app.routing';
   providers: [
     { provide: LOCALE_ID, useValue: 'nl-BE' },
     DateService,
-    PatientService
+    PatientService,
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

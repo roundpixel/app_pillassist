@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styles: []
 })
 export class RegisterComponent implements OnInit {
-  caregiver = new Caregiver('', '', '', '');
+  caregiver = new Caregiver('', '', '', '', '');
   error: string;
 
   constructor(private caregiverService: CaregiverService) {}
