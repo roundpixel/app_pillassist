@@ -1,6 +1,4 @@
-app-sidebar {
-  background: white;
-  z-index: 1;
+app-calendar {
   .fc {
     padding: 1em;
     margin: auto;
@@ -129,10 +127,4 @@ app-sidebar {
 
 .fc-basic-view .fc-body .fc-row {
   min-height: 2em;
-}
-
-@media (min-width: 850px) {
-  app-sidebar {
-    display: block;
-  }
 }

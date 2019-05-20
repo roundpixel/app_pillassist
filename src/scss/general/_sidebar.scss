@@ -1,0 +1,21 @@
+app-sidebar {
+  background: white;
+  z-index: 1;
+
+  @media (min-width: 850px) {
+    app-sidebar {
+      display: block;
+    }
+  }
+
+  .main-content {
+    &__card {
+      padding: 0 1em;
+      h1 {
+        padding: 1em 0;
+        color: $charcoal-grey;
+        font-weight: 500;
+      }
+    }
+  }
+}
