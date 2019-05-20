@@ -5,14 +5,15 @@ import { AppComponent } from './app.component';
 import { AvatarModule } from 'ngx-avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { CalendarComponent } from './agenda/calendar.component';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
 import { DateService } from './services/date.service';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { FullCalendarModule } from 'primeng/fullcalendar';
 import { HeaderTopComponent } from './general/header-top.component';
-import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './http-interceptors';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
@@ -27,6 +28,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
+import { SidebarComponent } from './general/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +38,13 @@ import { routing } from './app.routing';
     HeaderTopComponent,
     AddPillComponent,
     MainComponent,
-    RegisterComponent
+    RegisterComponent,
+    SidebarComponent,
+    CalendarComponent
   ],
   imports: [
     AgendaModule,
+    FullCalendarModule,
     BrowserAnimationsModule,
     DropdownModule,
     CalendarModule,
