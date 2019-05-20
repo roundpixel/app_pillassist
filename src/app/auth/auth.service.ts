@@ -19,7 +19,6 @@ export class AuthService {
       .post<any>(`${this.baseUrl}/login`, { email, password })
       .pipe(
         map(caregiver => {
-          console.log(caregiver);
           if (caregiver && caregiver.token) {
             localStorage.setItem('currentUser', JSON.stringify(caregiver));
           }
