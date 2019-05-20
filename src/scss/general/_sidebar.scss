@@ -12,9 +12,18 @@ app-sidebar {
     &__card {
       padding: 0 1em;
       h1 {
-        padding: 1em 0;
+        padding: 0;
         color: $charcoal-grey;
         font-weight: 500;
+      }
+
+      .label {
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+
+      .value {
+        margin-top: 0;
       }
     }
   }

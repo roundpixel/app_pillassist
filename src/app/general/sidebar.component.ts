@@ -1,5 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Patient } from '../shared/patient.model';
+import { PatientService } from './../services/patient.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,9 +12,22 @@ export class SidebarComponent implements OnInit {
   public isAddPillVisible: boolean;
 
   @Input() patient: Patient;
-  public _patient: Patient;
+  private patients: Array<Patient>;
 
-  constructor() {}
+  constructor(
+    public route: ActivatedRoute,
+    private patientService: PatientService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.patients = this.patientService.patients;
+
+    this.route.params.subscribe(params => {
+      this.patients.forEach(patient => {
+        if (patient.firstName === params.firstName) {
+          this.patientService.changePatient(patient);
+        }
+      });
+    });
+  }
 }

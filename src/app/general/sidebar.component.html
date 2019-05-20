@@ -2,15 +2,7 @@
 
   <header class="header-app">
     <div>
-      <ng-container *responsive="{sizes:{max:850}}">
-        <h1>
-          Maandoverzicht
-        </h1>
-        <h2>{{ date | date: 'fullDate' }}</h2>
-      </ng-container>
-      <ng-container *responsive="{sizes:{min:850}}">
-        <h1>{{patient.firstName}} {{patient.lastName}}</h1>
-      </ng-container>
+      <h1>{{patient.firstName}} {{patient.lastName}}</h1>
     </div>
     <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient.firstName}}"
       src="assets/img/{{patient.url}}.png">
