@@ -67,8 +67,6 @@ export class CalendarDayComponent implements OnInit {
         '-' +
         pill.date.getFullYear();
 
-      console.log(pillDate, dateClicked);
-
       if (dateClicked === pillDate) {
         pill.display = true;
       } else {
