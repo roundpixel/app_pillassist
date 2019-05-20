@@ -1,4 +1,4 @@
-app-calendar {
+app-sidebar {
   background: white;
   z-index: 1;
   .fc {
@@ -132,7 +132,7 @@ app-calendar {
 }
 
 @media (min-width: 850px) {
-  app-calendar {
+  app-sidebar {
     display: block;
   }
 }

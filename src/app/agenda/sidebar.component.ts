@@ -12,11 +12,11 @@ import { DateService } from './../services/date.service';
 import { Patient } from '../shared/patient.model';
 
 @Component({
-  selector: 'app-calendar',
-  templateUrl: './calendar.component.html',
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
   styles: []
 })
-export class CalendarComponent implements OnInit {
+export class SidebarComponent implements OnInit {
   public events: any[];
   public options: any;
   public currentMonthView: number;

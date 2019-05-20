@@ -1,4 +1,4 @@
-<app-calendar [patient]="patient" *ngIf="isCalendarVisible"></app-calendar>
+<app-sidebar [patient]="patient" *ngIf="isCalendarVisible"></app-sidebar>
 <app-add-pill (onHide)="isAddPillVisible = false; isCalendarVisible = true" *ngIf="isAddPillVisible"></app-add-pill>
 
 <ng-container *responsive="{sizes:{min:850}}">

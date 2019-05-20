@@ -38,7 +38,7 @@ main {
     display: grid;
     grid-template-columns: 5em 5fr;
 
-    app-calendar,
+    app-sidebar,
     app-add-pill {
       grid-column: 2;
       padding: 0 1em;
