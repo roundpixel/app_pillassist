@@ -23,6 +23,8 @@ a {
 @import "general/icons";
 @import "general/scrollbar";
 @import "general/navDesktop";
+@import "general/main-desktop";
+@import "general/sidebar";
 //calendar
 @import "calendar/fullCalendar";
 @import "calendar/calendarDay";
@@ -32,6 +34,7 @@ a {
 @import "add-pill/add-pill";
 //login
 @import "login/login";
-@import "main-desktop";
 //profile
 @import "profile/profile";
+//patients
+@import "patients/patients";

@@ -1,6 +1,4 @@
 app-calendar {
-  background: white;
-  z-index: 1;
   .fc {
     padding: 1em;
     margin: auto;
@@ -8,7 +6,7 @@ app-calendar {
     width: 320px;
     background: white;
     height: 380px;
-    box-shadow: $subtle-shadow;
+    border: $subtle-border;
 
     table {
       border-collapse: separate;
@@ -129,10 +127,4 @@ app-calendar {
 
 .fc-basic-view .fc-body .fc-row {
   min-height: 2em;
-}
-
-@media (min-width: 850px) {
-  app-calendar {
-    display: block;
-  }
 }

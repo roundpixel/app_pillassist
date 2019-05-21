@@ -1,26 +1,5 @@
-<ng-container *ngIf="!isAddPillVisible">
-
-  <header class="header-app">
-    <div>
-      <ng-container *responsive="{sizes:{max:850}}">
-        <h1>
-          Maandoverzicht
-        </h1>
-        <h2>{{ date | date: 'fullDate' }}</h2>
-      </ng-container>
-      <ng-container *responsive="{sizes:{min:850}}">
-        <h1>{{patient.firstName}} {{patient.lastName}}</h1>
-      </ng-container>
-    </div>
-    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient.firstName}}"
-      src="assets/img/{{patient.url}}.png">
-    </ngx-avatar>
-  </header>
-  <div class="header-bg">
-    <img src="assets/img/bollen.png" alt="" />
-  </div>
-
+<div class="main-content__card">
+  <h1 class="center">Selecteer een dag <span class="title-blue">voor een overzicht</span></h1>
   <p-fullCalendar class="calendar" [events]="events" [options]="options" #fc>
   </p-fullCalendar>
-
-</ng-container>
+</div>

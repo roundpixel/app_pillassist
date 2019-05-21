@@ -20,22 +20,7 @@ export class NavDesktopComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.patients = [
-      {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john_doe@gmail.com',
-        tel: '04829102',
-        url: 'john-doe'
-      },
-      {
-        firstName: 'Yvette',
-        lastName: 'Van Lankveld',
-        email: '',
-        tel: '015584685',
-        url: 'yvette-van-lankveld'
-      }
-    ];
+    this.patients = this.patientService.patients;
 
     this.route.children[0].params.subscribe(params => {
       this.patients.forEach(patient => {

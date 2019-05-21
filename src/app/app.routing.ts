@@ -3,8 +3,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
 import { PageNotFoundComponent } from './general/page-not-found.component';
-import { PatientComponent } from './patient/patient.component';
 import { PatientProfileComponent } from './profile/patient-profile.component';
+import { PatientsComponent } from './patient/patients.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'patients',
     canActivate: [AuthGuard],
-    component: PatientComponent
+    component: PatientsComponent
   },
   {
     path: 'patient/:firstName/:lastName',

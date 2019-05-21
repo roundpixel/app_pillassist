@@ -4,6 +4,15 @@ main {
   background: $light-grey;
   min-height: 100vh;
 
+  h1 {
+    padding: 0 0 0.5em;
+    color: $charcoal-grey;
+    font-weight: 500;
+    &.center {
+      text-align: center;
+    }
+  }
+
   .main-content {
     &__card {
       border-radius: 1em;
@@ -11,15 +20,6 @@ main {
       position: relative;
       &__body {
         padding: 1em 1.6em;
-      }
-      h1 {
-        padding: 1em 1em 0;
-        color: $charcoal-grey;
-        font-weight: 500;
-      }
-
-      h2 {
-        color: $light-blue;
       }
     }
 
@@ -38,7 +38,7 @@ main {
     display: grid;
     grid-template-columns: 5em 5fr;
 
-    app-calendar,
+    app-sidebar,
     app-add-pill {
       grid-column: 2;
       padding: 0 1em;

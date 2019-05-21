@@ -77,6 +77,33 @@ header {
 }
 
 @media (min-width: 850px) {
+  app-header-top {
+    .header {
+      background: #f4f7fc;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      img {
+        width: 50%;
+      }
+
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          width: 75px;
+        }
+
+        h1 {
+          font-size: 35px;
+        }
+      }
+    }
+  }
   .header-app,
   .add-pill header {
     margin-bottom: 5vh !important;
@@ -115,12 +142,9 @@ header {
     text-decoration: none;
     h1 {
       padding-left: 0.5em;
-      color: $light-blue;
       font-size: 36px;
       height: 0;
-      span {
-        font-size: 36px;
-      }
+      color: $main-blue;
     }
   }
 }

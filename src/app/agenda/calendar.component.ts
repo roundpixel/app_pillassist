@@ -1,15 +1,6 @@
 import * as $ from 'jquery';
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChange,
-  SimpleChanges,
-  ViewChild
-  } from '@angular/core';
-import { DateService } from './../services/date.service';
-import { Patient } from '../shared/patient.model';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DateService } from '../services/date.service';
 
 @Component({
   selector: 'app-calendar',
@@ -20,13 +11,10 @@ export class CalendarComponent implements OnInit {
   public events: any[];
   public options: any;
   public currentMonthView: number;
-  public isAddPillVisible: boolean;
-
-  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void } };
-  @Input() patient: Patient;
-  public _patient: Patient;
 
   public date = new Date();
+
+  @ViewChild('fc') fc: { calendar: { prev: () => void; next: () => void } };
 
   constructor(private dateService: DateService) {}
 

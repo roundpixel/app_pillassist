@@ -8,6 +8,23 @@ export class PatientService {
   private patientSource = new BehaviorSubject(new Patient());
   currentPatient = this.patientSource.asObservable();
 
+  public patients = [
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john_doe@gmail.com',
+      tel: '04829102',
+      url: 'john-doe'
+    },
+    {
+      firstName: 'Yvette',
+      lastName: 'Van Lankveld',
+      email: '',
+      tel: '015584685',
+      url: 'yvette-van-lankveld'
+    }
+  ];
+
   constructor() {}
 
   changePatient(patient: Patient) {

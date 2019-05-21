@@ -1,21 +1,14 @@
-<header class="header-start">
+<div class="welcome">
   <app-header-top></app-header-top>
-  <h2>
-    <ng-container>
-      Welkom bij PillAssist
-    </ng-container>
-    <ng-container *ngIf="isLoading">
-      Aan het registreren...
-    </ng-container>
-  </h2>
-  <p>
-    Maak hier uw account aan en voorkom verkeerd gebruik van medicatie.
-    {{error}}
-  </p>
-</header>
 
-<ng-container>
   <form #f="ngForm" (ngSubmit)="createCaregiver(f)">
+    <h2>
+      Welkom bij PillAssist
+    </h2>
+    <p>
+      Maak hier uw account aan en voorkom verkeerd gebruik van medicatie.
+      {{error}}
+    </p>
     <div class="input-group">
       <label for="firstName" class="appear">Voornaam</label>
       <input type="text" placeholder="Voornaam" name="firstName" ngModel />
@@ -48,4 +41,5 @@
       </p>
     </div>
   </form>
-</ng-container>
+
+</div>

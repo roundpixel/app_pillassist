@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="22px" viewBox="0 0 20 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
-    <title>edit-3</title>
+    <title>edit-2</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="feather-icon" transform="translate(-32.000000, -320.000000)" stroke-width="2" stroke="#000000">
-            <g id="edit-3" transform="translate(33.000000, 321.000000)">
-                <polygon id="Shape" points="11 0 15 4 4 15 0 15 0 11"></polygon>
-                <path d="M0,20 L18,20" id="Shape"></path>
+        <g id="feather-icon" transform="translate(-1343.000000, -248.000000)" stroke-width="2" stroke="#FFFFFF">
+            <g id="edit-2" transform="translate(1344.000000, 249.000000)">
+                <polygon id="Shape" points="13 0 18 5 5 18 0 18 0 13"></polygon>
             </g>
         </g>
     </g>

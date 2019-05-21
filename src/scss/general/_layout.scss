@@ -10,6 +10,14 @@
   }
 }
 
+.col-3 {
+  @media (min-width: 1000px) {
+    display: grid;
+    grid-template-columns: repeat(3, 341px);
+    grid-gap: 0 2em;
+  }
+}
+
 .indented-lg {
   display: flex;
   .indentation {

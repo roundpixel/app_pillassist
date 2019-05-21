@@ -1,5 +1,5 @@
 .card {
-  box-shadow: $subtle-shadow;
+  border: $subtle-border;
   border-radius: 1em;
   padding: 1em 1.5em;
   margin-bottom: 2em;
@@ -43,6 +43,13 @@
   &__check {
     width: 25px;
   }
+
+  &-patient {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .ui-overlaypanel {
@@ -50,12 +57,12 @@
   box-shadow: none;
   &-content {
     border-radius: 1em;
-    box-shadow: $subtle-shadow-small;
+    border: $subtle-border;
     padding: 0;
     .edit,
     .delete {
       padding: 0.5em 1em;
-      background: white;
+      cursor: pointer;
     }
 
     .edit {

@@ -1,45 +1,45 @@
-<header class="header-start">
+<div class="welcome">
   <app-header-top></app-header-top>
-  <h2>
-    <ng-container *ngIf="!authService.isLoggedIn() && !loginError">
-      Fijn dat u terug bent.
-    </ng-container>
-    {{loginError}}
-  </h2>
-  <p *ngIf="!authService.isLoggedIn()">
-    Log in met uw account en vergeet nooit meer uw medicatie in te nemen.
-  </p>
-</header>
 
-<ng-container *ngIf="!authService.isLoggedIn()">
-  <form #f="ngForm" (ngSubmit)="login(f)">
-    <div class="input-group">
-      <label *ngIf="showEmailLabel" for="email" class="appear">E-mailadres</label>
-      <input type="text" placeholder="E-mailadres" name="email" (keyup)="checkInput(email.value, 'email')" #email
-        ngModel />
-    </div>
-
-    <div class="input-group">
-      <label *ngIf="showPasswordLabel" for="password" class="appear">Wachtwoord</label>
-      <input type="password" placeholder="Wachtwoord" name="password" (keyup)="checkInput(password.value, 'password')"
-        #password ngModel />
-    </div>
-
-    <a class="small-link" href="/">Wachtwoord vergeten?</a>
-
-    <div class="login-height"></div>
-
-    <div class="actions">
-      <button class="btn btn-blue btn-main" type="submit">
-        <span>Log in</span>
-        <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon">
-      </button>
-      <p class="smaller-link">
-        Heb je nog geen account? Maak <a href="/register">hier</a> een
-        account aan.
+  <ng-container *ngIf="!authService.isLoggedIn()">
+    <form #f="ngForm" (ngSubmit)="login(f)">
+      <h2>
+        <ng-container *ngIf="!authService.isLoggedIn() && !loginError">
+          Fijn dat u terug bent.
+        </ng-container>
+        {{loginError}}
+      </h2>
+      <p *ngIf="!authService.isLoggedIn()">
+        Log in met uw account en vergeet nooit meer uw medicatie in te nemen.
       </p>
-    </div>
-  </form>
+      <div class="input-group">
+        <label *ngIf="showEmailLabel" for="email" class="appear">E-mailadres</label>
+        <input type="text" placeholder="E-mailadres" name="email" (keyup)="checkInput(email.value, 'email')" #email
+          ngModel />
+      </div>
+
+      <div class="input-group">
+        <label *ngIf="showPasswordLabel" for="password" class="appear">Wachtwoord</label>
+        <input type="password" placeholder="Wachtwoord" name="password" (keyup)="checkInput(password.value, 'password')"
+          #password ngModel />
+      </div>
+
+      <a class="small-link" href="/">Wachtwoord vergeten?</a>
+
+      <div class="login-height"></div>
+
+      <div class="actions">
+        <button class="btn btn-blue btn-main" type="submit">
+          <span>Log in</span>
+          <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon">
+        </button>
+        <p class="smaller-link">
+          Heb je nog geen account? Maak <a class="small-link" href="/register">hier</a> een
+          account aan.
+        </p>
+      </div>
+    </form>
 
 
-</ng-container>
+  </ng-container>
+</div>
