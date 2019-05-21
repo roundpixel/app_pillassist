@@ -14,7 +14,8 @@
 </ng-container>
 
 <div>
-  <a class="btn btn-blue btn-plus" *ngIf="!isAddPillVisible"
-    (click)="isAddPillVisible = true; isCalendarVisible = false"><img class="icon" src="assets/img/icons/plus-white.svg"
-      alt=""></a>
+  <a class="btn btn-plus" (click)="isAddPillVisible = true; isCalendarVisible = false">
+    <div class="btn-blue"><img class="icon" src="assets/img/icons/plus-white.svg" alt=""></div><span>Medicatie
+      toevoegen</span>
+  </a>
 </div>

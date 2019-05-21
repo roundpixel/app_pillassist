@@ -1,13 +1,17 @@
 .week-overview {
   &__content {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     .legend {
       ul {
-        padding: 0.8em 0 0;
+        display: flex;
+        justify-content: space-around;
         li {
           list-style-type: none;
           display: flex;
-          margin-bottom: 1em;
+          flex-direction: column;
+          margin-right: 1em;
 
           &:first-child {
             .legend__number {
@@ -33,20 +37,21 @@
         margin-right: 1em;
         padding: 5px;
         transform: translateY(-5px);
-        box-shadow: $subtle-shadow;
+        border: $subtle-border;
       }
     }
 
     .chart {
       padding: 1em 2em;
       canvas {
-        width: 100px;
-        height: 100px;
+        width: 200px !important;
+        height: 200px !important;
+        margin: 0 auto;
       }
 
       .chart-img {
         position: absolute;
-        transform: translate(13px, -88px);
+        transform: translate(56px, -180px);
       }
     }
   }

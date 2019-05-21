@@ -6,7 +6,7 @@ app-calendar {
     width: 320px;
     background: white;
     height: 380px;
-    box-shadow: $subtle-shadow;
+    border: $subtle-border;
 
     table {
       border-collapse: separate;

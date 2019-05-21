@@ -1,5 +1,5 @@
 .card {
-  box-shadow: $subtle-shadow;
+  border: $subtle-border;
   border-radius: 1em;
   padding: 1em 1.5em;
   margin-bottom: 2em;
@@ -50,7 +50,7 @@
   box-shadow: none;
   &-content {
     border-radius: 1em;
-    box-shadow: $subtle-shadow-small;
+    border: $subtle-shadow-small;
     padding: 0;
     .edit,
     .delete {

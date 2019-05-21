@@ -115,12 +115,9 @@ header {
     text-decoration: none;
     h1 {
       padding-left: 0.5em;
-      color: $light-blue;
       font-size: 36px;
       height: 0;
-      span {
-        font-size: 36px;
-      }
+      color: $main-blue;
     }
   }
 }

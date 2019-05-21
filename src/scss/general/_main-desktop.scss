@@ -13,13 +13,12 @@ main {
         padding: 1em 1.6em;
       }
       h1 {
-        padding: 1em 1em 0;
+        padding: 0 0 0.5em;
         color: $charcoal-grey;
         font-weight: 500;
-      }
-
-      h2 {
-        color: $light-blue;
+        &.center {
+          text-align: center;
+        }
       }
     }
 
