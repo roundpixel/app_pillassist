@@ -43,6 +43,13 @@
   &__check {
     width: 25px;
   }
+
+  &-patient {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .ui-overlaypanel {

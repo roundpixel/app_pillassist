@@ -20,8 +20,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './general/page-not-found.component';
-import { PatientModule } from './patient/patient.module';
 import { PatientService } from './services/patient.service';
+import { PatientsModule } from './patient/patients.module';
 import { ProfileModule } from './profile/profile.module';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RegisterComponent } from './auth/register/register.component';
@@ -54,7 +54,7 @@ import { SidebarComponent } from './general/sidebar.component';
     CheckboxModule,
     NavModule,
     BrowserModule,
-    PatientModule,
+    PatientsModule,
     routing,
     ResponsiveModule.forRoot(),
     AvatarModule,
