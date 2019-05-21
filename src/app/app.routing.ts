@@ -12,28 +12,23 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
     redirectTo: '/patients',
     pathMatch: 'full'
   },
   {
     path: 'patients',
-    canActivate: [AuthGuard],
     component: PatientsComponent
   },
   {
     path: 'patient/:firstName/:lastName',
-    canActivate: [AuthGuard],
     component: MainComponent
   },
   {
     path: 'profile',
-    canActivate: [AuthGuard],
     component: ProfileComponent
   },
   {
     path: 'profile/:firstName/:lastName',
-    canActivate: [AuthGuard],
     component: PatientProfileComponent
   },
   {

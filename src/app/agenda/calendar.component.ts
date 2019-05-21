@@ -30,19 +30,19 @@ export class CalendarComponent implements OnInit {
       columnHeaderText: date => {
         switch (date.getDay()) {
           case 0:
-            return 'Ma';
-          case 1:
-            return 'Di';
-          case 2:
-            return 'Wo';
-          case 3:
-            return 'Do';
-          case 4:
-            return 'Vr';
-          case 5:
-            return 'Za';
-          case 6:
             return 'Zo';
+          case 1:
+            return 'Ma';
+          case 2:
+            return 'Di';
+          case 3:
+            return 'Wo';
+          case 4:
+            return 'Do';
+          case 5:
+            return 'Vr';
+          case 6:
+            return 'Za';
         }
       },
       dateClick: info => {

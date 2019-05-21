@@ -22,6 +22,27 @@ export class PatientService {
       email: '',
       tel: '015584685',
       url: 'yvette-van-lankveld'
+    },
+    {
+      firstName: 'Jef',
+      lastName: 'Janssens',
+      email: 'jef_janssens@hotmail.com',
+      tel: '04829102',
+      url: 'jef'
+    },
+    {
+      firstName: 'Yvonne',
+      lastName: 'Segers',
+      email: 'yvonneke@hotmail.com',
+      tel: '04829102',
+      url: 'yvonne'
+    },
+    {
+      firstName: 'Paul',
+      lastName: 'Van Espen',
+      email: 'paul_vanespen@outlook.com',
+      tel: '04829102',
+      url: 'paul-van-espen'
     }
   ];
 

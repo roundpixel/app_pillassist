@@ -29,14 +29,38 @@ export class CalendarDayComponent implements OnInit {
   }
 
   public getPills() {
-    const date1 = new Date(2019, 4, 16, 10, 33, 30, 0);
-    const date2 = new Date(2019, 4, 16, 8, 33, 30, 0);
+    const date1 = new Date(2019, 4, 22, 10, 33, 30, 0);
+    const date2 = new Date(2019, 4, 22, 8, 33, 30, 0);
     this.pills = [
       {
         name: 'azilect',
         dose: '1',
         date: date1,
         time: date1.getHours() + ':' + date1.getMinutes(),
+        description: 'neem doosje 2',
+        display: false
+      },
+      {
+        name: 'azilect',
+        dose: '1',
+        date: date2,
+        time: date2.getHours() + ':' + date2.getMinutes(),
+        description: 'neem doosje 2',
+        display: false
+      },
+      {
+        name: 'azilect',
+        dose: '1',
+        date: date2,
+        time: date2.getHours() + ':' + date2.getMinutes(),
+        description: 'neem doosje 2',
+        display: false
+      },
+      {
+        name: 'azilect',
+        dose: '1',
+        date: date2,
+        time: date2.getHours() + ':' + date2.getMinutes(),
         description: 'neem doosje 2',
         display: false
       },
