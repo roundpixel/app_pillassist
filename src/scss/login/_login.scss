@@ -1,11 +1,16 @@
-app-login {
+app-login,
+app-register {
   grid-column: 1 / 3;
   form {
     max-width: 350px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .small-link {
-      margin: 0 0.5em;
+      font-weight: 600;
+      color: $main-blue;
     }
   }
 
@@ -16,5 +21,19 @@ app-login {
   .register-link {
     margin-top: 1em;
     text-align: center;
+  }
+}
+
+@media (min-width: 850px) {
+  .welcome {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+  }
+  app-login,
+  app-register {
+    .login-height {
+      height: 10vh;
+    }
   }
 }
