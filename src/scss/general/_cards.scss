@@ -50,12 +50,12 @@
   box-shadow: none;
   &-content {
     border-radius: 1em;
-    border: $subtle-shadow-small;
+    border: $subtle-border;
     padding: 0;
     .edit,
     .delete {
       padding: 0.5em 1em;
-      background: white;
+      cursor: pointer;
     }
 
     .edit {
