@@ -24,6 +24,11 @@ export class CaregiverService {
       );
   }
 
+  getCurrentCaregiverId() {
+    const currentCaregiver = JSON.parse(localStorage.getItem('currentUser'));
+    return currentCaregiver.id;
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.log(error);
 

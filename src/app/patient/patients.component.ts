@@ -13,6 +13,6 @@ export class PatientsComponent implements OnInit {
   constructor(private patientService: PatientService) {}
 
   ngOnInit() {
-    this.patients = this.patientService.patients;
+    this.patientService.getAll().subscribe(res => (this.patients = res));
   }
 }

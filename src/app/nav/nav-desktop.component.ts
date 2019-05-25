@@ -1,5 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { CaregiverService } from './../services/caregiver.service';
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
@@ -9,7 +10,7 @@ import { PatientService } from './../services/patient.service';
   templateUrl: './nav-desktop.component.html'
 })
 export class NavDesktopComponent implements OnInit {
-  public patients: Patient[];
+  public patients: any;
   public patientName: string;
 
   constructor(
@@ -20,13 +21,14 @@ export class NavDesktopComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.patients = this.patientService.patients;
-
-    this.route.children[0].params.subscribe(params => {
-      this.patients.forEach(patient => {
-        if (patient.firstName === params.firstName) {
-          this.changePatient(patient);
-        }
+    this.patientService.getAll().subscribe(res => {
+      this.patients = res;
+      this.route.children[0].params.subscribe(params => {
+        this.patients.forEach(patient => {
+          if (patient.firstName === params.firstName) {
+            this.changePatient(patient);
+          }
+        });
       });
     });
   }
