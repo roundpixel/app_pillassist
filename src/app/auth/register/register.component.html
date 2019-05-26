@@ -1,35 +1,71 @@
 <div class="welcome">
   <app-header-top></app-header-top>
 
-  <form #f="ngForm" (ngSubmit)="createCaregiver(f)">
+  <form [formGroup]="registerForm" (ngSubmit)="createCaregiver(registerForm.value)">
     <h2>
       Welkom bij PillAssist
     </h2>
     <p>
       Maak hier uw account aan en voorkom verkeerd gebruik van medicatie.
-      {{error}}
     </p>
+    <span class="alert alert-error" *ngIf="error">{{error}}</span>
     <div class="input-group">
-      <label for="firstName" class="appear">Voornaam</label>
-      <input type="text" placeholder="Voornaam" name="firstName" ngModel />
+      <input type="text" placeholder="Voornaam" name="firstName" formControlName="firstName" required id="firstName"
+        [ngClass]="{'ng-filled': firstName.value }" />
+      <label for="firstName" class="appear">Voornaam
+      </label>
+
     </div>
 
+    <ng-container *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <span class="alert alert-input">
+        Gelieve uw voornaam in te vullen.
+      </span>
+    </ng-container>
+
     <div class="input-group">
+      <input type="text" placeholder="Achternaam" name="lastName" formControlName="lastName" required id="lastName"
+        [ngClass]="{'ng-filled': lastName.value }" />
       <label for="lastName" class="appear">Achternaam</label>
-      <input type="text" placeholder="Achternaam" name="lastName" ngModel />
     </div>
 
+    <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+      <span class="alert alert-input">
+        Gelieve uw achternaam in te vullen.
+      </span>
+    </ng-container>
+
     <div class="input-group">
+      <input type="text" placeholder="E-mailadres" name="email" formControlName="email" required id="email"
+        [ngClass]="{'ng-filled': email.value }" />
       <label for="email" class="appear">E-mailadres</label>
-      <input type="text" placeholder="E-mailadres" name="email" ngModel />
     </div>
+
+    <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+      <span class="alert alert-input">
+        Gelieve een geldig emailadres in te vullen.
+      </span>
+    </ng-container>
 
     <div class="input-group">
+      <input type="password" placeholder="Wachtwoord" name="password" formControlName="password" required id="password"
+        [ngClass]="{'ng-filled': password.value }" />
       <label for="password" class="appear">Wachtwoord</label>
-      <input type="password" placeholder="Wachtwoord" name="password" ngModel />
+
     </div>
 
-    <div class="login-height"></div>
+    <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+      <ng-container *ngIf="password.errors.minlength">
+        <span class="alert alert-input">
+          Uw paswoord moet meer dan 8 tekens bevatten.
+        </span>
+      </ng-container>
+      <ng-container *ngIf="!password.errors.minlength">
+        <span class="alert alert-input">
+          Gelieve een paswoord in te vullen.
+        </span>
+      </ng-container>
+    </ng-container>
 
     <div class="actions">
       <button class="btn btn-blue btn-main" type="submit">

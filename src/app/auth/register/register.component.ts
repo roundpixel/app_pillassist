@@ -2,7 +2,13 @@ import { AuthService } from './../auth.service';
 import { Caregiver } from './../../shared/caregiver.model';
 import { CaregiverService } from './../../services/caregiver.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators
+  } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,25 +19,49 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   caregiver = new Caregiver('', '', '', '', '');
   error: string;
+  registerForm: FormGroup;
 
   constructor(
     private caregiverService: CaregiverService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    });
+  }
 
-  createCaregiver(form: NgForm) {
+  get firstName() {
+    return this.registerForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.registerForm.get('lastName');
+  }
+
+  get email() {
+    return this.registerForm.get('email');
+  }
+
+  get password() {
+    return this.registerForm.get('password');
+  }
+
+  createCaregiver(form) {
     this.caregiver = {
-      firstName: form.value.firstName,
-      lastName: form.value.lastName,
-      email: form.value.email,
-      password: form.value.password
+      firstName: form.firstName,
+      lastName: form.lastName,
+      email: form.email,
+      password: form.password
     };
     this.caregiverService.create(this.caregiver).subscribe(
       (res: Caregiver[]) => {
-        console.log(res);
         this.authService
           .login(this.caregiver['email'], this.caregiver['password'])
           .subscribe(
@@ -49,7 +79,7 @@ export class RegisterComponent implements OnInit {
             },
             error => console.log(error)
           );
-        form.reset();
+        this.registerForm.reset();
       },
       err => ((this.error = err), console.log(err))
     );

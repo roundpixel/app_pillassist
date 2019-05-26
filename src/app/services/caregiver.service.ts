@@ -30,9 +30,17 @@ export class CaregiverService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.log(error);
-
     // return an observable with a user friendly message
-    return throwError('Error! something went wrong.');
+    if (error.status === 409) {
+      return throwError(
+        'Oeps, het lijkt er op dat er al een account bestaat met dit emailadres. Probeer het opnieuw.'
+      );
+    } else if (error.status === 400) {
+      return throwError(
+        'Oeps, het lijkt er op dat u niet alle vereiste gegevens heeft ingevuld. Probeer het opnieuw.'
+      );
+    } else {
+      return throwError('Oeps, er ging iets mis. Probeer het opnieuw.');
+    }
   }
 }
