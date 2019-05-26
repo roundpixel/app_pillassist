@@ -33,7 +33,8 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
+      passwordConfirm: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -51,6 +52,10 @@ export class RegisterComponent implements OnInit {
 
   get password() {
     return this.registerForm.get('password');
+  }
+
+  get passwordConfirm() {
+    return this.registerForm.get('passwordConfirm');
   }
 
   createCaregiver(form) {

@@ -51,7 +51,6 @@
       <input type="password" placeholder="Wachtwoord" name="password" formControlName="password" required id="password"
         [ngClass]="{'ng-filled': password.value }" />
       <label for="password" class="appear">Wachtwoord</label>
-
     </div>
 
     <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
@@ -61,6 +60,32 @@
         </span>
       </ng-container>
       <ng-container *ngIf="!password.errors.minlength">
+        <span class="alert alert-input">
+          Gelieve een paswoord in te vullen.
+        </span>
+      </ng-container>
+    </ng-container>
+
+    <div class="input-group">
+      <input type="password" placeholder="Wachtwoord bevestigen" name="passwordConfirm"
+        formControlName="passwordConfirm" required id="passwordConfirm"
+        [ngClass]="{'ng-filled': passwordConfirm.value }" pattern="{{password.value}}" />
+      <label for="passwordConfirm" class="appear">Wachtwoord bevestigen</label>
+    </div>
+
+    <ng-container
+      *ngIf="(passwordConfirm.invalid || password.errors.pattern) && (passwordConfirm.dirty || passwordConfirm.touched)">
+      <ng-container *ngIf="passwordConfirm.errors.pattern">
+        <span class="alert alert-input">
+          Uw paswoorden moeten overeenkomen.
+        </span>
+      </ng-container>
+      <ng-container *ngIf="passwordConfirm.errors.minlength">
+        <span class="alert alert-input">
+          Uw paswoord moet meer dan 8 tekens bevatten.
+        </span>
+      </ng-container>
+      <ng-container *ngIf="!passwordConfirm.errors.minlength && !passwordConfirm.errors.pattern">
         <span class="alert alert-input">
           Gelieve een paswoord in te vullen.
         </span>
