@@ -69,12 +69,11 @@
     <div class="input-group">
       <input type="password" placeholder="Wachtwoord bevestigen" name="passwordConfirm"
         formControlName="passwordConfirm" required id="passwordConfirm"
-        [ngClass]="{'ng-filled': passwordConfirm.value }" pattern="{{password.value}}" />
+        [ngClass]="{'ng-filled': passwordConfirm.value }" pattern="{{password.value ? password.value : ''}}" />
       <label for="passwordConfirm" class="appear">Wachtwoord bevestigen</label>
     </div>
 
-    <ng-container
-      *ngIf="(passwordConfirm.invalid || password.errors.pattern) && (passwordConfirm.dirty || passwordConfirm.touched)">
+    <ng-container *ngIf="passwordConfirm.invalid && (passwordConfirm.dirty || passwordConfirm.touched)">
       <ng-container *ngIf="passwordConfirm.errors.pattern">
         <span class="alert alert-input">
           Uw paswoorden moeten overeenkomen.
