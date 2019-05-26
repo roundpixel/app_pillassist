@@ -5,8 +5,13 @@
     <h2>
       Welkom bij PillAssist
     </h2>
-    <p>
-      Maak hier uw account aan en voorkom verkeerd gebruik van medicatie.
+    <p class="appear">
+      <ng-container *ngIf="!isLoading">
+        Maak hier uw account aan en voorkom verkeerd gebruik van medicatie.
+      </ng-container>
+      <ng-container *ngIf="isLoading">
+        Proberen uw profiel aan te maken...
+      </ng-container>
     </p>
     <span class="alert alert-error" *ngIf="error">{{error}}</span>
     <div class="input-group">

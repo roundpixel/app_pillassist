@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   caregiver = new Caregiver('', '', '', '', '');
   error: string;
   registerForm: FormGroup;
+  public isLoading = false;
 
   constructor(
     private caregiverService: CaregiverService,
@@ -60,6 +61,7 @@ export class RegisterComponent implements OnInit {
 
   createCaregiver(form) {
     if (!this.passwordConfirm.errors) {
+      this.isLoading = true;
       this.caregiver = {
         firstName: form.firstName,
         lastName: form.lastName,
@@ -88,7 +90,7 @@ export class RegisterComponent implements OnInit {
           this.error = '';
           this.registerForm.reset();
         },
-        err => ((this.error = err), console.log(err))
+        err => ((this.error = err), (this.isLoading = false))
       );
     } else {
       if (this.passwordConfirm.errors.pattern) {
