@@ -29,6 +29,11 @@ export class CaregiverService {
     return currentCaregiver.id;
   }
 
+  getCurrentCaregiver() {
+    const currentCaregiver = JSON.parse(localStorage.getItem('currentUser'));
+    return currentCaregiver;
+  }
+
   private handleError(error: HttpErrorResponse) {
     // return an observable with a user friendly message
     if (error.status === 409) {

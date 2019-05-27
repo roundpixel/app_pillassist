@@ -1,3 +1,4 @@
+import { CaregiverService } from './../services/caregiver.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,13 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
   public caregiver: any;
 
-  constructor() {}
+  constructor(private caregiverService: CaregiverService) {}
 
   ngOnInit() {
-    this.caregiver = {
-      firstName: 'Louis',
-      lastName: 'Bracke',
-      url: 'louis-bracke'
-    };
+    this.caregiver = this.caregiverService.getCurrentCaregiver();
   }
 }
