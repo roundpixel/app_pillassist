@@ -14,12 +14,12 @@
       </ng-container>
     </p>
     <span class="alert alert-error" *ngIf="error">{{error}}</span>
-    <div class="input-group">
+
+    <div class="input-group input-group--register">
       <input type="text" placeholder="Voornaam" name="firstName" formControlName="firstName" required id="firstName"
         [ngClass]="{'ng-filled': firstName.value }" />
       <label for="firstName" class="appear">Voornaam
       </label>
-
     </div>
 
     <ng-container *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
@@ -28,7 +28,7 @@
       </span>
     </ng-container>
 
-    <div class="input-group">
+    <div class="input-group input-group--register">
       <input type="text" placeholder="Achternaam" name="lastName" formControlName="lastName" required id="lastName"
         [ngClass]="{'ng-filled': lastName.value }" />
       <label for="lastName" class="appear">Achternaam</label>
@@ -40,7 +40,7 @@
       </span>
     </ng-container>
 
-    <div class="input-group">
+    <div class="input-group input-group--register">
       <input type="text" placeholder="E-mailadres" name="email" formControlName="email" required id="email"
         [ngClass]="{'ng-filled': email.value }" />
       <label for="email" class="appear">E-mailadres</label>
@@ -52,7 +52,7 @@
       </span>
     </ng-container>
 
-    <div class="input-group">
+    <div class="input-group input-group--register">
       <input type="password" placeholder="Wachtwoord" name="password" formControlName="password" required id="password"
         [ngClass]="{'ng-filled': password.value }" />
       <label for="password" class="appear">Wachtwoord</label>

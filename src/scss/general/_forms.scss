@@ -3,12 +3,25 @@ form {
 
   .input-group {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 0 0.5em 1em 0.5em;
 
     &--dark {
       input {
         background-color: $light-grey;
+      }
+    }
+
+    &--register {
+      flex-direction: column-reverse;
+      input {
+        & + label {
+          display: none;
+        }
+
+        &.ng-filled + label {
+          display: block;
+        }
       }
     }
 
@@ -101,14 +114,6 @@ form {
 
       &.ng-invalid.ng-touched {
         border-bottom-color: $red-error;
-      }
-
-      & + label {
-        display: none;
-      }
-
-      &.ng-filled + label {
-        display: block;
       }
     }
 
