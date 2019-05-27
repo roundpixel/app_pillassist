@@ -11,7 +11,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
 import { DateService } from './services/date.service';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { HeaderTopComponent } from './general/header-top.component';
 import { httpInterceptorProviders } from './http-interceptors';
@@ -43,6 +43,7 @@ import { SidebarComponent } from './general/sidebar.component';
     CalendarComponent
   ],
   imports: [
+    ReactiveFormsModule,
     AgendaModule,
     FullCalendarModule,
     BrowserAnimationsModule,

@@ -3,7 +3,7 @@ form {
 
   .input-group {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 0 0.5em 1em 0.5em;
 
     &--dark {
@@ -97,6 +97,18 @@ form {
 
       &:focus {
         border-bottom: 2px solid $main-blue;
+      }
+
+      &.ng-invalid.ng-touched {
+        border-bottom-color: $red-error;
+      }
+
+      & + label {
+        display: none;
+      }
+
+      &.ng-filled + label {
+        display: block;
       }
     }
 
