@@ -3,18 +3,18 @@
   <div class="main-content__card__body">
     <div>
       <p class="label">Voornaam</p>
-      <p class="value">{{patient.firstName}}&nbsp;</p>
+      <p class="value">{{patient?.firstName}}&nbsp;</p>
       <p class="label">Achternaam</p>
-      <p class="value">{{patient.lastName}}&nbsp;</p>
+      <p class="value">{{patient?.lastName}}&nbsp;</p>
       <p class="label">Email</p>
-      <p class="value">{{patient.email}}&nbsp;</p>
+      <p class="value">{{patient?.email}}&nbsp;</p>
       <p class="label">Telefoonnummer</p>
-      <p class="value">{{patient.tel}}&nbsp;</p>
+      <p class="value">{{patient?.tel}}&nbsp;</p>
     </div>
   </div>
   <div class="flex">
     <a class="btn btn-grey"><img src="assets/img/icons/share.svg" alt=""></a>
-    <a class="btn btn-grey" [routerLink]="['/profile/', patient.firstName, patient.lastName]"><img
+    <a class="btn btn-grey" [routerLink]="['/profile/', patient?.firstName, patient?.lastName]"><img
         src="assets/img/icons/edit-3.svg" alt=""></a>
     <a class="btn btn-grey"><img src="assets/img/icons/trash-3.svg" alt=""></a>
   </div>

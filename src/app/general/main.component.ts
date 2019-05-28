@@ -22,6 +22,7 @@ export class MainComponent implements OnInit {
       .pipe(filter(patient => !isObjectEmpty(patient)))
       .subscribe(patient => {
         this.patient = {
+          id: patient.id,
           firstName: patient.firstName,
           lastName: patient.lastName,
           email: patient.email,

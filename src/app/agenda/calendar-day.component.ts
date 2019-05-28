@@ -17,7 +17,10 @@ export class CalendarDayComponent implements OnInit {
   public pills: Array<Pill> = new Array<Pill>();
   public _date: Date;
 
-  constructor(private dateService: DateService) {}
+  constructor(
+    private dateService: DateService,
+    private pillService: PillService
+  ) {}
 
   ngOnInit() {
     this.dateService.currentDate.subscribe(
@@ -29,26 +32,7 @@ export class CalendarDayComponent implements OnInit {
   }
 
   public getPills() {
-    const date1 = new Date(2019, 4, 16, 10, 33, 30, 0);
-    const date2 = new Date(2019, 4, 16, 8, 33, 30, 0);
-    this.pills = [
-      {
-        name: 'azilect',
-        dose: '1',
-        date: date1,
-        time: date1.getHours() + ':' + date1.getMinutes(),
-        description: 'neem doosje 2',
-        display: false
-      },
-      {
-        name: 'azilect',
-        dose: '1',
-        date: date2,
-        time: date2.getHours() + ':' + date2.getMinutes(),
-        description: 'neem doosje 2',
-        display: false
-      }
-    ];
+    this.pillService.getAll().subscribe(res => console.log(res));
   }
 
   public loadPills() {
@@ -60,18 +44,17 @@ export class CalendarDayComponent implements OnInit {
       this._date.getFullYear();
 
     this.pills.forEach(pill => {
-      const pillDate =
-        pill.date.getDate() +
-        '-' +
-        pill.date.getMonth() +
-        '-' +
-        pill.date.getFullYear();
-
-      if (dateClicked === pillDate) {
-        pill.display = true;
-      } else {
-        pill.display = false;
-      }
+      // const pillDate =
+      //   pill.date.getDate() +
+      //   '-' +
+      //   pill.date.getMonth() +
+      //   '-' +
+      //   pill.date.getFullYear();
+      // if (dateClicked === pillDate) {
+      //   pill.display = true;
+      // } else {
+      //   pill.display = false;
+      // }
     });
   }
 }

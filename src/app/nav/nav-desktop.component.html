@@ -18,7 +18,7 @@
       <a class="patient nav__link" *ngFor="let patient of patients"
         [routerLink]="['/patient/', patient.firstName, patient.lastName]" routerLinkActive="active"
         (click)="changePatient(patient)">
-        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}} src="assets/img/{{patient.url}}.png">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}}>
         </ngx-avatar>
         <span class="patient-avatar__name" *responsive="{sizes:{min:1200}}">
           {{patient.firstName}} {{patient.lastName}}

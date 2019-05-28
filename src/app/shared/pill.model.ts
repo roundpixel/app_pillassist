@@ -1,8 +1,30 @@
 export class Pill {
+  public id: number;
+  public patientId: number;
   public name: string;
-  public dose: string;
-  public date: Date;
+  public quantity: number;
   public time: string;
   public description: string;
+  public isTaken: boolean;
+  public isAllergic: boolean;
+  public isImportant: boolean;
+  public isEarlyMorning: boolean;
+  public isMorning: boolean;
+  public isMidday: boolean;
+  public isEvening: boolean;
+  public isNight: boolean;
+  public isDaily: boolean;
+  public isWeekly: boolean;
+  public isMonthly: boolean;
+  public isEveryEachDay: boolean;
+  public isEveryMonday: boolean;
+  public isEveryTuesday: boolean;
+  public isEveryWednesday: boolean;
+  public isEveryThursDay: boolean;
+  public isEveryFriday: boolean;
+  public isEverySaturday: boolean;
+  public isEverySunday: boolean;
+  public startDate: Date;
+  public endDate: Date;
   public display: boolean;
 }

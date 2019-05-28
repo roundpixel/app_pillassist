@@ -2,10 +2,9 @@
 
   <header class="header-app">
     <div>
-      <h1>{{patient.firstName}} {{patient.lastName}}</h1>
+      <h1>{{patient?.firstName}} {{patient?.lastName}}</h1>
     </div>
-    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient.firstName}}"
-      src="assets/img/{{patient.url}}.png">
+    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient?.firstName}}">
     </ngx-avatar>
   </header>
   <div class="header-bg">

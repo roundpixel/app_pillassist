@@ -3,10 +3,9 @@
   <div class="week-overview__content">
     <div class="chart">
       <p-chart id="chart" type="doughnut" [data]="data" [options]="options"></p-chart>
-      <ngx-avatar class="chart-img" size="160" bgColor="#84D1FB" name={{patient.firstName}}
-        src="assets/img/{{patient.url}}.png">
+      <ngx-avatar class="chart-img" size="160" bgColor="#84D1FB" name={{patient?.firstName}}>
       </ngx-avatar>
-      <h2>{{patient.firstName}} {{patient.lastName}}</h2>
+      <h2>{{patient?.firstName}} {{patient?.lastName}}</h2>
     </div>
     <div class="legend">
       <ul>

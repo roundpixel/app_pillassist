@@ -15,6 +15,7 @@ export class PatientProfileComponent implements OnInit {
   ngOnInit() {
     this.patientService.currentPatient.subscribe(patient => {
       this.patient = {
+        id: patient.id,
         firstName: patient.firstName,
         lastName: patient.lastName,
         email: patient.email,
