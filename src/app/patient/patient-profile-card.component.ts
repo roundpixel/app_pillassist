@@ -17,4 +17,8 @@ export class PatientProfileCardComponent implements OnInit {
   showEditingPatient() {
     this.isEditingPatient = true;
   }
+
+  close() {
+    this.isEditingPatient = false;
+  }
 }

@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <form class="profile__info">
+    <form class="profile__info" (ngSubmit)="edit(f)">
       <div class="col-2">
         <div class="input-group input-group--dark">
           <label for="firstName">Voornaam</label>
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <a class="btn btn-main"><span>Opslaan</span></a>
+      <button type="submit" class="btn btn-main"><span>Opslaan</span></button>
     </form>
   </div>
 </main>

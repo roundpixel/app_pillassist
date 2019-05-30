@@ -20,6 +20,6 @@
 </div>
 
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isEditingPatient' modal="true" [style]="{width: '75vw'}">
-  <app-patient-profile [patient]=" patient">
+  <app-patient-profile (closeEvent)="close()" [patient]=" patient">
   </app-patient-profile>
 </p-dialog>

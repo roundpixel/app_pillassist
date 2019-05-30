@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+  } from '@angular/core';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
 
@@ -9,6 +15,7 @@ import { PatientService } from './../services/patient.service';
 })
 export class PatientProfileComponent implements OnInit {
   @Input() patient: Patient;
+  @Output() closeEvent = new EventEmitter<boolean>();
 
   constructor(private patientService: PatientService) {}
 
@@ -23,5 +30,9 @@ export class PatientProfileComponent implements OnInit {
         url: patient.url
       };
     });
+  }
+
+  edit(form) {
+    this.closeEvent.emit(true);
   }
 }
