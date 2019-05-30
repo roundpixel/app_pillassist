@@ -8,8 +8,17 @@ import { Patient } from '../shared/patient.model';
 })
 export class PatientProfileCardComponent implements OnInit {
   @Input() patient: Patient;
+  isEditingPatient = false;
 
   constructor() {}
 
   ngOnInit() {}
+
+  showEditingPatient() {
+    this.isEditingPatient = true;
+  }
+
+  close() {
+    this.isEditingPatient = false;
+  }
 }

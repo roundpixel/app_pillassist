@@ -14,8 +14,12 @@
   </div>
   <div class="flex">
     <a class="btn btn-grey"><img src="assets/img/icons/share.svg" alt=""></a>
-    <a class="btn btn-grey" [routerLink]="['/profile/', patient?.firstName, patient?.lastName]"><img
-        src="assets/img/icons/edit-3.svg" alt=""></a>
+    <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
     <a class="btn btn-grey"><img src="assets/img/icons/trash-3.svg" alt=""></a>
   </div>
 </div>
+
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isEditingPatient' modal="true" [style]="{width: '75vw'}">
+  <app-patient-profile (closeEvent)="close()" [patient]=" patient">
+  </app-patient-profile>
+</p-dialog>
