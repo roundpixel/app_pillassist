@@ -8,6 +8,10 @@ app-calendar {
     height: 380px;
     border: $subtle-border;
 
+    &-view {
+      z-index: 0;
+    }
+
     table {
       border-collapse: separate;
     }

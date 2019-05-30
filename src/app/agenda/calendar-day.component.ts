@@ -32,7 +32,7 @@ export class CalendarDayComponent implements OnInit {
   }
 
   public getPills() {
-    this.pillService.getAll().subscribe(res => console.log(res));
+    //this.pillService.getAll().subscribe(res => console.log(res));
   }
 
   public loadPills() {

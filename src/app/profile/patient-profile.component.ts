@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
 
@@ -8,7 +8,7 @@ import { PatientService } from './../services/patient.service';
   styles: []
 })
 export class PatientProfileComponent implements OnInit {
-  public patient: Patient;
+  @Input() patient: Patient;
 
   constructor(private patientService: PatientService) {}
 

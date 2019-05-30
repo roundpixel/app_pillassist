@@ -1,0 +1,33 @@
+.ui-dialog-titlebar {
+  display: none;
+}
+
+.ui-dialog-content {
+  max-height: 90vh;
+  overflow: scroll;
+  main {
+    background: white;
+    padding: 2em;
+    min-height: auto;
+
+    h1,
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      input {
+        background: white;
+      }
+    }
+
+    .btn {
+      margin: 0;
+    }
+  }
+}
+
+.ui-shadow {
+  box-shadow: none;
+}
