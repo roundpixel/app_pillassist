@@ -2,6 +2,12 @@ main {
   &.patients {
     background: $light-grey;
 
+    .col-3 {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
     h1 {
       padding-top: 2em;
       margin-bottom: 0;
@@ -50,9 +56,13 @@ main {
 
         .chart-img {
           position: absolute;
-          left: 38.4%;
+          left: 36.4%;
           top: 1.65em;
           transform: translate(0, 0);
+
+          @media (min-width: 850px) {
+            left: 38.4%;
+          }
         }
 
         .legend {
