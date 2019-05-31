@@ -110,6 +110,9 @@
   .smaller-link {
     display: inline-block;
     margin-top: 1em;
-    white-space: nowrap;
+
+    @media (min-width: 850px) {
+      white-space: nowrap;
+    }
   }
 }
