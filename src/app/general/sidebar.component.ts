@@ -20,13 +20,13 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.patients = this.patientService.patients;
-
-    this.route.params.subscribe(params => {
-      this.patients.forEach(patient => {
-        if (patient.firstName === params.firstName) {
-          this.patientService.changePatient(patient);
-        }
+    this.patientService.getAll().subscribe(patients => {
+      this.route.params.subscribe(params => {
+        patients.forEach(patient => {
+          if (patient.firstName === params.firstName) {
+            this.patientService.changePatient(patient);
+          }
+        });
       });
     });
   }

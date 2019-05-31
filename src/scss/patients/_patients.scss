@@ -59,21 +59,16 @@ main {
           }
         }
 
-        .chart-img {
-          position: absolute;
-          left: 36.4%;
-          top: 1.65em;
-          transform: translate(0, 0);
-
-          @media (min-width: 850px) {
-            left: 38.4%;
-          }
-        }
-
         .legend {
           border-bottom: $subtle-border;
           border-top: $subtle-border;
           width: 100%;
+        }
+
+        .chart {
+          &-img {
+            margin-top: 0.65em;
+          }
         }
       }
     }
