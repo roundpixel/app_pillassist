@@ -1,6 +1,17 @@
 main {
   &.patients {
-    background: $light-grey;
+    @media (min-width: 850px) {
+      background: $light-grey;
+      padding-top: 0;
+    }
+
+    padding-top: 2em;
+
+    .col-3 {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
     h1 {
       padding-top: 2em;
@@ -48,17 +59,16 @@ main {
           }
         }
 
-        .chart-img {
-          position: absolute;
-          left: 38.4%;
-          top: 1.65em;
-          transform: translate(0, 0);
-        }
-
         .legend {
           border-bottom: $subtle-border;
           border-top: $subtle-border;
           width: 100%;
+        }
+
+        .chart {
+          &-img {
+            margin-top: 0.65em;
+          }
         }
       }
     }

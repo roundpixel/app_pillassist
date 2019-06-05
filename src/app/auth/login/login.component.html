@@ -4,13 +4,15 @@
   <ng-container *ngIf="!authService.isLoggedIn()">
     <form #f="ngForm" (ngSubmit)="login(f)">
       <h2>
-        <ng-container *ngIf="!authService.isLoggedIn() && !loginError">
+        <ng-container *ngIf="!authService.isLoggedIn()">
           Fijn dat u terug bent.
         </ng-container>
-        {{loginError}}
       </h2>
-      <p *ngIf="!authService.isLoggedIn()">
-        Log in met uw account en vergeet nooit meer uw medicatie in te nemen.
+      <p class="light" *ngIf="!authService.isLoggedIn()">
+        <ng-container *ngIf="!loginError">
+          Log in met uw account en vergeet nooit meer uw medicatie in te nemen.
+        </ng-container>
+        {{loginError}}
       </p>
       <div class="input-group input-group--register">
         <input type="text" placeholder="E-mailadres" name="email" #email ngModel [ngClass]="{'ng-filled': email.value }"
@@ -33,8 +35,8 @@
           <span>Log in</span>
           <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon">
         </button>
-        <p class="smaller-link">
-          Heb je nog geen account? Maak <a class="small-link" href="/register">hier</a> een
+        <p class="actions">
+          Heb je nog geen account? Maak <a class="smaller-link" href="/register">hier</a> een
           account aan.
         </p>
       </div>

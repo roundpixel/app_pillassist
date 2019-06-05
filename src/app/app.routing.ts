@@ -1,4 +1,6 @@
+import { AddPillComponent } from './pill/add-pill.component';
 import { AuthGuard } from './auth/auth.guard';
+import { CalendarDayComponent } from './agenda/calendar-day.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
@@ -27,6 +29,11 @@ const routes: Routes = [
     component: MainComponent
   },
   {
+    path: 'schema/:firstName/:lastName',
+    canActivate: [AuthGuard],
+    component: CalendarDayComponent
+  },
+  {
     path: 'profile',
     canActivate: [AuthGuard],
     component: ProfileComponent
@@ -35,6 +42,11 @@ const routes: Routes = [
     path: 'profile/:firstName/:lastName',
     canActivate: [AuthGuard],
     component: PatientProfileComponent
+  },
+  {
+    path: 'add-pill',
+    canActivate: [AuthGuard],
+    component: AddPillComponent
   },
   {
     path: 'login',

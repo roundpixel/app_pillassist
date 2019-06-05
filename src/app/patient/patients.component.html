@@ -1,18 +1,38 @@
+<ng-container *responsive="{sizes:{max:850}}">
+  <header class="header-app">
+    <div class="header-body">
+      <h1>Patiënten overzicht</h1>
+      <p>Bekijk hier al uw patiënten en hun profiel.</p>
+    </div>
+    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{caregiver?.firstName}}">
+    </ngx-avatar>
+  </header>
+  <div class="header-bg">
+    <img src="assets/img/bollen.png" alt="">
+  </div>
+</ng-container>
 <main class="patients">
   <div class="main-content">
-    <div class="main-content__card">
+    <div class="main-content__card" *responsive="{sizes:{min:850}}">
       <h1>Overzicht <span class="title-blue"> patiënten</span></h1>
       <p>Hier kan u al uw hulpbehoevenden opvolgen.</p>
     </div>
     <div class="col-3">
-      <div class="card card-patient" *ngFor="let patient of patients">
-        <app-calendar-week-overview [patient]="patient"
-          [routerLink]="['/patient/', patient.firstName, patient.lastName]"></app-calendar-week-overview>
-        <div class="flex">
-          <a class="btn btn-grey"><img src="assets/img/icons/share.svg" alt=""></a>
-          <a class="btn btn-grey" [routerLink]="['/profile/', patient.firstName, patient.lastName]"><img
-              src="assets/img/icons/edit-3.svg" alt=""></a>
-          <a class="btn btn-grey"><img src="assets/img/icons/trash-3.svg" alt=""></a>
+      <div class="card card-patient card-add">
+        <div class="btn btn-grey">
+          <img src="assets/img/icons/plus-white.svg" alt="">
+        </div>
+        <div class="info">
+          <h3>Voeg een nieuwe patiënt toe.</h3>
+        </div>
+      </div>
+      <div class="card card-patient" *ngFor="let patient of patients"
+        [routerLink]="['/schema/', patient.firstName, patient.lastName]">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}}>
+        </ngx-avatar>
+        <div class="info">
+          <h3>{{patient.firstName}} {{patient.lastName}}</h3>
+          <p class="light">Tel: {{patient.tel}}</p>
         </div>
       </div>
     </div>

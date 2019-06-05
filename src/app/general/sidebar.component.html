@@ -1,16 +1,29 @@
 <ng-container *ngIf="!isAddPillVisible">
 
-  <header class="header-app">
-    <div>
+  <header class="header-app header-patient">
+    <div class="patient-info">
       <h1>{{patient?.firstName}} {{patient?.lastName}}</h1>
+      <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient?.firstName}}">
+      </ngx-avatar>
     </div>
-    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient?.firstName}}">
-    </ngx-avatar>
+
+    <div class="flex">
+      <a class="btn btn-grey"><img src="assets/img/icons/patient-add.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
+      <a class="btn btn-grey"><img src="assets/img/icons/settings.svg" alt=""></a>
+    </div>
   </header>
   <div class="header-bg">
     <img src="assets/img/bollen.png" alt="" />
   </div>
 
-  <app-calendar-week-overview [patient]="patient"></app-calendar-week-overview>
-  <app-patient-profile-card [patient]="patient"></app-patient-profile-card>
+  <main>
+    <app-calendar-week-overview [patient]="patient"></app-calendar-week-overview>
+    <app-patient-profile-card [patient]="patient"></app-patient-profile-card>
+  </main>
 </ng-container>
+
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isEditingPatient' modal="true" [style]="{width: '75vw'}">
+  <app-patient-profile (closeEvent)="close()" [patient]=" patient">
+  </app-patient-profile>
+</p-dialog>

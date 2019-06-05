@@ -1,5 +1,4 @@
-<app-sidebar [patient]="patient" *ngIf="isCalendarVisible"></app-sidebar>
-<app-add-pill (onHide)="isAddPillVisible = false; isCalendarVisible = true" *ngIf="isAddPillVisible"></app-add-pill>
+<app-sidebar [patient]="patient"></app-sidebar>
 
 <ng-container *responsive="{sizes:{min:850}}">
   <main>
@@ -7,13 +6,12 @@
       <input type="text" placeholder="Zoek medicatie">
     </header>
     <div class="main-content">
-      <app-calendar></app-calendar>
       <app-calendar-day></app-calendar-day>
     </div>
   </main>
 </ng-container>
 
-<div>
+<div *responsive="{sizes:{min:850}}">
   <a class="btn btn-plus" (click)="isAddPillVisible = true; isCalendarVisible = false">
     <div class="btn-blue"><img class="icon" src="assets/img/icons/plus-white.svg" alt=""></div><span>Medicatie
       toevoegen</span>

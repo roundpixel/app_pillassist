@@ -1,0 +1,20 @@
+<nav class="nav nav-mobile">
+  <a class="nav__link" [routerLink]="['/schema/', patient.firstName, patient.lastName]">
+    <img src="assets/img/icons/home.svg" alt="" class="icon--nav icon--nav">
+  </a>
+  <a class="nav__link" [routerLink]="['/history']">
+    <img src="assets/img/icons/history.svg" alt="" class="icon--nav icon--nav--history">
+  </a>
+  <div class="nav__link nav__link--hidden"></div>
+  <div class="nav__link nav__link--plus">
+    <a [routerLink]="['/add-pill']" routerLinkActive="active">
+      <img class="icon--nav" src="assets/img/icons/plus-white.svg" alt="">
+    </a>
+  </div>
+  <a class="nav__link" [routerLink]="['/patients']" routerLinkActive="active">
+    <img class="icon--nav" src="assets/img/icons/patients.svg" alt="">
+  </a>
+  <a class="nav__link" [routerLink]="['/patient/', patient.firstName, patient.lastName]" routerLinkActive=" active">
+    <img src="assets/img/icons/profile.svg" alt="" class="icon--nav">
+  </a>
+</nav>

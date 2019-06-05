@@ -1,6 +1,5 @@
 header {
-  padding: 0 1em;
-  margin: 1em 0 1.5em 0;
+  padding: 0.9em 2em;
 
   &.header-app {
     display: flex;
@@ -10,9 +9,18 @@ header {
       z-index: 1;
     }
 
+    .header-body {
+      margin-right: 1em;
+    }
+
     h1,
-    h2 {
+    h2,
+    p {
       color: white;
+    }
+
+    p {
+      margin-top: 0;
     }
   }
 
@@ -41,6 +49,16 @@ header {
       margin: 0 auto;
       text-align: center;
       width: 250px;
+    }
+  }
+
+  &.header-patient {
+    display: flex;
+    flex-direction: column;
+
+    .patient-info {
+      display: flex;
+      justify-content: space-between;
     }
   }
 

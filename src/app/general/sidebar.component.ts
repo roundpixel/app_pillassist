@@ -10,6 +10,7 @@ import { PatientService } from './../services/patient.service';
 })
 export class SidebarComponent implements OnInit {
   public isAddPillVisible: boolean;
+  isEditingPatient = false;
 
   @Input() patient: Patient;
   private patients: Array<Patient>;
@@ -20,14 +21,22 @@ export class SidebarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.patients = this.patientService.patients;
-
-    this.route.params.subscribe(params => {
-      this.patients.forEach(patient => {
-        if (patient.firstName === params.firstName) {
-          this.patientService.changePatient(patient);
-        }
+    this.patientService.getAll().subscribe(patients => {
+      this.route.params.subscribe(params => {
+        patients.forEach(patient => {
+          if (patient.firstName === params.firstName) {
+            this.patientService.changePatient(patient);
+          }
+        });
       });
     });
+  }
+
+  showEditingPatient() {
+    this.isEditingPatient = true;
+  }
+
+  close() {
+    this.isEditingPatient = false;
   }
 }

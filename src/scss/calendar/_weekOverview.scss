@@ -15,9 +15,11 @@
           list-style-type: none;
           display: flex;
           flex-direction: column;
+          align-items: center;
 
           .legend__number {
             margin-right: 0;
+            padding: 0px 2px 5px 2px;
           }
 
           &:first-child {
@@ -50,15 +52,19 @@
 
     .chart {
       padding: 1em 2em;
+      display: flex;
+      flex-direction: column;
       canvas {
         width: 200px !important;
         height: 200px !important;
         margin: 0 auto;
       }
 
-      .chart-img {
+      &-img {
         position: absolute;
-        transform: translate(56px, -180px);
+        justify-self: center;
+        align-self: center;
+        margin-top: 1.3em;
       }
     }
   }

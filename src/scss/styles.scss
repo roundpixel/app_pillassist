@@ -9,6 +9,7 @@ a {
 
 * {
   outline: none;
+  box-sizing: border-box;
 }
 
 //general
@@ -22,8 +23,8 @@ a {
 @import "general/cards";
 @import "general/icons";
 @import "general/scrollbar";
-@import "general/navDesktop";
-@import "general/main-desktop";
+@import "general/nav";
+@import "general/main";
 @import "general/sidebar";
 @import "general/alert";
 @import "general/modals";

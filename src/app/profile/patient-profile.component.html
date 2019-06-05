@@ -6,7 +6,7 @@
     <div class="profile__picture">
       <ngx-avatar size="200" bgColor="#84D1FB" name={{patient.firstName}}>
       </ngx-avatar>
-      <div class="label">
+      <div class="label" *responsive='{sizes: {min: 850}}'>
         <label for="profilePic">Profielfoto (optioneel)</label>
         <p class="light">JPG, PNG zijn toegestaan. Uw afbeelding moet minstens 200 x 200px groot zijn.</p>
       </div>
