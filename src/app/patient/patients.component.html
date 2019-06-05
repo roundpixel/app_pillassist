@@ -18,6 +18,14 @@
       <p>Hier kan u al uw hulpbehoevenden opvolgen.</p>
     </div>
     <div class="col-3">
+      <div class="card card-patient card-add">
+        <div class="btn btn-grey">
+          <img src="assets/img/icons/plus-white.svg" alt="">
+        </div>
+        <div class="info">
+          <h3>Voeg een nieuwe patiënt toe.</h3>
+        </div>
+      </div>
       <div class="card card-patient" *ngFor="let patient of patients"
         [routerLink]="['/schema/', patient.firstName, patient.lastName]">
         <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}}>
