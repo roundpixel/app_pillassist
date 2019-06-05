@@ -45,11 +45,20 @@
   }
 
   &-patient {
-    padding: 0;
+    padding: 1em;
     display: flex;
-    flex-direction: column;
     align-items: center;
     width: 341px;
+    justify-content: left;
+
+    ngx-avatar {
+      margin-right: 1em;
+    }
+
+    .light {
+      font-size: small;
+      margin-bottom: 0;
+    }
   }
 }
 

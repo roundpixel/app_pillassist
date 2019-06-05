@@ -18,14 +18,13 @@
       <p>Hier kan u al uw hulpbehoevenden opvolgen.</p>
     </div>
     <div class="col-3">
-      <div class="card card-patient" *ngFor="let patient of patients">
-        <app-calendar-week-overview [patient]="patient"
-          [routerLink]="['/patient/', patient.firstName, patient.lastName]"></app-calendar-week-overview>
-        <div class="flex">
-          <a class="btn btn-grey"><img src="assets/img/icons/share.svg" alt=""></a>
-          <a class="btn btn-grey" [routerLink]="['/profile/', patient.firstName, patient.lastName]"><img
-              src="assets/img/icons/edit-3.svg" alt=""></a>
-          <a class="btn btn-grey"><img src="assets/img/icons/trash-3.svg" alt=""></a>
+      <div class="card card-patient" *ngFor="let patient of patients"
+        [routerLink]="['/patient/', patient.firstName, patient.lastName]">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}}>
+        </ngx-avatar>
+        <div class="info">
+          <h3>{{patient.firstName}} {{patient.lastName}}</h3>
+          <p class="light">Tel: {{patient.tel}}</p>
         </div>
       </div>
     </div>

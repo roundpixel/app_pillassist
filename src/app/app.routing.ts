@@ -1,3 +1,4 @@
+import { AddPillComponent } from './pill/add-pill.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
@@ -35,6 +36,11 @@ const routes: Routes = [
     path: 'profile/:firstName/:lastName',
     canActivate: [AuthGuard],
     component: PatientProfileComponent
+  },
+  {
+    path: 'add-pill',
+    canActivate: [AuthGuard],
+    component: AddPillComponent
   },
   {
     path: 'login',

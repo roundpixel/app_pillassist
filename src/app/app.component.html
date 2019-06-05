@@ -2,4 +2,10 @@
   <app-nav-desktop *ngIf="_router.url != '/login' && _router.url != '/register'"></app-nav-desktop>
 </ng-container>
 
+<ng-container *ngIf="patient.firstName">
+  <ng-container *responsive="{sizes:{max:850}}">
+    <app-nav-mobile *ngIf="_router.url != '/login' && _router.url != '/register'"></app-nav-mobile>
+  </ng-container>
+</ng-container>
+
 <router-outlet style="display: none"></router-outlet>

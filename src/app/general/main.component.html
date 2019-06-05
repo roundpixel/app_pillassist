@@ -13,7 +13,7 @@
   </main>
 </ng-container>
 
-<div>
+<div *responsive="{sizes:{min:850}}">
   <a class="btn btn-plus" (click)="isAddPillVisible = true; isCalendarVisible = false">
     <div class="btn-blue"><img class="icon" src="assets/img/icons/plus-white.svg" alt=""></div><span>Medicatie
       toevoegen</span>
