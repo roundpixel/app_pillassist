@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import {
   Component,
   EventEmitter,
@@ -5,9 +6,12 @@ import {
   OnInit,
   Output
   } from '@angular/core';
-import { DateService } from './../services/date.service';
+import { filter } from 'rxjs/operators';
+import { Patient } from '../shared/patient.model';
+import { PatientService } from './../services/patient.service';
 import { Pill } from '../shared/pill.model';
 import { PillService } from './../services/pill.service';
+
 @Component({
   selector: 'app-calendar-day',
   templateUrl: './calendar-day.component.html',
@@ -15,46 +19,27 @@ import { PillService } from './../services/pill.service';
 })
 export class CalendarDayComponent implements OnInit {
   public pills: Array<Pill> = new Array<Pill>();
-  public _date: Date;
+  public patient: Patient;
 
   constructor(
-    private dateService: DateService,
-    private pillService: PillService
+    private route: ActivatedRoute,
+    private patientService: PatientService
   ) {}
 
   ngOnInit() {
-    this.dateService.currentDate.subscribe(
-      date => ((this._date = date), this.loadPills())
-    );
-
-    this.getPills();
-    this.loadPills();
+    this.patientService.getAll().subscribe(patients => {
+      this.route.params.subscribe(params => {
+        patients.forEach(patient => {
+          if (patient.firstName === params.firstName) {
+            this.patient = patient;
+            this.patientService.changePatient(patient);
+          }
+        });
+      });
+    });
   }
 
   public getPills() {
     // this.pillService.getAll().subscribe(res => console.log(res));
-  }
-
-  public loadPills() {
-    const dateClicked =
-      this._date.getDate() +
-      '-' +
-      this._date.getMonth() +
-      '-' +
-      this._date.getFullYear();
-
-    this.pills.forEach(pill => {
-      // const pillDate =
-      //   pill.date.getDate() +
-      //   '-' +
-      //   pill.date.getMonth() +
-      //   '-' +
-      //   pill.date.getFullYear();
-      // if (dateClicked === pillDate) {
-      //   pill.display = true;
-      // } else {
-      //   pill.display = false;
-      // }
-    });
   }
 }

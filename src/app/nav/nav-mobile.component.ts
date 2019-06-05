@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Patient } from './../shared/patient.model';
 import { PatientService } from './../services/patient.service';
 
 @Component({
@@ -7,7 +8,9 @@ import { PatientService } from './../services/patient.service';
   styles: []
 })
 export class NavMobileComponent implements OnInit {
-  constructor(private patientService: PatientService) {}
+  @Input() patient: Patient;
+
+  constructor() {}
 
   ngOnInit() {}
 }

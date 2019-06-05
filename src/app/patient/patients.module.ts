@@ -5,16 +5,11 @@ import { DialogModule } from 'primeng/dialog';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PatientProfileCardComponent } from './patient-profile-card.component';
-import { PatientProfileComponent } from './../profile/patient-profile.component';
 import { PatientsComponent } from './patients.component';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 @NgModule({
-  declarations: [
-    PatientsComponent,
-    PatientProfileCardComponent,
-    PatientProfileComponent
-  ],
+  declarations: [PatientsComponent, PatientProfileCardComponent],
   imports: [
     CommonModule,
     RouterModule,

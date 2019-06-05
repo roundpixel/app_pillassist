@@ -19,7 +19,7 @@
     </div>
     <div class="col-3">
       <div class="card card-patient" *ngFor="let patient of patients"
-        [routerLink]="['/patient/', patient.firstName, patient.lastName]">
+        [routerLink]="['/schema/', patient.firstName, patient.lastName]">
         <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}}>
         </ngx-avatar>
         <div class="info">

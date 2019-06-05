@@ -8,7 +8,7 @@ import { PatientService } from './services/patient.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  router: string;
+  router: any;
   patient: Patient;
 
   constructor(

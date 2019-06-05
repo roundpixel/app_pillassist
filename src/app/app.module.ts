@@ -5,11 +5,10 @@ import { AppComponent } from './app.component';
 import { AvatarModule } from 'ngx-avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { CalendarComponent } from './agenda/calendar.component';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
-import { DateService } from './services/date.service';
+import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FullCalendarModule } from 'primeng/fullcalendar';
@@ -20,6 +19,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './general/page-not-found.component';
+import { PatientProfileComponent } from './profile/patient-profile.component';
 import { PatientService } from './services/patient.service';
 import { PatientsModule } from './patient/patients.module';
 import { ProfileModule } from './profile/profile.module';
@@ -40,7 +40,7 @@ import { SidebarComponent } from './general/sidebar.component';
     MainComponent,
     RegisterComponent,
     SidebarComponent,
-    CalendarComponent
+    PatientProfileComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -59,12 +59,12 @@ import { SidebarComponent } from './general/sidebar.component';
     routing,
     ResponsiveModule.forRoot(),
     AvatarModule,
-    FormsModule
+    FormsModule,
+    DialogModule
   ],
   exports: [CommonModule, RouterModule, BrowserModule, AvatarModule],
   providers: [
     { provide: LOCALE_ID, useValue: 'nl-BE' },
-    DateService,
     PatientService,
     httpInterceptorProviders
   ],

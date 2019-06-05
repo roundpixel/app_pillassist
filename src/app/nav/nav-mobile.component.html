@@ -1,5 +1,5 @@
 <nav class="nav nav-mobile">
-  <a class="nav__link" [routerLink]="['/overview']">
+  <a class="nav__link" [routerLink]="['/schema/', patient.firstName, patient.lastName]">
     <img src="assets/img/icons/home.svg" alt="" class="icon--nav icon--nav">
   </a>
   <a class="nav__link" [routerLink]="['/history']">
@@ -14,7 +14,7 @@
   <a class="nav__link" [routerLink]="['/patients']" routerLinkActive="active">
     <img class="icon--nav" src="assets/img/icons/patients.svg" alt="">
   </a>
-  <a class="nav__link" [routerLink]="['/profile']" routerLinkActive="active">
+  <a class="nav__link" [routerLink]="['/patient/', patient.firstName, patient.lastName]" routerLinkActive=" active">
     <img src="assets/img/icons/profile.svg" alt="" class="icon--nav">
   </a>
 </nav>

@@ -52,6 +52,16 @@ header {
     }
   }
 
+  &.header-patient {
+    display: flex;
+    flex-direction: column;
+
+    .patient-info {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   h1 {
     font-size: $dayTitle;
   }
