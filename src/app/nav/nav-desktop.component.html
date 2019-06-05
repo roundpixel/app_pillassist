@@ -1,12 +1,12 @@
 <header class="nav-header">
   <a href="/">
     <img src="assets/img/logo.svg" alt="">
-    <h1><span class="title-blue">Pill</span>Assist</h1>
+    <h1>PillAssist</h1>
   </a>
 </header>
 
-<nav class="nav">
-  <a class="nav__link">
+<nav class="nav nav-desktop">
+  <a class="nav__link" [routerLink]="['/patients']" routerLinkActive="active">
     <div class="icon--nav--middle">
       <img class="icon--nav" src="assets/img/icons/patients.svg" alt="">
     </div>
@@ -15,27 +15,22 @@
   <div class="indented-lg">
     <div class="indentation" *responsive="{sizes:{min:1200}}"></div>
     <div class="patients">
-      <a class="patient nav__link" *ngFor="let patient of patients" (click)="setActivePatient($event)"
-        [ngClass]="{active: patient.active}">
-        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.name}} src="assets/img/{{patient.img}}.png">
+      <a class="patient nav__link" *ngFor="let patient of patients"
+        [routerLink]="['/patient/', patient.firstName, patient.lastName]" routerLinkActive="active"
+        (click)="changePatient(patient)">
+        <ngx-avatar size="35" bgColor="#84D1FB" name={{patient.firstName}}>
         </ngx-avatar>
         <span class="patient-avatar__name" *responsive="{sizes:{min:1200}}">
-          {{patient.name}}
+          {{patient.firstName}} {{patient.lastName}}
         </span>
       </a>
     </div>
   </div>
-  <a class="nav__link">
+  <a class="nav__link" [routerLink]="['/profile']" routerLinkActive="active">
     <div class="icon--nav--middle">
       <img src="assets/img/icons/profile.svg" alt="" class="icon--nav">
     </div>
     <span *responsive="{sizes:{min:1200}}">Profiel</span>
-  </a>
-  <a class="nav__link">
-    <div class="icon--nav--middle">
-      <img src="assets/img/icons/settings.svg" alt="" class="icon--nav">
-    </div>
-    <span *responsive="{sizes:{min:1200}}">Instellingen</span>
   </a>
   <a class="nav__link" (click)="logout()">
     <div class="icon--nav--middle">

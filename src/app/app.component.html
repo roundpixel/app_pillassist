@@ -1,17 +1,11 @@
 <ng-container *responsive="{sizes:{min:850}}">
-  <app-nav-desktop></app-nav-desktop>
+  <app-nav-desktop *ngIf="(_router.url !== '/login') && (_router.url !== '/register')"></app-nav-desktop>
+</ng-container>
+
+<ng-container *ngIf="patient.firstName">
+  <ng-container *responsive="{sizes:{max:850}}">
+    <app-nav-mobile [patient]="patient" *ngIf="_router.url !=='/login' && _router.url !== '/register'"></app-nav-mobile>
+  </ng-container>
 </ng-container>
 
 <router-outlet style="display: none"></router-outlet>
-
-<ng-container *responsive="{sizes:{min:850}}">
-  <main>
-    <header class="header-search">
-      <input type="text" placeholder="Zoek medicatie">
-    </header>
-    <div class="main-content">
-      <app-calendar-day-tomorrow></app-calendar-day-tomorrow>
-      <app-calendar-week-overview></app-calendar-week-overview>
-    </div>
-  </main>
-</ng-container>

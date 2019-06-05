@@ -1,0 +1,46 @@
+<main class="profile">
+  <h1>Patiënt bewerken - <span class="title-blue">{{patient.firstName}} {{patient.lastName}}</span> </h1>
+  <p>Hier kan u de gegevens van een patiënt bewerken.</p>
+
+  <div class="main-content__card__body">
+    <div class="profile__picture">
+      <ngx-avatar size="200" bgColor="#84D1FB" name={{patient.firstName}}>
+      </ngx-avatar>
+      <div class="label" *responsive='{sizes: {min: 850}}'>
+        <label for="profilePic">Profielfoto (optioneel)</label>
+        <p class="light">JPG, PNG zijn toegestaan. Uw afbeelding moet minstens 200 x 200px groot zijn.</p>
+      </div>
+    </div>
+
+    <form class="profile__info" (ngSubmit)="edit(f)">
+      <div class="col-2">
+        <div class="input-group input-group--dark">
+          <label for="firstName">Voornaam</label>
+          <input type="text" name="firstName" [(ngModel)]="patient.firstName" placeholder="Vul hier de voornaam in">
+        </div>
+        <div class="input-group input-group--dark">
+          <label for="lastName">Achternaam</label>
+          <input type="text" name="lastName" [(ngModel)]="patient.lastName" placeholder="Vul hier de achternaam in">
+        </div>
+        <div class="input-group input-group--dark">
+          <label for="email">Email</label>
+          <input type="text" name="email" [(ngModel)]="patient.email" placeholder="Vul hier de email in">
+        </div>
+        <div class="input-group input-group--dark">
+          <label for="tel">Telefoonnummer</label>
+          <input type="text" name="tel" [(ngModel)]="patient.tel" placeholder="Vul hier de telefoonnummer in">
+        </div>
+        <div class="input-group input-group--dark">
+          <label for="tel">Gemeente</label>
+          <input type="text" name="city" placeholder="Vul hier de gemeente in">
+        </div>
+        <div class="input-group input-group--dark">
+          <label for="tel">Straat + nummer</label>
+          <input type="text" name="street" placeholder="Vul hier de straat en huisnummer in">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-main"><span>Opslaan</span></button>
+    </form>
+  </div>
+</main>

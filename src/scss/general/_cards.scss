@@ -1,5 +1,5 @@
 .card {
-  box-shadow: $subtle-shadow;
+  border: $subtle-border;
   border-radius: 1em;
   padding: 1em 1.5em;
   margin-bottom: 2em;
@@ -43,6 +43,34 @@
   &__check {
     width: 25px;
   }
+
+  &-patient {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    width: 341px;
+    justify-content: left;
+    margin-bottom: 1em;
+
+    ngx-avatar,
+    .btn-grey {
+      margin-right: 1em;
+      width: 35px;
+      height: 35px;
+    }
+
+    .light {
+      font-size: small;
+      margin-bottom: 0;
+    }
+  }
+
+  &-add {
+    margin-bottom: 2em;
+    h3 {
+      color: $main-blue;
+    }
+  }
 }
 
 .ui-overlaypanel {
@@ -50,12 +78,12 @@
   box-shadow: none;
   &-content {
     border-radius: 1em;
-    box-shadow: $subtle-shadow-small;
+    border: $subtle-border;
     padding: 0;
     .edit,
     .delete {
       padding: 0.5em 1em;
-      background: white;
+      cursor: pointer;
     }
 
     .edit {

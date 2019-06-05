@@ -6,6 +6,25 @@ form {
     flex-direction: column;
     padding: 0 0.5em 1em 0.5em;
 
+    &--dark {
+      input {
+        background-color: $light-grey;
+      }
+    }
+
+    &--register {
+      flex-direction: column-reverse;
+      input {
+        & + label {
+          display: none;
+        }
+
+        &.ng-filled + label {
+          display: block;
+        }
+      }
+    }
+
     .flex {
       justify-content: space-between;
     }
@@ -91,6 +110,10 @@ form {
 
       &:focus {
         border-bottom: 2px solid $main-blue;
+      }
+
+      &.ng-invalid.ng-touched {
+        border-bottom-color: $red-error;
       }
     }
 

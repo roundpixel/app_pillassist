@@ -1,0 +1,76 @@
+main {
+  &.patients {
+    @media (min-width: 850px) {
+      background: $light-grey;
+      padding-top: 0;
+    }
+
+    padding-top: 2em;
+
+    .col-3 {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      padding-top: 2em;
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 0 0 3em;
+    }
+
+    .main-content__card {
+      padding: 0;
+    }
+
+    .flex {
+      padding: 1em;
+    }
+
+    app-calendar-week-overview {
+      cursor: pointer;
+      h2 {
+        display: block;
+        text-align: center;
+        margin: 1em 0 0.5em;
+      }
+
+      width: 100%;
+      .week-overview {
+        width: 100%;
+        h1 {
+          display: none;
+        }
+
+        canvas {
+          width: 100px !important;
+          height: 100px !important;
+        }
+
+        .avatar-container {
+          width: 80px !important;
+          height: 80px !important;
+
+          .avatar-content {
+            font: 26px/80px Helvetica, Arial, sans-serif !important;
+          }
+        }
+
+        .legend {
+          border-bottom: $subtle-border;
+          border-top: $subtle-border;
+          width: 100%;
+        }
+
+        .chart {
+          &-img {
+            margin-top: 0.65em;
+          }
+        }
+      }
+    }
+  }
+}

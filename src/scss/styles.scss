@@ -3,8 +3,13 @@ body {
   overflow-y: overlay;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   outline: none;
+  box-sizing: border-box;
 }
 
 //general
@@ -18,15 +23,21 @@ body {
 @import "general/cards";
 @import "general/icons";
 @import "general/scrollbar";
-@import "general/navDesktop";
+@import "general/nav";
+@import "general/main";
+@import "general/sidebar";
+@import "general/alert";
+@import "general/modals";
 //calendar
 @import "calendar/fullCalendar";
 @import "calendar/calendarDay";
 @import "calendar/header";
-@import "calendar/tomorrow";
 @import "calendar/weekOverview";
 //add-pill
 @import "add-pill/add-pill";
 //login
 @import "login/login";
-@import "main-desktop";
+//profile
+@import "profile/profile";
+//patients
+@import "patients/patients";

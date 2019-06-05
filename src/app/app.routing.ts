@@ -1,26 +1,60 @@
-import { LoginComponent } from './auth/login/login.component';
-import { AuthGuard } from './auth/auth.guard';
-import { CalendarComponent } from './calendar/calendar.component';
 import { AddPillComponent } from './pill/add-pill.component';
-
+import { AuthGuard } from './auth/auth.guard';
+import { CalendarDayComponent } from './agenda/calendar-day.component';
+import { LoginComponent } from './auth/login/login.component';
+import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './general/page-not-found.component';
+import { PatientProfileComponent } from './profile/patient-profile.component';
+import { PatientsComponent } from './patient/patients.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
-    component: CalendarComponent
+    canActivate: [AuthGuard],
+    redirectTo: '/patients',
+    pathMatch: 'full'
   },
   {
-    path: 'add',
-    // canActivate: [AuthGuard],
+    path: 'patients',
+    canActivate: [AuthGuard],
+    component: PatientsComponent
+  },
+  {
+    path: 'patient/:firstName/:lastName',
+    canActivate: [AuthGuard],
+    component: MainComponent
+  },
+  {
+    path: 'schema/:firstName/:lastName',
+    canActivate: [AuthGuard],
+    component: CalendarDayComponent
+  },
+  {
+    path: 'profile',
+    canActivate: [AuthGuard],
+    component: ProfileComponent
+  },
+  {
+    path: 'profile/:firstName/:lastName',
+    canActivate: [AuthGuard],
+    component: PatientProfileComponent
+  },
+  {
+    path: 'add-pill',
+    canActivate: [AuthGuard],
     component: AddPillComponent
   },
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '404',

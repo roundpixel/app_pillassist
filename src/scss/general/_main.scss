@@ -1,0 +1,72 @@
+main {
+  grid-column: 1;
+  grid-row: 1;
+  background: white;
+  min-height: 100vh;
+
+  h1 {
+    padding: 0 0 0.5em;
+    color: $charcoal-grey;
+    font-weight: 500;
+    &.center {
+      text-align: center;
+    }
+  }
+
+  .main-content {
+    padding: 0 2em 2em;
+    &__card {
+      border-radius: 1em;
+      padding: 1em;
+      position: relative;
+      &__body {
+        padding: 1em 1.6em;
+      }
+    }
+
+    form {
+      padding: 0;
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  main {
+    background: $light-grey;
+  }
+
+  .main-content {
+    padding: 0 2em;
+  }
+
+  app-root {
+    display: grid;
+    grid-template-columns: 5em 5fr;
+
+    app-sidebar,
+    app-add-pill {
+      grid-column: 2;
+      padding: 0 1em;
+      position: relative;
+      overflow: overlay;
+      height: 100vh;
+      background: white;
+    }
+  }
+
+  app-main {
+    display: grid;
+    grid-template-columns: 3fr minmax(400px, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  app-root {
+    grid-template-columns: minmax(270px, 1fr) 5fr;
+  }
+
+  app-main {
+    display: grid;
+    grid-template-columns: 3fr minmax(400px, 1fr);
+  }
+}

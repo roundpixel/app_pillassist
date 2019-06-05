@@ -1,0 +1,9 @@
+.alert {
+  color: $red-error;
+  margin-bottom: 2em;
+
+  &-input {
+    margin: -0.5em 0.5em 1em;
+    font: $small;
+  }
+}

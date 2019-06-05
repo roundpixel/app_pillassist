@@ -2,7 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css?family=Hind+Guntur:500,600,700");
 
-$header-title: 700 25px "Hind Guntur", sans-serif;
+$header-title: 700 22px "Hind Guntur", sans-serif;
 $title: 700 18px "Hind Guntur", sans-serif;
 
 $dayTitle: 600 20px "Hind Guntur", sans-serif;
@@ -52,4 +52,14 @@ h3 {
 .title-blue {
   color: $main-blue;
   font: $header-title;
+}
+
+label {
+  font-weight: 700;
+}
+
+.light {
+  color: $charcoal-grey;
+  opacity: 0.7;
+  margin-top: 0;
 }

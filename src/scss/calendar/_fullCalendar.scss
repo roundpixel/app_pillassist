@@ -1,6 +1,4 @@
 app-calendar {
-  background: white;
-  z-index: 1;
   .fc {
     padding: 1em;
     margin: auto;
@@ -8,7 +6,11 @@ app-calendar {
     width: 320px;
     background: white;
     height: 380px;
-    box-shadow: $subtle-shadow;
+    border: $subtle-border;
+
+    &-view {
+      z-index: 0;
+    }
 
     table {
       border-collapse: separate;
@@ -70,11 +72,11 @@ app-calendar {
           //transition: background 0.4s ease-out;
           &.fc-today {
             background: $blue-today;
-            border: $blue-highlight 2px solid;
+            border: $light-blue 2px solid;
           }
           &.fc-state-highlight {
             width: 42px;
-            background: $blue-highlight;
+            background: $light-blue;
             color: white;
           }
         }
@@ -110,7 +112,7 @@ app-calendar {
       }
 
       .fc-day-top:hover span {
-        background: $blue-highlight;
+        background: $light-blue;
       }
 
       .fc-day-header {
@@ -129,10 +131,4 @@ app-calendar {
 
 .fc-basic-view .fc-body .fc-row {
   min-height: 2em;
-}
-
-@media (min-width: 850px) {
-  app-calendar {
-    display: block;
-  }
 }

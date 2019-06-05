@@ -21,31 +21,21 @@
       <input type="text" placeholder="Vul de naam van uw medicatie in" />
     </div>
     <div class="input-group">
-      <label for="dose">
-        Dosis
+      <label for="quantity">
+        Hoeveelheid
       </label>
-      <input type="text" placeholder="1mg" />
+      <input type="text" placeholder="Een volledige of de helft van een pil" />
     </div>
     <div class="padding">
       <div class="input-group">
-        <label for="time-of-days">
-          Tijdstip
-        </label>
-        <p-calendar [timeOnly]="true"></p-calendar>
-      </div>
-      <ng-container *ngFor="let timeOfDay of timeOfDays">
-        <div class="input-group {{timeOfDay}} added-input-group">
-          <div class="flex">
-            <label for="time-of-days">
-              Tijdstip {{timeOfDay}}
-            </label>
-            <img class="close-icon" (click)="deleteTimeInput($event)" src=" assets/img/icons/x.svg" alt="close" />
-          </div>
-          <p-calendar [timeOnly]="true"></p-calendar>
+        <div class="flex">
+          <label for="timeOfDay">
+            Tijdstip
+          </label>
         </div>
-      </ng-container>
-      <div class="input-group add-input-group" (click)="addTimeInput()">
-        <a>Voeg een tijdstip toe</a><img class="icon" src="assets/img/icons/plus-blue.svg" alt="">
+        <p-checkbox class="checkBox-group" id="timeOfDay" *ngFor="let timeOfDay of timeOfDays" name="timeOfDay"
+          value="{{timeOfDay.value}}" label="{{timeOfDay.label}}">
+        </p-checkbox>
       </div>
     </div>
     <div class="input-group">
@@ -114,10 +104,10 @@
       </p-accordion>
     </div>
     <div class="actions">
-      <button class="btn btn-main" [routerLink]="['']">
+      <button class="btn btn-main" (click)="hide()">
         <span>Toevoegen</span>
         <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
-      <a class="smaller-link" [routerLink]="['']">annuleer medicatie toevoegen</a>
+      <a class="smaller-link" (click)="hide()">annuleer medicatie toevoegen</a>
     </div>
   </form>
 </div>

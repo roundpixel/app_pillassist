@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output
+  } from '@angular/core';
 
 @Component({
   selector: 'app-add-pill',
@@ -15,33 +20,27 @@ export class AddPillComponent implements OnInit {
   public isEveryWeek: boolean;
   public isEveryMonth: boolean;
 
+  @Output() onHide = new EventEmitter<boolean>();
+  setHide() {
+    this.onHide.emit(true);
+  }
+
   constructor() {}
 
   ngOnInit() {
+    this.timeOfDays = [
+      { label: '7u30', value: '7:30' },
+      { label: '8u', value: '8:00' },
+      { label: '12u', value: '12:00' },
+      { label: '17u', value: '17:00' },
+      { label: '20u', value: '20:00' }
+    ];
+
     this.recurrences = [
       { label: 'Elke dag', value: 'everyDay' },
       { label: 'Elke week', value: 'everyWeek' },
       { label: 'Elke maand', value: 'everyMonth' }
     ];
-  }
-
-  public addTimeInput() {
-    this.timeOfDayNumber++;
-    this.timeOfDays.push('' + this.timeOfDayNumber);
-  }
-
-  public deleteTimeInput(e) {
-    this.timeOfDayNumber--;
-
-    const inputGroup = e.target.parentNode.parentNode;
-    const numberToRemove = inputGroup.classList[1];
-    console.log(numberToRemove);
-    for (let i = 0; i < this.timeOfDays.length; i++) {
-      if (this.timeOfDays[i] === numberToRemove) {
-        this.timeOfDays.splice(i, 1);
-      }
-    }
-    inputGroup.remove();
   }
 
   public setRecurrence(event) {
@@ -62,5 +61,9 @@ export class AddPillComponent implements OnInit {
         this.isEveryDay = false;
         break;
     }
+  }
+
+  public hide() {
+    this.setHide();
   }
 }
