@@ -7,7 +7,7 @@
       </ngx-avatar>
     </div>
 
-    <div class="flex">
+    <div class="flex" *responsive="{sizes:{max:850}}">
       <a class="btn btn-grey"><img src="assets/img/icons/patient-add.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
       <a class="btn btn-grey"><img src="assets/img/icons/settings.svg" alt=""></a>
@@ -20,7 +20,13 @@
   <main>
     <app-calendar-week-overview [patient]="patient"></app-calendar-week-overview>
     <app-patient-profile-card [patient]="patient"></app-patient-profile-card>
+    <div class="flex" *responsive="{sizes:{min:850}}">
+      <a class="btn btn-grey"><img src="assets/img/icons/patient-add.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
+      <a class="btn btn-grey"><img src="assets/img/icons/settings.svg" alt=""></a>
+    </div>
   </main>
+
 </ng-container>
 
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isEditingPatient' modal="true" [style]="{width: '75vw'}">
