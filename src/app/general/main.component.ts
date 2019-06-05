@@ -27,7 +27,8 @@ export class MainComponent implements OnInit {
           lastName: patient.lastName,
           email: patient.email,
           tel: patient.tel,
-          url: patient.url
+          city: patient.city,
+          street: patient.street
         };
       });
   }

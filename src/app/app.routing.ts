@@ -1,3 +1,4 @@
+import { AddPatientComponent } from './patient/add-patient.component';
 import { AddPillComponent } from './pill/add-pill.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CalendarDayComponent } from './agenda/calendar-day.component';
@@ -47,6 +48,11 @@ const routes: Routes = [
     path: 'add-pill',
     canActivate: [AuthGuard],
     component: AddPillComponent
+  },
+  {
+    path: 'add-patient',
+    canActivate: [AuthGuard],
+    component: AddPatientComponent
   },
   {
     path: 'login',
