@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import {
   Component,
   EventEmitter,
@@ -6,7 +6,6 @@ import {
   OnInit,
   Output
   } from '@angular/core';
-import { filter } from 'rxjs/operators';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
 import { Pill } from '../shared/pill.model';
@@ -22,10 +21,17 @@ export class CalendarDayComponent implements OnInit {
   public patient: Patient;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private patientService: PatientService,
     private pillService: PillService
-  ) {}
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.pills = [];
+      }
+    });
+  }
 
   ngOnInit() {
     this.patientService.getAll().subscribe(patients => {
