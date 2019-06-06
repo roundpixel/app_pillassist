@@ -18,17 +18,13 @@ export class PillService {
     private patientService: PatientService
   ) {}
 
-  getAll(): Observable<Pill[]> {
-    this.patientService.currentPatient.subscribe(
-      res => (this.patientId = res.id)
-    );
-
-    if (this.patientId) {
+  getAll(patientId: number): Observable<Pill[]> {
+    if (patientId) {
       return this.http
-        .get(`${this.baseUrl}/pill/read.php?id=${this.patientId}`)
+        .get(`${this.baseUrl}/pill/read.php?id=${patientId}`)
         .pipe(
           map(res => {
-            this.pills = res['pills'];
+            this.pills = res['pillSchemas'];
             return this.pills;
           }),
           catchError(this.handleError)

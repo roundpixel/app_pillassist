@@ -2,13 +2,9 @@
   <h1>Medicatieschema voor <span class="title-blue">{{patient?.firstName}} {{patient?.lastName}}</span></h1>
   <div class="main-content__card__body col-2">
     <ng-container *ngFor="let pill of pills">
-      <div *ngIf="pill.display" class="card card-pill appear">
-        <div class="card__icon">
-          <img class="check" src="assets/img/icons/check.svg" alt="check">
-        </div>
+      <div class="card card-pill appear">
         <div class="card__body">
           <h2 class="card__title">{{pill.quantity}} {{pill.name}}</h2>
-          <h3 class="card__subtitle">Om {{pill.time}}</h3>
           <p class="card__desc">{{pill.description}}</p>
         </div>
         <div>

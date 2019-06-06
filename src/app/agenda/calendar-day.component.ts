@@ -23,7 +23,8 @@ export class CalendarDayComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private pillService: PillService
   ) {}
 
   ngOnInit() {
@@ -33,6 +34,7 @@ export class CalendarDayComponent implements OnInit {
           if (patient.firstName === params.firstName) {
             this.patient = patient;
             this.patientService.changePatient(patient);
+            this.getPills();
           }
         });
       });
@@ -40,6 +42,8 @@ export class CalendarDayComponent implements OnInit {
   }
 
   public getPills() {
-    // this.pillService.getAll().subscribe(res => console.log(res));
+    this.pillService
+      .getAll(this.patient.id)
+      .subscribe(res => (this.pills = res));
   }
 }
