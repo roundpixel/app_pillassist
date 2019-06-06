@@ -5,6 +5,11 @@
 .ui-dialog-content {
   max-height: 90vh;
   overflow: scroll;
+
+  header {
+    padding: 1em 2em;
+  }
+
   main {
     background: white;
     padding: 2em;
