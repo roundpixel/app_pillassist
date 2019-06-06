@@ -15,7 +15,7 @@
             <ng-container *ngIf="pill.isMonthly === '1'">
               Maandelijks op de {{pill.startDate.getDate()}}<sup>e</sup> dag van de maand
             </ng-container>
-            <ng-container *ngIf="showEvery">Elke
+            <ng-container *ngIf="pill.showEvery">Elke
               <ng-container *ngIf="pill.isEveryMonday">
                 maandag
               </ng-container>

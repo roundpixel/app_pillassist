@@ -20,4 +20,5 @@ export class Pill {
   public isEverySunday: any;
   public startDate: any;
   public endDate: any;
+  public showEvery: boolean;
 }

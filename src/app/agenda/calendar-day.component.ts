@@ -19,7 +19,6 @@ import { PillService } from './../services/pill.service';
 export class CalendarDayComponent implements OnInit {
   public pills: Array<Pill> = new Array<Pill>();
   public patient: Patient;
-  public showEvery = false;
 
   constructor(
     private router: Router,
@@ -83,7 +82,9 @@ export class CalendarDayComponent implements OnInit {
         pill.isEverySaturday ||
         pill.isEverySunday
       ) {
-        this.showEvery = true;
+        pill.showEvery = true;
+      } else {
+        pill.showEvery = false;
       }
     });
 
