@@ -12,6 +12,7 @@ import { PatientService } from './../services/patient.service';
 export class PatientsComponent implements OnInit {
   public patients: Array<Patient>;
   public caregiver: any;
+  public isAddingPatient = false;
 
   constructor(
     private patientService: PatientService,
@@ -24,5 +25,13 @@ export class PatientsComponent implements OnInit {
     setTimeout(() => {
       this.patientService.changePatient(new Patient());
     });
+  }
+
+  showAddPatient() {
+    this.isAddingPatient = true;
+  }
+
+  close() {
+    this.isAddingPatient = false;
   }
 }

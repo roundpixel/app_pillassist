@@ -31,11 +31,26 @@ export class PatientService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.log(error);
-    return throwError('Error! Something went wrong.');
+    if (error.status !== 201) {
+      return throwError('Error! Something went wrong: ' + error.error.message);
+    }
   }
 
   changePatient(patient: Patient) {
     this.patientSource.next(patient);
+  }
+
+  createPatient(patient: Patient): Observable<any> {
+    const caregiverId = this.caregiverService.getCurrentCaregiverId();
+    return this.http
+      .post(`${this.baseUrl}/create.php?caregiverId=${caregiverId}`, {
+        data: patient
+      })
+      .pipe(
+        map(res => {
+          console.log(res);
+        }),
+        catchError(this.handleError)
+      );
   }
 }

@@ -96,3 +96,42 @@
     }
   }
 }
+
+@media (min-width: 850px) {
+  .card {
+    &-patient {
+      padding: 2em 0;
+      ngx-avatar {
+        width: auto;
+        height: auto;
+        margin-right: 0;
+      }
+    }
+
+    &-add {
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 1em;
+
+      h3,
+      .light {
+        color: $charcoal-grey;
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
+      }
+
+      .btn-grey {
+        width: 90px;
+        height: 90px;
+        align-items: center;
+        margin: 0 0 1em;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

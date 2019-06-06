@@ -43,14 +43,18 @@ main {
     display: grid;
     grid-template-columns: 5em 5fr;
 
-    app-sidebar,
-    app-add-pill {
+    app-sidebar {
       grid-column: 2;
       padding: 0 1em;
       position: relative;
       overflow: overlay;
       height: 100vh;
       background: white;
+
+      main {
+        margin-top: 1em;
+        background: white;
+      }
     }
   }
 
