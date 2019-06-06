@@ -19,6 +19,7 @@ import { PillService } from './../services/pill.service';
 export class CalendarDayComponent implements OnInit {
   public pills: Array<Pill> = new Array<Pill>();
   public patient: Patient;
+  public showEvery = false;
 
   constructor(
     private router: Router,
@@ -50,6 +51,47 @@ export class CalendarDayComponent implements OnInit {
   public getPills() {
     this.pillService
       .getAll(this.patient.id)
-      .subscribe(res => (this.pills = res));
+      .subscribe(res => this.loadPills(res));
+  }
+
+  public loadPills(pills: Array<Pill>) {
+    pills.forEach(pill => {
+      const [startYear, startMonth, startDay] = [...pill.startDate.split('-')];
+      pill.startDate = this.converStringToDate([
+        startYear,
+        startMonth,
+        startDay
+      ]);
+
+      const [endYear, endMonth, endDay] = [...pill.endDate.split('-')];
+      pill.endDate = this.converStringToDate([endYear, endMonth, endDay]);
+
+      pill.isEveryMonday = pill.isEveryMonday === '1' ? true : false;
+      pill.isEveryTuesday = pill.isEveryTuesday === '1' ? true : false;
+      pill.isEveryWednesday = pill.isEveryWednesday === '1' ? true : false;
+      pill.isEveryThursDay = pill.isEveryThursDay === '1' ? true : false;
+      pill.isEveryFriday = pill.isEveryFriday === '1' ? true : false;
+      pill.isEverySaturday = pill.isEverySaturday === '1' ? true : false;
+      pill.isEverySunday = pill.isEverySunday === '1' ? true : false;
+
+      if (
+        pill.isEveryMonday ||
+        pill.isEveryTuesday ||
+        pill.isEveryWednesday ||
+        pill.isEveryThursDay ||
+        pill.isEveryFriday ||
+        pill.isEverySaturday ||
+        pill.isEverySunday
+      ) {
+        this.showEvery = true;
+      }
+    });
+
+    this.pills = pills;
+  }
+
+  public converStringToDate([year, month, day]) {
+    const monthIndex = month - 1;
+    return new Date(year, monthIndex, day);
   }
 }

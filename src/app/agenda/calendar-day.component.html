@@ -5,6 +5,43 @@
       <div class="card card-pill appear">
         <div class="card__body">
           <h2 class="card__title">{{pill.quantity}} {{pill.name}}</h2>
+          <span>
+            <ng-container *ngIf="pill.isDaily === '1'">
+              Dagelijks
+            </ng-container>
+            <ng-container *ngIf="pill.isWeekly === '1'">
+              Wekelijks
+            </ng-container>
+            <ng-container *ngIf="pill.isMonthly === '1'">
+              Maandelijks op de {{pill.startDate.getDate()}}<sup>e</sup> dag van de maand
+            </ng-container>
+            <ng-container *ngIf="showEvery">Elke
+              <ng-container *ngIf="pill.isEveryMonday">
+                maandag
+              </ng-container>
+              <ng-container *ngIf="pill.isEveryTuesday">
+                dinsdag
+              </ng-container>
+              <ng-container *ngIf="pill.isEveryWednesday">
+                woensdag
+              </ng-container>
+              <ng-container *ngIf="pill.isEveryThursDay">
+                donderdag
+              </ng-container>
+              <ng-container *ngIf="pill.isEveryFriday">
+                vrijdag
+              </ng-container>
+              <ng-container *ngIf="pill.isEverySaturday">
+                zaterdag
+              </ng-container>
+              <ng-container *ngIf="pill.isEverySunday">
+                zondag
+              </ng-container>
+            </ng-container>
+            <ng-container *ngIf="pill.isEveryEachDay === '1'">
+              Om de dag
+            </ng-container>
+          </span>
           <p class="card__desc">{{pill.description}}</p>
         </div>
         <div>
