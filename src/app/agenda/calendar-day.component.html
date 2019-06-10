@@ -1,7 +1,9 @@
 <div class="main-content__card calendar-day">
-  <h1>Medicatieschema voor <span class="title-blue">{{patient?.firstName}} {{patient?.lastName}}</span></h1>
+  <header>
+    <h1>Medicatieschema voor <span class="title-blue">{{patient?.firstName}} {{patient?.lastName}}</span></h1>
+  </header>
   <div class="main-content__card__body col-2">
-    <ng-container *ngFor="let pill of pills">
+    <ng-container *ngFor="let pill of pillSchema">
       <div class="card card-pill appear">
         <div class="card__body">
           <h2 class="card__title">{{pill.quantity}} {{pill.name}}</h2>
@@ -42,7 +44,10 @@
               Om de dag
             </ng-container>
           </span>
-          <p class="card__desc">{{pill.description}}</p>
+          <span>om</span>
+          <span class="time" *ngFor="let pillTime of pill.pills">
+            {{pillTime.time}}
+          </span>
         </div>
         <div>
           <p-overlayPanel #op appendTo="body">

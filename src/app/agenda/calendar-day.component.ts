@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 import {
   Component,
@@ -9,6 +10,7 @@ import {
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
 import { Pill } from '../shared/pill.model';
+import { PillSchema } from '../shared/pillSchema.model';
 import { PillService } from './../services/pill.service';
 
 @Component({
@@ -17,7 +19,7 @@ import { PillService } from './../services/pill.service';
   styles: []
 })
 export class CalendarDayComponent implements OnInit {
-  public pills: Array<Pill> = new Array<Pill>();
+  public pillSchema: Array<PillSchema> = new Array<PillSchema>();
   public patient: Patient;
 
   constructor(
@@ -28,7 +30,7 @@ export class CalendarDayComponent implements OnInit {
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        this.pills = [];
+        this.pillSchema = [];
       }
     });
   }
@@ -53,8 +55,8 @@ export class CalendarDayComponent implements OnInit {
       .subscribe(res => this.loadPills(res));
   }
 
-  public loadPills(pills: Array<Pill>) {
-    pills.forEach(pill => {
+  public loadPills(pills: Array<PillSchema>) {
+    pills.forEach((pill, index) => {
       const [startYear, startMonth, startDay] = [...pill.startDate.split('-')];
       pill.startDate = this.converStringToDate([
         startYear,
@@ -86,13 +88,49 @@ export class CalendarDayComponent implements OnInit {
       } else {
         pill.showEvery = false;
       }
-    });
 
-    this.pills = pills;
+      pill.pills.forEach(pillTime => {
+        const timeParts = pillTime.time.split(/[:]/);
+        pillTime.time = this.convertStringToTimeString([
+          timeParts[0],
+          timeParts[1]
+        ]);
+      });
+
+      // if (index > 0) {
+      //   console.log(pills[index - 1]);
+      //   if (this.isSamePill(pill.name, pills[index - 1].name)) {
+      //     const firstPillOfItsName = pills.find(p => {
+      //       return p.name === pill.name;
+      //     });
+      //     firstPillOfItsName.pills = firstPillOfItsName.pills.concat(
+      //       pill.pills
+      //     );
+      //   }
+
+      //   //pills.splice(index, 1);
+
+      //   //pills = pills.reduce((p, v, i) => (i !== index && p.push(v), p), []);
+      // }
+
+      this.pillSchema = pills;
+    });
+  }
+
+  public isSamePill(previous, current) {
+    if (previous === current) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public converStringToDate([year, month, day]) {
     const monthIndex = month - 1;
     return new Date(year, monthIndex, day);
+  }
+
+  public convertStringToTimeString([hours, minutes]) {
+    return hours + 'u' + minutes;
   }
 }

@@ -71,6 +71,12 @@
       color: $main-blue;
     }
   }
+
+  &-pill {
+    .time {
+      margin: 0;
+    }
+  }
 }
 
 .ui-overlaypanel {

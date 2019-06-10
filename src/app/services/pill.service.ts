@@ -3,29 +3,25 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { PatientService } from './patient.service';
-import { Pill } from './../shared/pill.model';
+import { PillSchema } from '../shared/pillSchema.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PillService {
   private baseUrl = 'http://localhost/api_pillassist';
-  private pills: Pill[];
-  private patientId: number;
+  private pillSchema: PillSchema[];
 
-  constructor(
-    private http: HttpClient,
-    private patientService: PatientService
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  getAll(patientId: number): Observable<Pill[]> {
+  getAll(patientId: number): Observable<PillSchema[]> {
     if (patientId) {
       return this.http
         .get(`${this.baseUrl}/pill/read.php?id=${patientId}`)
         .pipe(
           map(res => {
-            this.pills = res['pillSchemas'];
-            return this.pills;
+            this.pillSchema = res['pillSchemas'];
+            return this.pillSchema;
           }),
           catchError(this.handleError)
         );
