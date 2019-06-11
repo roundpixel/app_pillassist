@@ -10,6 +10,7 @@ import { Observable, throwError } from 'rxjs';
 })
 export class CaregiverService {
   private baseUrl = 'http://localhost/api_pillassist/caregiver';
+  public caregivers: Array<Caregiver>;
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -22,6 +23,16 @@ export class CaregiverService {
         }),
         catchError(this.handleError)
       );
+  }
+
+  getAll(): Observable<Caregiver> {
+    return this.http.get(`${this.baseUrl}/read.php`).pipe(
+      map(res => {
+        this.caregivers = res['caregivers'];
+        return this.caregivers;
+      }),
+      catchError(this.handleError)
+    );
   }
 
   getCurrentCaregiverId() {

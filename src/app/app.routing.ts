@@ -2,6 +2,7 @@ import { AddPatientComponent } from './patient/add-patient.component';
 import { AddPillComponent } from './pill/add-pill.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CalendarDayComponent } from './agenda/calendar-day.component';
+import { CoCaregiversComponent } from './co-caregiver/co-caregivers.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MainComponent } from './general/main.component';
 import { ModuleWithProviders } from '@angular/core';
@@ -53,6 +54,11 @@ const routes: Routes = [
     path: 'add-patient',
     canActivate: [AuthGuard],
     component: AddPatientComponent
+  },
+  {
+    path: 'add-caregiver',
+    canActivate: [AuthGuard],
+    component: CoCaregiversComponent
   },
   {
     path: 'login',

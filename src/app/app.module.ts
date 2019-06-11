@@ -29,6 +29,7 @@ import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
 import { SidebarComponent } from './general/sidebar.component';
+import { CoCaregiversComponent } from './co-caregiver/co-caregivers.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SidebarComponent } from './general/sidebar.component';
     MainComponent,
     RegisterComponent,
     SidebarComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+    CoCaregiversComponent
   ],
   imports: [
     ReactiveFormsModule,
