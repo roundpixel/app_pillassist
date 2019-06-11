@@ -28,6 +28,17 @@ export class PillService {
     }
   }
 
+  createPill(data, patientId: number): Observable<any> {
+    return this.http
+      .post(`${this.baseUrl}/pill/create?patientId=${patientId}`, data)
+      .pipe(
+        map(res => {
+          console.log(res);
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {
       return throwError('Error! No pills found');

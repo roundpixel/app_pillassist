@@ -7,6 +7,7 @@ import {
   } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Patient } from '../shared/patient.model';
+import { PillService } from './../services/pill.service';
 
 @Component({
   selector: 'app-add-pill',
@@ -33,7 +34,7 @@ export class AddPillComponent implements OnInit {
     this.onHide.emit(true);
   }
 
-  constructor() {}
+  constructor(private pillService: PillService) {}
 
   ngOnInit() {
     this.recurrences = [
@@ -84,6 +85,8 @@ export class AddPillComponent implements OnInit {
   public createPill(form: NgForm) {
     const val = form.value;
 
-    console.log(val);
+    this.pillService.createPill(val, this.patient.id).subscribe(res => {
+      console.log(res);
+    });
   }
 }
