@@ -3,37 +3,40 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { PatientService } from './patient.service';
-import { Pill } from './../shared/pill.model';
+import { PillSchema } from '../shared/pillSchema.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PillService {
   private baseUrl = 'http://localhost/api_pillassist';
-  private pills: Pill[];
-  private patientId: number;
+  private pillSchema: PillSchema[];
 
-  constructor(
-    private http: HttpClient,
-    private patientService: PatientService
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  getAll(): Observable<Pill[]> {
-    this.patientService.currentPatient.subscribe(
-      res => (this.patientId = res.id)
-    );
-
-    if (this.patientId) {
+  getAll(patientId: number): Observable<PillSchema[]> {
+    if (patientId) {
       return this.http
-        .get(`${this.baseUrl}/pill/read.php?id=${this.patientId}`)
+        .get(`${this.baseUrl}/pill/read.php?id=${patientId}`)
         .pipe(
           map(res => {
-            this.pills = res['pills'];
-            return this.pills;
+            this.pillSchema = res['pillSchemas'];
+            return this.pillSchema;
           }),
           catchError(this.handleError)
         );
     }
+  }
+
+  createPill(data, patientId: number): Observable<any> {
+    return this.http
+      .post(`${this.baseUrl}/pill/create?patientId=${patientId}`, data)
+      .pipe(
+        map(res => {
+          console.log(res);
+        }),
+        catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse) {

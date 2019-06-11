@@ -17,3 +17,8 @@
       toevoegen</span>
   </a>
 </div>
+
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isAddPillVisible' modal="true" [style]="{width: '75vw'}">
+  <app-add-pill (closeEvent)="close()" [patient]=" patient">
+  </app-add-pill>
+</p-dialog>
