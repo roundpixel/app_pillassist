@@ -6,13 +6,17 @@
   form {
     padding: 1em;
   }
+
+  .added-input-group {
+    margin-bottom: 1em;
+  }
 }
 
 @media (min-width: 850px) {
   .add {
-    form {
+    .col-2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       grid-gap: 0 2em;
     }
 
