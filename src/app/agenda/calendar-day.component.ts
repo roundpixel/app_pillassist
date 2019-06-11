@@ -97,24 +97,27 @@ export class CalendarDayComponent implements OnInit {
         ]);
       });
 
-      // if (index > 0) {
-      //   console.log(pills[index - 1]);
-      //   if (this.isSamePill(pill.name, pills[index - 1].name)) {
-      //     const firstPillOfItsName = pills.find(p => {
-      //       return p.name === pill.name;
-      //     });
-      //     firstPillOfItsName.pills = firstPillOfItsName.pills.concat(
-      //       pill.pills
-      //     );
-      //   }
-
-      //   //pills.splice(index, 1);
-
-      //   //pills = pills.reduce((p, v, i) => (i !== index && p.push(v), p), []);
-      // }
+      // pills = pills.reduce((p, v, i) => (i !== index && p.push(v), p), []);
 
       this.pillSchema = pills;
     });
+
+    for (let i = pills.length - 1; i >= 0; i--) {
+      if (i > 0) {
+        if (this.isSamePill(pills[i].name, pills[i - 1].name)) {
+          const firstPillOfItsName = pills.find(p => {
+            return p.name === pills[i].name;
+          });
+          firstPillOfItsName.pills = firstPillOfItsName.pills.concat(
+            pills[i].pills
+          );
+
+          pills.splice(i, 1);
+        }
+
+        this.pillSchema = pills;
+      }
+    }
   }
 
   public isSamePill(previous, current) {
