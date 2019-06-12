@@ -2,12 +2,16 @@
 
 <ng-container *responsive="{sizes:{min:850}}">
   <main>
-    <header class="header-search">
-      <input type="text" placeholder="Zoek medicatie">
-    </header>
-    <div class="main-content">
-      <app-calendar-day></app-calendar-day>
-    </div>
+    <p-tabView>
+      <p-tabPanel header="Medicatieschema">
+        <div class="main-content">
+          <app-calendar-day></app-calendar-day>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Medicatiegeschiedenis">
+        <app-history></app-history>
+      </p-tabPanel>
+    </p-tabView>
   </main>
 </ng-container>
 

@@ -8,9 +8,9 @@
     </div>
 
     <div class="flex" *responsive="{sizes:{max:850}}">
-      <a class="btn btn-grey"><img src="assets/img/icons/patient-add.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="showCoCaregivers()"><img src="assets/img/icons/patient-add.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
-      <a class="btn btn-grey"><img src="assets/img/icons/settings.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="showSettings()"><img src="assets/img/icons/settings.svg" alt=""></a>
     </div>
   </header>
   <div class="header-bg">
@@ -23,7 +23,7 @@
     <div class="flex actions" *responsive="{sizes:{min:850}}">
       <a class="btn btn-grey" (click)="showCoCaregivers()"><img src="assets/img/icons/patient-add.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
-      <a class="btn btn-grey"><img src="assets/img/icons/settings.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="showSettings()"><img src="assets/img/icons/settings.svg" alt=""></a>
     </div>
   </main>
 
@@ -37,4 +37,8 @@
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingCoCaregivers' modal="true"
   [style]="{width: '75vw'}">
   <app-co-caregivers [patient]="patient" (closeEvent)="close()"></app-co-caregivers>
+</p-dialog>
+
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingSettings' modal="true" [style]="{width: '75vw'}">
+  <app-settings [patient]="patient" (closeEvent)="close()"></app-settings>
 </p-dialog>

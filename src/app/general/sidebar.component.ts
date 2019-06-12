@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
   public isAddPillVisible: boolean;
   isEditingPatient = false;
   isViewingCoCaregivers = false;
+  isViewingSettings = false;
 
   @Input() patient: Patient;
   private patients: Array<Patient>;
@@ -43,5 +44,9 @@ export class SidebarComponent implements OnInit {
 
   showCoCaregivers() {
     this.isViewingCoCaregivers = true;
+  }
+
+  showSettings() {
+    this.isViewingSettings = true;
   }
 }

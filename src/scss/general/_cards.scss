@@ -70,8 +70,8 @@
     display: flex;
     width: 341px;
     align-items: center;
-    justify-content: left;
-    margin-bottom: 1em;
+    justify-content: space-between;
+    margin-right: 1em;
 
     ngx-avatar,
     .btn-grey {
@@ -83,6 +83,10 @@
     .light {
       font-size: small;
       margin-bottom: 0;
+    }
+
+    .plus {
+      justify-self: right;
     }
   }
 

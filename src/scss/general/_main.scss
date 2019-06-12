@@ -19,6 +19,16 @@ main {
     font-weight: 500;
   }
 
+  &.caregivers {
+    .flex {
+      flex-wrap: wrap;
+    }
+
+    .desc {
+      margin-bottom: 1em;
+    }
+  }
+
   .main-content {
     padding: 0 2em 2em;
     &__card {

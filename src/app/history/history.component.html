@@ -1,0 +1,8 @@
+<div class="card card-pill" *ngFor="let pill of pills">
+  <div class="card__body">
+    <img src="assets/img/icons/x-red.svg" alt="" *ngIf="pill.isTaken != 1">
+    <img src="assets/img/icons/check.svg" alt="" *ngIf="pill.isTaken == 1">
+    <h2 class="card__title">{{pill.quantity}} {{pill.name}}</h2>
+    <span>{{pill.time}} - {{pill.date}}</span>
+  </div>
+</div>

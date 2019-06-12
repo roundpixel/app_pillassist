@@ -1,0 +1,28 @@
+<main class="settings">
+  <div>
+    <h1>Instellingen - <span class="title-blue">{{patient?.firstName}}
+        {{patient?.lastName}}</span>
+    </h1>
+    <p class="desc">Hier vind u een overzicht van alle instellingen</p>
+    <form action="/" class="col-2">
+      <div class="input-group">
+        <h2>Toegankelijkheidsinstelingen</h2>
+        <div class="checkBox-group">
+          <p-checkbox label="Voorlezen medicatie"></p-checkbox>
+        </div>
+      </div>
+      <div class="input-group">
+        <h2>Inname op voorhand verwittigen</h2>
+        <p-dropdown [options]="options"></p-dropdown>
+      </div>
+      <div class="input-group">
+        <h2>Soort melding</h2>
+        <p-dropdown [options]="notificationOptions"></p-dropdown>
+      </div>
+      <div class="input-group">
+        <h2>Soort horloge</h2>
+        <p-dropdown [options]="watchOptions"></p-dropdown>
+      </div>
+    </form>
+  </div>
+</main>

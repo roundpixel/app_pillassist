@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
+import { CoCaregiversComponent } from './co-caregiver/co-caregivers.component';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { HeaderTopComponent } from './general/header-top.component';
+import { HistoryComponent } from './history/history.component';
 import { httpInterceptorProviders } from './http-interceptors';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
@@ -28,8 +30,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
+import { SettingsComponent } from './settings/settings.component';
 import { SidebarComponent } from './general/sidebar.component';
-import { CoCaregiversComponent } from './co-caregiver/co-caregivers.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -42,9 +45,12 @@ import { CoCaregiversComponent } from './co-caregiver/co-caregivers.component';
     RegisterComponent,
     SidebarComponent,
     PatientProfileComponent,
-    CoCaregiversComponent
+    CoCaregiversComponent,
+    SettingsComponent,
+    HistoryComponent
   ],
   imports: [
+    TabViewModule,
     ReactiveFormsModule,
     AgendaModule,
     FullCalendarModule,

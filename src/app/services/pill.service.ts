@@ -11,6 +11,7 @@ import { PillSchema } from '../shared/pillSchema.model';
 export class PillService {
   private baseUrl = 'http://localhost/api_pillassist';
   private pillSchema: PillSchema[];
+  private pills = Array();
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +23,20 @@ export class PillService {
           map(res => {
             this.pillSchema = res['pillSchemas'];
             return this.pillSchema;
+          }),
+          catchError(this.handleError)
+        );
+    }
+  }
+
+  getAllPills(patientId: number): Observable<any> {
+    if (patientId) {
+      return this.http
+        .get(`${this.baseUrl}/pill/readPills.php?id=${patientId}`)
+        .pipe(
+          map(res => {
+            this.pills = res['pills'];
+            return this.pills;
           }),
           catchError(this.handleError)
         );
