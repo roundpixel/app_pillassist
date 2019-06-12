@@ -1,3 +1,28 @@
-<p>
-  co-caregivers works!
-</p>
+<main>
+  <div>
+    <h1>Medeverzorgers bekijken en toevoegen - <span class="title-blue">{{patient.firstName}}
+        {{patient.lastName}}</span>
+    </h1>
+    <p>Hier vind u een overzicht van alle medeverzorgers en kunt u ze toevoegen aan uw patiënt</p>
+
+    <h2>Uw medeverzorgers:</h2>
+    <div class="card card-caregiver" *ngFor="let caregiver of addedCaregivers">
+      <ngx-avatar size="35" bgColor="#84D1FB" name={{caregiver.firstName}}>
+      </ngx-avatar>
+      <div class="info">
+        <h3>{{caregiver.firstName}} {{caregiver.lastName}}</h3>
+        <p class="light">Tel: {{caregiver.tel}}</p>
+      </div>
+    </div>
+
+    <h2>Medeverzorgers die u nog kan toevoegen:</h2>
+    <div class="card card-caregiver" *ngFor="let caregiver of allCaregivers">
+      <ngx-avatar size="35" bgColor="#84D1FB" name={{caregiver.firstName}}>
+      </ngx-avatar>
+      <div class="info">
+        <h3>{{caregiver.firstName}} {{caregiver.lastName}}</h3>
+        <p class="light">Tel: {{caregiver.tel}}</p>
+      </div>
+    </div>
+  </div>
+</main>

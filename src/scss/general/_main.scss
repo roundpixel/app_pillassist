@@ -13,6 +13,12 @@ main {
     }
   }
 
+  h2 {
+    color: $charcoal-grey;
+    opacity: 0.8;
+    font-weight: 500;
+  }
+
   .main-content {
     padding: 0 2em 2em;
     &__card {

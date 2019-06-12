@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Caregiver } from '../shared/caregiver.model';
+import { CaregiverService } from './../services/caregiver.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Patient } from '../shared/patient.model';
 
 @Component({
   selector: 'app-co-caregivers',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CoCaregiversComponent implements OnInit {
+  public allCaregivers: any;
+  @Input() patient: Patient;
 
-  constructor() { }
+  constructor(private caregiverService: CaregiverService) {}
 
   ngOnInit() {
+    this.caregiverService
+      .getAll()
+      .subscribe(caregivers => (this.allCaregivers = caregivers));
   }
-
 }

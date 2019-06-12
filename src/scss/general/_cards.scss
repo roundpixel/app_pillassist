@@ -65,6 +65,27 @@
     }
   }
 
+  &-caregiver {
+    padding: 1em;
+    display: flex;
+    width: 341px;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 1em;
+
+    ngx-avatar,
+    .btn-grey {
+      margin-right: 1em;
+      width: 35px;
+      height: 35px;
+    }
+
+    .light {
+      font-size: small;
+      margin-bottom: 0;
+    }
+  }
+
   &-add {
     margin-bottom: 2em;
     h3 {

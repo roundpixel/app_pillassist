@@ -21,7 +21,7 @@
     <app-calendar-week-overview [patient]="patient"></app-calendar-week-overview>
     <app-patient-profile-card [patient]="patient"></app-patient-profile-card>
     <div class="flex actions" *responsive="{sizes:{min:850}}">
-      <a class="btn btn-grey"><img src="assets/img/icons/patient-add.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="showCoCaregivers()"><img src="assets/img/icons/patient-add.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
       <a class="btn btn-grey"><img src="assets/img/icons/settings.svg" alt=""></a>
     </div>
@@ -30,6 +30,11 @@
 </ng-container>
 
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isEditingPatient' modal="true" [style]="{width: '75vw'}">
-  <app-patient-profile (closeEvent)="close()" [patient]=" patient">
+  <app-patient-profile (closeEvent)="close()" [patient]="patient">
   </app-patient-profile>
+</p-dialog>
+
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingCoCaregivers' modal="true"
+  [style]="{width: '75vw'}">
+  <app-co-caregivers [patient]="patient" (closeEvent)="close()"></app-co-caregivers>
 </p-dialog>
