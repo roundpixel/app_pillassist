@@ -8,7 +8,6 @@
     </div>
 
     <div class="flex" *responsive="{sizes:{max:850}}">
-      <a class="btn btn-grey" (click)="showCoCaregivers()"><img src="assets/img/icons/patient-add.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showSettings()"><img src="assets/img/icons/settings.svg" alt=""></a>
     </div>
@@ -21,7 +20,6 @@
     <app-calendar-week-overview [patient]="patient"></app-calendar-week-overview>
     <app-patient-profile-card [patient]="patient"></app-patient-profile-card>
     <div class="flex actions" *responsive="{sizes:{min:850}}">
-      <a class="btn btn-grey" (click)="showCoCaregivers()"><img src="assets/img/icons/patient-add.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showSettings()"><img src="assets/img/icons/settings.svg" alt=""></a>
     </div>
@@ -39,6 +37,6 @@
   <app-co-caregivers [patient]="patient" (closeEvent)="close()"></app-co-caregivers>
 </p-dialog>
 
-<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingSettings' modal="true" [style]="{width: '75vw'}">
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingSettings' modal="true">
   <app-settings [patient]="patient" (closeEvent)="close()"></app-settings>
 </p-dialog>
