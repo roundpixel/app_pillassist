@@ -44,6 +44,16 @@
     width: 25px;
   }
 
+  &-history {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+
+    .card__body {
+      margin-left: 1em;
+    }
+  }
+
   &-patient {
     padding: 1em;
     display: flex;
