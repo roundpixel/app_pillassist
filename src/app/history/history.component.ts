@@ -17,8 +17,6 @@ export class HistoryComponent implements OnInit {
   ) {}
   public patient: Patient;
   public pills;
-  timeParts;
-  [1];
 
   ngOnInit() {
     this.patientService.getAll().subscribe(patients => {

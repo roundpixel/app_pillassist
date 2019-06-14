@@ -13,6 +13,9 @@
     <img src="assets/img/bollen.png" alt="" />
   </div>
   <div class="main-content__card__body col-2">
+    <p class="light" *ngIf="pillSchema.length == 0">
+      Geen medicatie gevonden.
+    </p>
     <ng-container *ngFor="let pill of pillSchema">
       <div class="card card-pill appear">
         <div class="card__body">
