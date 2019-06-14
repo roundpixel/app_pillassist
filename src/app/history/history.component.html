@@ -1,4 +1,8 @@
-<main>
+<main class="history">
+  <header>
+    <h1>Medicatiegeschiedenis van de voorbije 2 weken van <span class="title-blue">{{patient?.firstName}}
+        {{patient?.lastName}}</span></h1>
+  </header>
   <div class="col-2">
     <div class="card card-pill card-history" *ngFor="let pill of pills">
       <img src="assets/img/icons/x-red.svg" alt="" *ngIf="pill.isTaken != 1">

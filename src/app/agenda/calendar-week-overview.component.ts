@@ -42,6 +42,8 @@ export class CalendarWeekOverviewComponent implements OnInit {
     if (this.router.url === '/patients') {
       this.pillService.getAllPills(this.patient.id).subscribe(pills => {
         this.pills = pills;
+        this.convertDates(this.pills);
+        this.filterToPastWeek(this.pills);
         this.setData();
       });
     } else {
@@ -53,6 +55,8 @@ export class CalendarWeekOverviewComponent implements OnInit {
               this.patientService.changePatient(patient);
               this.pillService.getAllPills(this.patient.id).subscribe(pills => {
                 this.pills = pills;
+                this.convertDates(this.pills);
+                this.filterToPastWeek(this.pills);
                 this.setData();
               });
             }
@@ -71,6 +75,28 @@ export class CalendarWeekOverviewComponent implements OnInit {
         enabled: false
       }
     };
+  }
+
+  public convertDates(pills) {
+    pills.forEach(pill => {
+      const [Year, Month, Day] = [...pill.date.split('-')];
+      pill.date = this.converStringToDate([Year, Month, Day]);
+    });
+  }
+
+  public filterToPastWeek(pills) {
+    const today = new Date();
+    const beginDate = new Date(Date.now() - 604800000);
+    for (let i = pills.length - 1; i >= 0; i--) {
+      if (pills[i].date < beginDate || pills[i].date > today) {
+        pills.splice(i, 1);
+      }
+    }
+  }
+
+  public converStringToDate([year, month, day]) {
+    const monthIndex = month - 1;
+    return new Date(year, monthIndex, day);
   }
 
   public setData() {

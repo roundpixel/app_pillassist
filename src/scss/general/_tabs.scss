@@ -10,12 +10,17 @@
 
     li {
       border: $subtle-border;
+      cursor: pointer;
+
+      &:first-child {
+        margin-left: 2em;
+      }
 
       &.ui-state-default {
         background: $light-grey;
-        opacity: 0.8;
+        filter: brightness(95%);
         &.ui-state-active {
-          opacity: 1;
+          filter: brightness(100%);
         }
       }
     }

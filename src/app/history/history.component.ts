@@ -45,6 +45,8 @@ export class HistoryComponent implements OnInit {
       const [Year, Month, Day] = [...pill.date.split('-')];
       pill.date = this.converStringToDate([Year, Month, Day]);
     });
+
+    this.filterToPastWeeks(pills);
   }
 
   public convertStringToTimeString([hours, minutes]) {
@@ -54,5 +56,15 @@ export class HistoryComponent implements OnInit {
   public converStringToDate([year, month, day]) {
     const monthIndex = month - 1;
     return new Date(year, monthIndex, day);
+  }
+
+  public filterToPastWeeks(pills) {
+    const today = new Date();
+    const beginDate = new Date(Date.now() - 12096e5);
+    for (let i = pills.length - 1; i >= 0; i--) {
+      if (pills[i].date < beginDate || pills[i].date > today) {
+        pills.splice(i, 1);
+      }
+    }
   }
 }
