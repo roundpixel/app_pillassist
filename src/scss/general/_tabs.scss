@@ -1,0 +1,27 @@
+.ui-tabview {
+  padding: 0;
+
+  .ui-tabview-nav {
+    height: 10vh;
+    display: flex;
+    align-items: flex-end;
+    background: $light-grey;
+    box-shadow: $subtle-shadow-inset;
+
+    li {
+      border: $subtle-border;
+
+      &.ui-state-default {
+        background: $light-grey;
+        opacity: 0.8;
+        &.ui-state-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .ui-tabview-panels {
+    background: $light-grey;
+  }
+}

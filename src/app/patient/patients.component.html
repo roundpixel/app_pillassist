@@ -65,6 +65,6 @@
 </main>
 
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isAddingPatient' modal="true" [style]="{width: '75vw'}">
-  <app-add-patient (closeEvent)="close()">
+  <app-add-patient (patientAdded)="getPatients()" (closeEvent)="close()">
   </app-add-patient>
 </p-dialog>

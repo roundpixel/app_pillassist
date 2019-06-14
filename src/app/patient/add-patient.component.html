@@ -4,11 +4,17 @@
       <h1>
         Patient toevoegen
       </h1>
-      <ng-container *responsive="{sizes:{max:850}}">
-        <h2>Voeg iemand toe om hun medicatiegebruik op te volgen.</h2>
+      <ng-container *ngIf="!isLoading">
+        <ng-container *responsive="{sizes:{max:850}}">
+          <h2>Voeg iemand toe om hun medicatiegebruik op te volgen.</h2>
+        </ng-container>
+        <ng-container *responsive="{sizes:{min:850}}">
+          <p class="light">Voeg een hulpbehoevende toe zodat u zijn medicatiegebruik op te volgen.</p>
+        </ng-container>
       </ng-container>
-      <ng-container *responsive="{sizes:{min:850}}">
-        <p class="light">Voeg een hulpbehoevende toe zodat u zijn medicatiegebruik op te volgen.</p>
+      <ng-container *ngIf="isLoading">
+        <p class="light">Patiënt aan het toevoegen...
+        </p>
       </ng-container>
     </div>
     <img src=" assets/img/avatar.png" alt="" />

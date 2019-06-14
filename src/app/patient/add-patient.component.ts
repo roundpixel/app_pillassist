@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output
+  } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -18,6 +23,10 @@ import { Router } from '@angular/router';
 export class AddPatientComponent implements OnInit {
   public addPatientForm: FormGroup;
   public patient = new Patient();
+  public isLoading = false;
+
+  @Output() patientAdded = new EventEmitter();
+  @Output() closeEvent = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -71,8 +80,18 @@ export class AddPatientComponent implements OnInit {
       city: form.city
     };
 
-    this.patientService.createPatient(this.patient).subscribe(() => {
-      this.router.navigateByUrl('/patients');
-    });
+    this.isLoading = true;
+
+    this.patientService.createPatient(this.patient).subscribe(
+      () => {
+        this.isLoading = false;
+        this.patientAdded.emit();
+        this.closeEvent.emit();
+      },
+      error => {
+        console.log(error);
+        this.isLoading = false;
+      }
+    );
   }
 }

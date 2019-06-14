@@ -20,11 +20,20 @@ export class PatientsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.patientService.getAll().subscribe(res => (this.patients = res));
+    this.getPatients();
     this.caregiver = this.caregiverService.getCurrentCaregiver();
     setTimeout(() => {
       this.patientService.changePatient(new Patient());
     });
+  }
+
+  getPatients() {
+    this.patientService.getAll().subscribe(
+      res => {
+        this.patients = res;
+      },
+      () => {}
+    );
   }
 
   showAddPatient() {
