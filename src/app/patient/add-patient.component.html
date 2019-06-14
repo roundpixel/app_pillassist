@@ -55,7 +55,8 @@
       <button type="submit" class="btn btn-main">
         <span>Toevoegen</span>
         <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
-      <a [routerLink]="['/patients']" routerLinkActive="router-link-active" class="smaller-link">annuleer patiënt
+      <a [routerLink]="['/patients']" routerLinkActive="router-link-active" class="smaller-link"
+        (click)="closeModal()">annuleer patiënt
         toevoegen</a>
     </div>
   </form>

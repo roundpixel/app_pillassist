@@ -86,12 +86,16 @@ export class AddPatientComponent implements OnInit {
       () => {
         this.isLoading = false;
         this.patientAdded.emit();
-        this.closeEvent.emit();
+        this.closeModal();
       },
       error => {
         console.log(error);
         this.isLoading = false;
       }
     );
+  }
+
+  closeModal() {
+    this.closeEvent.emit();
   }
 }
