@@ -2,7 +2,7 @@
   <a class="nav__link" [routerLink]="['/schema/', patient.firstName, patient.lastName]">
     <img src="assets/img/icons/home.svg" alt="" class="icon--nav icon--nav">
   </a>
-  <a class="nav__link" [routerLink]="['/history']">
+  <a class="nav__link" [routerLink]="['/history', patient.firstName, patient.lastName]">
     <img src="assets/img/icons/history.svg" alt="" class="icon--nav icon--nav--history">
   </a>
   <div class="nav__link nav__link--hidden"></div>

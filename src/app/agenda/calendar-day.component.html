@@ -1,12 +1,22 @@
+<header class="header-app header-app--other">
+  <div class="header-body">
+    <h1>Medicatieoverzicht van <span class="title-blue">{{patient?.firstName}}
+        {{patient?.lastName}}</span></h1>
+
+  </div>
+  <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient?.firstName}}"
+    *responsive="{sizes:{max:850}}">
+  </ngx-avatar>
+</header>
 <div class="main-content__card calendar-day">
-  <header>
-    <h1>Medicatieschema voor <span class="title-blue">{{patient?.firstName}} {{patient?.lastName}}</span></h1>
-  </header>
+  <div class="header-bg header-bg--other" *responsive="{sizes:{max:850}}">
+    <img src="assets/img/bollen.png" alt="" />
+  </div>
   <div class="main-content__card__body col-2">
     <ng-container *ngFor="let pill of pillSchema">
       <div class="card card-pill appear">
         <div class="card__body">
-          <h2 class="card__title">{{pill.quantity}} {{pill.name}}</h2>
+          <h2 class="card__title">{{pill.quantity}} <span class="black">{{pill.name}}</span></h2>
           <span>
             <ng-container *ngIf="pill.isDaily === '1'">
               Dagelijks

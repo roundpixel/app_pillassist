@@ -1,15 +1,26 @@
 <main class="history">
-  <header>
-    <h1>Medicatiegeschiedenis van de voorbije 2 weken van <span class="title-blue">{{patient?.firstName}}
-        {{patient?.lastName}}</span></h1>
+  <header class="header-app header-app--other">
+    <div class="header-body">
+      <h1>Medicatiegeschiedenis van <span class="title-blue">{{patient?.firstName}}
+          {{patient?.lastName}}</span> - voorbije 2 weken</h1>
+
+    </div>
+    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient?.firstName}}"
+      *responsive="{sizes:{max:850}}">
+    </ngx-avatar>
   </header>
-  <div class="col-2">
+  <div class="header-bg header-bg--other" *responsive="{sizes:{max:850}}">
+    <img src="assets/img/bollen.png" alt="" />
+  </div>
+  <div class=" col-2">
     <div class="card card-pill card-history" *ngFor="let pill of pills">
       <img src="assets/img/icons/x-red.svg" alt="" *ngIf="pill.isTaken != 1">
       <img src="assets/img/icons/check.svg" alt="" *ngIf="pill.isTaken == 1">
       <div class="card__body">
-        <h2 class="card__title">{{pill.quantity}} {{pill.name}}</h2>
-        <span>{{pill.time}} - {{pill.date | date}}</span>
+        <h2 class="card__title">{{pill.quantity}} <span class="black">{{pill.name}}</span></h2>
+        <span>{{pill.time}} - {{pill.date | date}}</span><br>
+        <span *ngIf="pill.isTaken != 1" class="red">niet ingenomen</span>
+        <span *ngIf="pill.isTaken == 1" class="green">ingenomen</span>
       </div>
     </div>
   </div>

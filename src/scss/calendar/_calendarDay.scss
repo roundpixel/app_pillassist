@@ -1,8 +1,10 @@
 app-calendar-day {
   .calendar-day {
+    margin-top: 2em;
     padding: 2em;
 
     @media (min-width: 850px) {
+      margin-top: 0;
       padding: 0;
     }
   }

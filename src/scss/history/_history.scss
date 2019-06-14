@@ -1,4 +1,9 @@
 .history {
+  .col-2 {
+    overflow: overlay;
+    max-height: 80vh;
+    padding: 2em;
+  }
   @media (min-width: 850px) {
     padding: 0 2em;
     .col-2 {
