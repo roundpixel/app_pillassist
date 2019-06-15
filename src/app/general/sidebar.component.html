@@ -32,11 +32,6 @@
   </app-patient-profile>
 </p-dialog>
 
-<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingCoCaregivers' modal="true"
-  [style]="{width: '75vw'}">
-  <app-co-caregivers [patient]="patient" (closeEvent)="close()"></app-co-caregivers>
-</p-dialog>
-
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingSettings' modal="true">
   <app-settings [patient]="patient" (closeEvent)="close()"></app-settings>
 </p-dialog>

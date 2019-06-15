@@ -35,18 +35,6 @@ export class CaregiverService {
     );
   }
 
-  getSelected(patientId: number): Observable<Caregiver> {
-    return this.http
-      .get(`${this.baseUrl}/readSelected.php?id=` + patientId)
-      .pipe(
-        map(res => {
-          this.caregivers = res['caregivers'];
-          return this.caregivers;
-        }),
-        catchError(this.handleError)
-      );
-  }
-
   getCurrentCaregiverId() {
     const currentCaregiver = JSON.parse(localStorage.getItem('currentUser'));
     return currentCaregiver.id;

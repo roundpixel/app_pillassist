@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
-import { CoCaregiversComponent } from './co-caregiver/co-caregivers.component';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
@@ -45,7 +44,7 @@ import { TabViewModule } from 'primeng/tabview';
     RegisterComponent,
     SidebarComponent,
     PatientProfileComponent,
-    CoCaregiversComponent,
+
     SettingsComponent,
     HistoryComponent
   ],
