@@ -37,3 +37,11 @@ app-patient-profile-card {
   background: white;
   border-radius: 2em;
 }
+
+.profile__card {
+  .main-content__card {
+    &__body {
+      padding: 0.5em 0;
+    }
+  }
+}

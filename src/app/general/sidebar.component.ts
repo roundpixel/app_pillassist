@@ -11,6 +11,8 @@ import { PatientService } from './../services/patient.service';
 export class SidebarComponent implements OnInit {
   public isAddPillVisible: boolean;
   isEditingPatient = false;
+  isViewingCoCaregivers = false;
+  isViewingSettings = false;
 
   @Input() patient: Patient;
   private patients: Array<Patient>;
@@ -38,5 +40,13 @@ export class SidebarComponent implements OnInit {
 
   close() {
     this.isEditingPatient = false;
+  }
+
+  showCoCaregivers() {
+    this.isViewingCoCaregivers = true;
+  }
+
+  showSettings() {
+    this.isViewingSettings = true;
   }
 }

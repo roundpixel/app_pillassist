@@ -1,0 +1,32 @@
+.ui-tabview {
+  padding: 0;
+
+  .ui-tabview-nav {
+    height: 10vh;
+    display: flex;
+    align-items: flex-end;
+    background: $light-grey;
+    box-shadow: $subtle-shadow-inset;
+
+    li {
+      border: $subtle-border;
+      cursor: pointer;
+
+      &:first-child {
+        margin-left: 2em;
+      }
+
+      &.ui-state-default {
+        background: $light-grey;
+        filter: brightness(95%);
+        &.ui-state-active {
+          filter: brightness(100%);
+        }
+      }
+    }
+  }
+
+  .ui-tabview-panels {
+    background: $light-grey;
+  }
+}

@@ -24,6 +24,14 @@
     margin-block-start: 0;
     margin-block-end: 0;
     color: $main-blue;
+    opacity: 1;
+    font-weight: 700;
+
+    .black {
+      color: $charcoal-grey;
+      font-weight: 700;
+      font-size: 20px;
+    }
   }
 
   &__subtitle {
@@ -44,6 +52,16 @@
     width: 25px;
   }
 
+  &-history {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+
+    .card__body {
+      margin-left: 1em;
+    }
+  }
+
   &-patient {
     padding: 1em;
     display: flex;
@@ -51,6 +69,7 @@
     width: 341px;
     justify-content: left;
     margin-bottom: 1em;
+    cursor: pointer;
 
     ngx-avatar,
     .btn-grey {
@@ -65,10 +84,41 @@
     }
   }
 
+  &-caregiver {
+    padding: 1em;
+    display: flex;
+    width: 341px;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 1em;
+
+    ngx-avatar,
+    .btn-grey {
+      margin-right: 1em;
+      width: 35px;
+      height: 35px;
+    }
+
+    .light {
+      font-size: small;
+      margin-bottom: 0;
+    }
+
+    .plus {
+      justify-self: right;
+    }
+  }
+
   &-add {
     margin-bottom: 2em;
     h3 {
       color: $main-blue;
+    }
+  }
+
+  &-pill {
+    .time {
+      margin: 0;
     }
   }
 }
@@ -76,10 +126,12 @@
 .ui-overlaypanel {
   border: none;
   box-shadow: none;
+
   &-content {
     border-radius: 1em;
     border: $subtle-border;
     padding: 0;
+    background: white;
     .edit,
     .delete {
       padding: 0.5em 1em;
@@ -93,6 +145,46 @@
       width: 12px;
       height: 12px;
       margin-right: 10px;
+    }
+  }
+}
+
+@media (min-width: 850px) {
+  .card {
+    &-patient {
+      padding: 2em 0;
+      margin-right: 1em;
+      ngx-avatar {
+        width: auto;
+        height: auto;
+        margin-right: 0;
+      }
+    }
+
+    &-add {
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 1em;
+
+      h3,
+      .light {
+        color: $charcoal-grey;
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
+      }
+
+      .btn-grey {
+        width: 90px;
+        height: 90px;
+        align-items: center;
+        margin: 0 0 1em;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
           // If no redirect has been set, use the default
           const redirect = this.authService.redirectUrl
             ? this.router.parseUrl(this.authService.redirectUrl)
-            : '/';
+            : '/patients';
 
           // Redirect the user
-          this.router.navigateByUrl(redirect);
+          this.router.navigateByUrl(redirect).then(() => {});
         } else {
           this.loginError = 'Email en paswoord combinatie bestaat niet.';
         }

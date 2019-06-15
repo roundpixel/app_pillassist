@@ -9,9 +9,12 @@
     </div>
     <div class="legend">
       <ul>
-        <li *ngFor="let label of data.labels; index as i">
-          <span class="legend__number">{{data.datasets[0].data[i]}}</span> <span class="legend__label">{{label}}</span>
-        </li>
+        <ng-container *ngIf="data.labels">
+          <li *ngFor="let label of data.labels; index as i">
+            <span class="legend__number">{{data?.datasets[0].data[i]}}</span> <span
+              class="legend__label">{{label}}</span>
+          </li>
+        </ng-container>
       </ul>
     </div>
   </div>

@@ -2,12 +2,16 @@
 
 <ng-container *responsive="{sizes:{min:850}}">
   <main>
-    <header class="header-search">
-      <input type="text" placeholder="Zoek medicatie">
-    </header>
-    <div class="main-content">
-      <app-calendar-day></app-calendar-day>
-    </div>
+    <p-tabView>
+      <p-tabPanel header="Medicatieschema">
+        <div class="main-content">
+          <app-calendar-day></app-calendar-day>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Medicatiegeschiedenis">
+        <app-history></app-history>
+      </p-tabPanel>
+    </p-tabView>
   </main>
 </ng-container>
 
@@ -17,3 +21,8 @@
       toevoegen</span>
   </a>
 </div>
+
+<p-dialog appendTo="body" dismissableMask="true" [(visible)]='isAddPillVisible' modal="true" [style]="{width: '75vw'}">
+  <app-add-pill (closeEvent)="close()" [patient]=" patient">
+  </app-add-pill>
+</p-dialog>

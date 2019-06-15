@@ -1,6 +1,12 @@
 app-calendar-day {
-  .days-container {
-    padding: 0 1em 1.5em;
+  .calendar-day {
+    margin-top: 2em;
+    padding: 2em;
+
+    @media (min-width: 850px) {
+      margin-top: 0;
+      padding: 0;
+    }
   }
 }
 

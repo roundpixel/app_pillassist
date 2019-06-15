@@ -1,113 +1,133 @@
-<div class="add-pill">
+<div class="add">
   <header class="header-app">
     <div>
       <h1>
         Medicatie toevoegen
       </h1>
-      <ng-container *responsive="{sizes:{max:850}}">
-        <h2>Hiermee wijzigt u het schema</h2>
-      </ng-container>
+      <p class="light" *ngIf="!error">Hiermee wijzigt u het schema. </p>
+      <p class="red" *ngIf="error">{{error}}</p>
     </div>
     <img src=" assets/img/avatar.png" alt="" />
   </header>
   <div class="header-bg">
     <img src="assets/img/bollen.png" alt="" />
   </div>
-  <form action="/">
-    <div class="input-group">
-      <label for="name">
-        Naam medicatie
-      </label>
-      <input type="text" placeholder="Vul de naam van uw medicatie in" />
-    </div>
-    <div class="input-group">
-      <label for="quantity">
-        Hoeveelheid
-      </label>
-      <input type="text" placeholder="Een volledige of de helft van een pil" />
-    </div>
-    <div class="padding">
-      <div class="input-group">
-        <div class="flex">
-          <label for="timeOfDay">
-            Tijdstip
+  <form #f="ngForm" (ngSubmit)="createPill(f)">
+    <div class="col-2">
+      <div>
+        <div class="input-group">
+          <label for="name">
+            Naam medicatie
           </label>
+          <input required id="name" name="name" #name ngModel type="text"
+            placeholder="Vul de naam van uw medicatie in" />
         </div>
-        <p-checkbox class="checkBox-group" id="timeOfDay" *ngFor="let timeOfDay of timeOfDays" name="timeOfDay"
-          value="{{timeOfDay.value}}" label="{{timeOfDay.label}}">
-        </p-checkbox>
+        <div class="input-group">
+          <label for="quantity">
+            Hoeveelheid
+          </label>
+          <p-dropdown placeholder="Selecteer een hoeveelheid" required id="quantity" name="quantity"
+            [(ngModel)]="quantity" [options]="quantityOptions"></p-dropdown>
+        </div>
+        <div class="padding">
+          <div class="input-group">
+            <label for="time1">
+              Tijdstip
+            </label>
+            <p-calendar required id="time1" name="time1" #time1 ngModel name="time1" [timeOnly]="true"></p-calendar>
+          </div>
+        </div>
+        <ng-container *ngFor="let timeOfDay of timeOfDaysToDisplay">
+          <div class="input-group {{timeOfDay}} added-input-group">
+            <div class="flex">
+              <label for="time{{timeOfDay}}">
+                Tijdstip {{timeOfDay}}
+              </label>
+              <img class="close-icon" (click)="deleteTimeInput($event)" src=" assets/img/icons/x.svg" alt="close" />
+            </div>
+            <p-calendar id="time{{timeOfDay}}" #time{{timeOfDay}} ngModel name="time{{timeOfDay}}" [timeOnly]="true">
+            </p-calendar>
+          </div>
+        </ng-container>
+        <div class="input-group add-input-group" (click)="addTimeInput()">
+          <a>Voeg een tijdstip toe</a><img class="icon" src="assets/img/icons/plus-blue.svg" alt="">
+        </div>
+      </div>
+      <div>
+        <div class="input-group">
+          <label class="ui-accordion-subtitle">Startdatum</label>
+          <p-calendar required name="startdate" ngModel></p-calendar>
+        </div>
+        <div class="input-group">
+          <label class="ui-accordion-subtitle">Einddatum</label>
+          <p-calendar required name="stopdate" ngModel></p-calendar>
+        </div>
+        <div>
+          <div class="input-group input-group-recurrence">
+            <label for="recurrence">
+              Herhaling
+            </label>
+            <p-dropdown placeholder="Selecteer hoe vaak de medicatie moet worden ingenomen" required id="recurrence"
+              name="recurrence" [(ngModel)]="selectedDayRecurrences" [options]="recurrences"
+              (onChange)="setRecurrence($event);" (onHide)="isActive = 0"> </p-dropdown>
+          </div>
+          <div class="input-group input-group-recurrence-more">
+            <p-accordion [activeIndex]="isActive">
+              <p-accordionTab header="Meer opties voor herhaling">
+                <ng-container *ngIf="isEveryDay">
+                  <div class="radioButton-group">
+                    <p-radioButton name="dayRecurrence" ngModel value="everyWeekday" label="Enkel weekdagen">
+                    </p-radioButton>
+                  </div>
+                  <div class="radioButton-group">
+                    <p-radioButton name="dayRecurrence" ngModel value="everyWeekend" label="Enkel weekends">
+                    </p-radioButton>
+                  </div>
+                  <div class="radioButton-group">
+                    <p-radioButton name="dayRecurrence" ngModel value="everyEachDay" label="Om de dag"></p-radioButton>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="isEveryWeek">
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="monday" label="Maandag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="tuesday" label="Dinsdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="wednesday" label="Woensdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="thursday" label="Donderdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="friday" label="Vrijdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="saturday" label="Zaterdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="sunday" label="Zondag">
+                    </p-checkbox>
+                  </div>
+                </ng-container>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="input-group">
-      <label for="recurrence">
-        Herhaling
-      </label>
-      <p-dropdown [options]="recurrences" (onChange)="setRecurrence($event);" (onHide)="isActive = 0"></p-dropdown>
-    </div>
-    <div class="input-group">
-      <p-accordion [activeIndex]="isActive">
-        <p-accordionTab header="Meer opties voor herhaling">
-          <ng-container *ngIf="isEveryDay">
-            <div class="radioButton-group">
-              <p-radioButton name="dayRecurrence" value="everyWeekday" label="Enkel weekdagen"></p-radioButton>
-            </div>
-            <div class="radioButton-group">
-              <p-radioButton name="dayRecurrence" value="everyWeekend" label="Enkel weekends"></p-radioButton>
-            </div>
-            <div class="radioButton-group">
-              <p-radioButton name="dayRecurrence" value="checkDays"></p-radioButton>
-              <span class="radioButton__label">Om de <input class="radioButton__input" type="number" min="1" max="20">
-                dag(en)</span>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="isEveryWeek">
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="monday" label="Maandag"></p-checkbox>
-            </div>
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="tuesday" label="Dinsdag"></p-checkbox>
-            </div>
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="wednesday" label="Woensdag"></p-checkbox>
-            </div>
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="thursday" label="Donderdag"></p-checkbox>
-            </div>
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="friday" label="Vrijdag"></p-checkbox>
-            </div>
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="saturday" label="Zaterdag"></p-checkbox>
-            </div>
-            <div class="checkBox-group">
-              <p-checkbox name="dayOfWeek" value="sunday" label="Zondag"></p-checkbox>
-            </div>
-          </ng-container>
-          <h4 class="ui-accordion-subtitle">Startdatum</h4>
-          <p-calendar></p-calendar>
-          <h4 class="ui-accordion-subtitle">Einddatum</h4>
-          <div class="radioButton-group">
-            <p-radioButton name="stopDate" value="noStopDate" label="Niet stopzetten"></p-radioButton>
-          </div>
-          <div class="radioButton-group">
-            <p-radioButton name="stopDate" value="stopDateAfterNumber"></p-radioButton>
-            <span class="radioButton__label">Stopzetten na <input class="radioButton__input" type="number" min="1"
-                max="20">
-              dag(en)</span>
-          </div>
-          <div class="radioButton-group">
-            <p-radioButton name="stopDate" value="stopDateAfterDate"></p-radioButton>
-            <span class="radioButton__label">Stopzetten na <p-calendar>
-              </p-calendar>(datum)</span>
-          </div>
-        </p-accordionTab>
-      </p-accordion>
-    </div>
     <div class="actions">
-      <button class="btn btn-main" (click)="hide()">
+      <button class="btn btn-main" type="submit">
         <span>Toevoegen</span>
         <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
-      <a class="smaller-link" (click)="hide()">annuleer medicatie toevoegen</a>
+      <a class="smaller-link" (click)="closeModal()">annuleer medicatie toevoegen</a>
     </div>
   </form>
 </div>

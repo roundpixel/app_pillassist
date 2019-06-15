@@ -1,9 +1,48 @@
-.add-pill {
+.add {
   header {
-    margin-bottom: 12vh;
+    margin-bottom: 2em;
+  }
+
+  .header-bg {
+    height: 15vh;
   }
 
   form {
     padding: 1em;
+  }
+
+  .added-input-group {
+    margin-bottom: 1em;
+  }
+}
+
+@media (min-width: 850px) {
+  .add {
+    .col-2 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-gap: 0 2em;
+    }
+
+    .header-app {
+      margin-bottom: 0;
+      h1,
+      .light {
+        color: $charcoal-grey;
+        font-weight: 500;
+      }
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: baseline;
+      .btn-main {
+        margin-left: 0;
+      }
+    }
+
+    .header-bg {
+      display: none;
+    }
   }
 }

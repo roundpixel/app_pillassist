@@ -12,6 +12,7 @@ import { PatientService } from './../services/patient.service';
 export class PatientsComponent implements OnInit {
   public patients: Array<Patient>;
   public caregiver: any;
+  public isAddingPatient = false;
 
   constructor(
     private patientService: PatientService,
@@ -19,10 +20,27 @@ export class PatientsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.patientService.getAll().subscribe(res => (this.patients = res));
+    this.getPatients();
     this.caregiver = this.caregiverService.getCurrentCaregiver();
     setTimeout(() => {
       this.patientService.changePatient(new Patient());
     });
+  }
+
+  getPatients() {
+    this.patientService.getAll().subscribe(
+      res => {
+        this.patients = res;
+      },
+      () => {}
+    );
+  }
+
+  showAddPatient() {
+    this.isAddingPatient = true;
+  }
+
+  close() {
+    this.isAddingPatient = false;
   }
 }

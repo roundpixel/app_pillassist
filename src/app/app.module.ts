@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { HeaderTopComponent } from './general/header-top.component';
+import { HistoryComponent } from './history/history.component';
 import { httpInterceptorProviders } from './http-interceptors';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { LoginComponent } from './auth/login/login.component';
@@ -28,7 +29,9 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ResponsiveModule } from 'ngx-responsive';
 import { RouterModule } from '@angular/router';
 import { routing } from './app.routing';
+import { SettingsComponent } from './settings/settings.component';
 import { SidebarComponent } from './general/sidebar.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -40,9 +43,13 @@ import { SidebarComponent } from './general/sidebar.component';
     MainComponent,
     RegisterComponent,
     SidebarComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+
+    SettingsComponent,
+    HistoryComponent
   ],
   imports: [
+    TabViewModule,
     ReactiveFormsModule,
     AgendaModule,
     FullCalendarModule,

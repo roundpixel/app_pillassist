@@ -1,0 +1,63 @@
+<div class="add">
+  <header class="header-app">
+    <div>
+      <h1>
+        Patient toevoegen
+      </h1>
+      <ng-container *ngIf="!isLoading">
+        <ng-container *responsive="{sizes:{max:850}}">
+          <h2>Voeg iemand toe om hun medicatiegebruik op te volgen.</h2>
+        </ng-container>
+        <ng-container *responsive="{sizes:{min:850}}">
+          <p class="light">Voeg een hulpbehoevende toe zodat u zijn medicatiegebruik op te volgen.</p>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="isLoading">
+        <p class="light">Patiënt aan het toevoegen...
+        </p>
+      </ng-container>
+    </div>
+    <img src=" assets/img/avatar.png" alt="" />
+  </header>
+  <div class="header-bg">
+    <img src="assets/img/bollen.png" alt="" />
+  </div>
+  <form [formGroup]="addPatientForm" (ngSubmit)="createPatient(addPatientForm.value)">
+    <div class="input-group">
+      <label for="firstName">Voornaam </label>
+      <input id="firstName" type="text" placeholder="Vul de voornaam van de patiënt in" formControlName="firstName"
+        required />
+    </div>
+    <div class="input-group">
+      <label for="lastName">Achternaam </label>
+      <input id="lastName" type="text" placeholder="Vul de achternaam van de patiënt in" formControlName="lastName"
+        required>
+    </div>
+    <div class="input-group">
+      <label for="tel">Telefoonnummer </label>
+      <input id="tel" type="text" placeholder="Vul de telefoonnummer van de patiënt in" formControlName="tel" />
+    </div>
+    <div class="input-group">
+      <label for="street">Straat + huisnummer </label>
+      <input id="street" type="text" placeholder="Vul de straat + huisnummer van de patiënt in"
+        formControlName="street" />
+    </div>
+    <div class="input-group">
+      <label for="city">Gemeente </label>
+      <input id="city" type="text" placeholder="Vul de gemeente van de patiënt in" formControlName="city" />
+    </div>
+    <div class="input-group">
+      <label for="email">Emailadres (van familielid) </label>
+      <input id="email" type="text" placeholder="Vul de email van de patiënt in" formControlName="email" />
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-main">
+        <span>Toevoegen</span>
+        <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
+      <a [routerLink]="['/patients']" routerLinkActive="router-link-active" class="smaller-link"
+        (click)="closeModal()">annuleer patiënt
+        toevoegen</a>
+    </div>
+  </form>
+</div>

@@ -2,6 +2,10 @@ app-sidebar {
   background: white;
   z-index: 1;
 
+  .actions {
+    padding: 0 1em;
+  }
+
   @media (min-width: 850px) {
     app-sidebar {
       display: block;
@@ -12,7 +16,7 @@ app-sidebar {
     &__card {
       padding: 0 1em;
       h1 {
-        padding: 0;
+        padding: 0.5em 0 0;
         color: $charcoal-grey;
         font-weight: 500;
       }

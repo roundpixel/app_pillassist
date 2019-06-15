@@ -1,9 +1,13 @@
 import {
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output
   } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Patient } from '../shared/patient.model';
+import { PillService } from './../services/pill.service';
 
 @Component({
   selector: 'app-add-pill',
@@ -11,36 +15,42 @@ import {
 })
 export class AddPillComponent implements OnInit {
   public recurrences = [];
-  public selectedDayRecurrences: string[] = [];
-  public timeOfDays = [];
-  public timeOfDayNumber = 1;
+  public selectedDayRecurrences;
+  public quantity;
+  public quantityOptions = [
+    { label: '1/4', value: 0.25 },
+    { label: '1/2', value: 0.5 },
+    { label: '3/4', value: 0.75 },
+    { label: '1', value: 1 },
+    { label: '1 + 1/2', value: 1.5 },
+    { label: '2', value: 2 }
+  ];
+  public timeOfDays = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+  public timeOfDaysToDisplay = [];
+  public timeOfDayNumber = 0;
 
   public isActive = null;
   public isEveryDay = true;
   public isEveryWeek: boolean;
   public isEveryMonth: boolean;
+  public error: string;
 
-  @Output() onHide = new EventEmitter<boolean>();
-  setHide() {
-    this.onHide.emit(true);
-  }
+  public selectedDaysOfWeek: string[] = [];
 
-  constructor() {}
+  @Input() patient: Patient;
+
+  @Output() closeEvent = new EventEmitter();
+
+  constructor(private pillService: PillService) {}
 
   ngOnInit() {
-    this.timeOfDays = [
-      { label: '7u30', value: '7:30' },
-      { label: '8u', value: '8:00' },
-      { label: '12u', value: '12:00' },
-      { label: '17u', value: '17:00' },
-      { label: '20u', value: '20:00' }
-    ];
-
     this.recurrences = [
       { label: 'Elke dag', value: 'everyDay' },
       { label: 'Elke week', value: 'everyWeek' },
       { label: 'Elke maand', value: 'everyMonth' }
     ];
+
+    this.timeOfDaysToDisplay = this.timeOfDays.slice(0, this.timeOfDayNumber);
   }
 
   public setRecurrence(event) {
@@ -63,7 +73,37 @@ export class AddPillComponent implements OnInit {
     }
   }
 
-  public hide() {
-    this.setHide();
+  public addTimeInput() {
+    if (this.timeOfDayNumber < 9) {
+      this.timeOfDayNumber++;
+      this.timeOfDaysToDisplay = this.timeOfDays.slice(0, this.timeOfDayNumber);
+    }
+  }
+
+  public deleteTimeInput(e) {
+    this.timeOfDayNumber--;
+    this.timeOfDaysToDisplay = this.timeOfDays.slice(0, this.timeOfDayNumber);
+  }
+
+  closeModal() {
+    this.closeEvent.emit();
+  }
+
+  public createPill(form: NgForm) {
+    const val = form.value;
+
+    this.pillService.createPill(val, this.patient.id).subscribe(
+      () => {},
+      error => {
+        console.log(error);
+        if (error === 'Created') {
+          this.closeEvent.emit();
+          this.pillService.changePills();
+        } else {
+          this.error =
+            'Er is iets misgegaan, kijk even of je alle velden hebt ingevuld.';
+        }
+      }
+    );
   }
 }
