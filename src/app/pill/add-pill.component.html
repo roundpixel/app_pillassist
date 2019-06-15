@@ -4,9 +4,8 @@
       <h1>
         Medicatie toevoegen
       </h1>
-      <ng-container *responsive="{sizes:{max:850}}">
-        <h2>Hiermee wijzigt u het schema</h2>
-      </ng-container>
+      <p class="light" *ngIf="!error">Hiermee wijzigt u het schema. </p>
+      <p class="red" *ngIf="error">{{error}}</p>
     </div>
     <img src=" assets/img/avatar.png" alt="" />
   </header>
@@ -20,21 +19,22 @@
           <label for="name">
             Naam medicatie
           </label>
-          <input id="name" name="name" #name ngModel type="text" placeholder="Vul de naam van uw medicatie in" />
+          <input required id="name" name="name" #name ngModel type="text"
+            placeholder="Vul de naam van uw medicatie in" />
         </div>
         <div class="input-group">
           <label for="quantity">
             Hoeveelheid
           </label>
-          <input id="quantity" name="quantity" #quantity ngModel type="text"
-            placeholder="Een volledige of de helft van een pil" />
+          <p-dropdown placeholder="Selecteer een hoeveelheid" required id="quantity" name="quantity"
+            [(ngModel)]="quantity" [options]="quantityOptions"></p-dropdown>
         </div>
         <div class="padding">
           <div class="input-group">
             <label for="time1">
               Tijdstip
             </label>
-            <p-calendar id="time1" name="time1" #time1 ngModel name="time1" [timeOnly]="true"></p-calendar>
+            <p-calendar required id="time1" name="time1" #time1 ngModel name="time1" [timeOnly]="true"></p-calendar>
           </div>
         </div>
         <ng-container *ngFor="let timeOfDay of timeOfDaysToDisplay">
@@ -54,73 +54,80 @@
         </div>
       </div>
       <div>
-        <div class="input-group input-group-recurrence">
-          <label for="recurrence">
-            Herhaling
-          </label>
-          <p-dropdown id="recurrence" name="recurrence" [(ngModel)]="selectedDayRecurrences" [options]="recurrences"
-            (onChange)="setRecurrence($event);" (onHide)="isActive = 0"></p-dropdown>
+        <div class="input-group">
+          <label class="ui-accordion-subtitle">Startdatum</label>
+          <p-calendar required name="startdate" ngModel></p-calendar>
         </div>
-        <div class="input-group input-group-recurrence-more">
-          <p-accordion [activeIndex]="isActive">
-            <p-accordionTab header="Meer opties voor herhaling">
-              <ng-container *ngIf="isEveryDay">
-                <div class="radioButton-group">
-                  <p-radioButton name="dayRecurrence" ngModel value="everyWeekday" label="Enkel weekdagen">
-                  </p-radioButton>
-                </div>
-                <div class="radioButton-group">
-                  <p-radioButton name="dayRecurrence" ngModel value="everyWeekend" label="Enkel weekends">
-                  </p-radioButton>
-                </div>
-                <div class="radioButton-group">
-                  <p-radioButton name="dayRecurrence" ngModel value="everyEachDay" label="Om de dag"></p-radioButton>
-                </div>
-              </ng-container>
-              <ng-container *ngIf="isEveryWeek">
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="monday" label="Maandag">
-                  </p-checkbox>
-                </div>
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="tuesday" label="Dinsdag">
-                  </p-checkbox>
-                </div>
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="wednesday" label="Woensdag">
-                  </p-checkbox>
-                </div>
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="thursday" label="Donderdag">
-                  </p-checkbox>
-                </div>
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="friday" label="Vrijdag">
-                  </p-checkbox>
-                </div>
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="saturday" label="Zaterdag">
-                  </p-checkbox>
-                </div>
-                <div class="checkBox-group">
-                  <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="sunday" label="Zondag">
-                  </p-checkbox>
-                </div>
-              </ng-container>
-              <h4 class="ui-accordion-subtitle">Startdatum</h4>
-              <p-calendar name="startdate" ngModel></p-calendar>
-              <h4 class="ui-accordion-subtitle">Einddatum</h4>
-              <p-calendar name="stopdate" ngModel></p-calendar>
-            </p-accordionTab>
-          </p-accordion>
+        <div class="input-group">
+          <label class="ui-accordion-subtitle">Einddatum</label>
+          <p-calendar required name="stopdate" ngModel></p-calendar>
+        </div>
+        <div>
+          <div class="input-group input-group-recurrence">
+            <label for="recurrence">
+              Herhaling
+            </label>
+            <p-dropdown placeholder="Selecteer hoe vaak de medicatie moet worden ingenomen" required id="recurrence"
+              name="recurrence" [(ngModel)]="selectedDayRecurrences" [options]="recurrences"
+              (onChange)="setRecurrence($event);" (onHide)="isActive = 0"> </p-dropdown>
+          </div>
+          <div class="input-group input-group-recurrence-more">
+            <p-accordion [activeIndex]="isActive">
+              <p-accordionTab header="Meer opties voor herhaling">
+                <ng-container *ngIf="isEveryDay">
+                  <div class="radioButton-group">
+                    <p-radioButton name="dayRecurrence" ngModel value="everyWeekday" label="Enkel weekdagen">
+                    </p-radioButton>
+                  </div>
+                  <div class="radioButton-group">
+                    <p-radioButton name="dayRecurrence" ngModel value="everyWeekend" label="Enkel weekends">
+                    </p-radioButton>
+                  </div>
+                  <div class="radioButton-group">
+                    <p-radioButton name="dayRecurrence" ngModel value="everyEachDay" label="Om de dag"></p-radioButton>
+                  </div>
+                </ng-container>
+                <ng-container *ngIf="isEveryWeek">
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="monday" label="Maandag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="tuesday" label="Dinsdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="wednesday" label="Woensdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="thursday" label="Donderdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="friday" label="Vrijdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="saturday" label="Zaterdag">
+                    </p-checkbox>
+                  </div>
+                  <div class="checkBox-group">
+                    <p-checkbox name="dayOfWeek" [(ngModel)]="selectedDaysOfWeek" value="sunday" label="Zondag">
+                    </p-checkbox>
+                  </div>
+                </ng-container>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
         </div>
       </div>
     </div>
     <div class="actions">
-      <button class="btn btn-main" (click)="hide()">
+      <button class="btn btn-main" type="submit">
         <span>Toevoegen</span>
         <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
-      <a class="smaller-link" (click)="hide()">annuleer medicatie toevoegen</a>
+      <a class="smaller-link" (click)="closeModal()">annuleer medicatie toevoegen</a>
     </div>
   </form>
 </div>

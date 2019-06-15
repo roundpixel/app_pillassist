@@ -38,6 +38,10 @@ export class MainComponent implements OnInit {
       return (prep && ' ') + letter.toUpperCase();
     });
   }
+
+  close() {
+    this.isAddPillVisible = false;
+  }
 }
 
 function isObjectEmpty(Obj) {

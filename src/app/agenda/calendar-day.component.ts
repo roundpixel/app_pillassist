@@ -47,6 +47,22 @@ export class CalendarDayComponent implements OnInit {
         });
       });
     });
+
+    this.pillService.pillAdded.subscribe(pillAdded => {
+      if (pillAdded) {
+        this.patientService.getAll().subscribe(patients => {
+          this.route.params.subscribe(params => {
+            patients.forEach(patient => {
+              if (patient.firstName === params.firstName) {
+                this.patient = patient;
+                this.patientService.changePatient(patient);
+                this.getPills();
+              }
+            });
+          });
+        });
+      }
+    });
   }
 
   public getPills() {

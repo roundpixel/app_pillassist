@@ -1,7 +1,12 @@
+import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  throwError
+  } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
 import { PatientService } from './patient.service';
 import { PillSchema } from '../shared/pillSchema.model';
 
@@ -12,6 +17,7 @@ export class PillService {
   private baseUrl = 'http://localhost/api_pillassist';
   private pillSchema: PillSchema[];
   private pills = Array();
+  pillAdded = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) {}
 
@@ -27,6 +33,11 @@ export class PillService {
           catchError(this.handleError)
         );
     }
+  }
+
+  changePills() {
+    this.pillAdded.next(true);
+    this.pillAdded.next(false);
   }
 
   getAllPills(patientId: number): Observable<any> {
@@ -57,6 +68,8 @@ export class PillService {
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {
       return throwError('Error! No pills found');
+    } else if (error.status === 201) {
+      return throwError('Created');
     } else {
       return throwError('Error! Something went wrong.');
     }
