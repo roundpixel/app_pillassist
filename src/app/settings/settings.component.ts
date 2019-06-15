@@ -9,9 +9,39 @@ import { Patient } from '../shared/patient.model';
 export class SettingsComponent implements OnInit {
   @Input() patient: Patient;
 
-  public options = [{ label: '10 minuten ervoor', value: null }];
-  public notificationOptions = [{ label: 'Trillen', value: null }];
-  public watchOptions = [{ label: 'Analoge', value: null }];
+  public options = [
+    { label: '1 minuut ervoor', value: null },
+    { label: '5 minuten ervoor', value: null },
+    { label: '10 minuten ervoor', value: null },
+    { label: '15 minuten ervoor', value: null },
+    { label: '30 minuten ervoor', value: null }
+  ];
+  public notificationOptions = [
+    {
+      label: 'Trillen',
+      value: null
+    },
+    {
+      label: 'Trillen + geluid',
+      value: null
+    },
+    {
+      label: 'Geluid',
+      value: null
+    },
+    {
+      label: 'Licht',
+      value: null
+    },
+    {
+      label: 'Trillen met licht',
+      value: null
+    }
+  ];
+  public watchOptions = [
+    { label: 'Analoog', value: null },
+    { label: 'Digitaal', value: null }
+  ];
 
   constructor() {}
 
