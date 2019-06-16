@@ -7,6 +7,7 @@ import {
   OnInit,
   Output
   } from '@angular/core';
+import { ConfirmationService } from 'primeng/api';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
 import { Pill } from '../shared/pill.model';
@@ -26,7 +27,8 @@ export class CalendarDayComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private patientService: PatientService,
-    private pillService: PillService
+    private pillService: PillService,
+    private confirmationService: ConfirmationService
   ) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -168,15 +170,21 @@ export class CalendarDayComponent implements OnInit {
   }
 
   public deletePillSchema(id) {
-    this.pillService.deletePill(id).subscribe(
-      () => {
-        if (this.pillSchema.length === 1) {
-          window.location.reload();
-        }
-        this.pillService.changePills();
-      },
-      error => console.log(error)
-    );
+    this.confirmationService.confirm({
+      message:
+        'Bent u zeker dat u deze medicatie uit het schema wilt verwijderen?',
+      accept: () => {
+        this.pillService.deletePill(id).subscribe(
+          () => {
+            if (this.pillSchema.length === 1) {
+              window.location.reload();
+            }
+            this.pillService.changePills();
+          },
+          error => console.log(error)
+        );
+      }
+    });
   }
 
   public converStringToDate([year, month, day]) {

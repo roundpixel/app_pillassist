@@ -4,6 +4,7 @@ import { CalendarDayComponent } from './calendar-day.component';
 import { CalendarWeekOverviewComponent } from './calendar-week-overview.component';
 import { ChartModule } from 'primeng/chart';
 import { CommonModule } from '@angular/common';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { NgModule } from '@angular/core';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { registerLocaleData } from '@angular/common';
@@ -15,6 +16,7 @@ registerLocaleData(localeNlBE);
 @NgModule({
   declarations: [CalendarDayComponent, CalendarWeekOverviewComponent],
   imports: [
+    ConfirmDialogModule,
     CommonModule,
     ChartModule,
     AvatarModule,
