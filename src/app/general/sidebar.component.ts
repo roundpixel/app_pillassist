@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
@@ -19,7 +19,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    private patientService: PatientService
+    private patientService: PatientService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -51,5 +52,14 @@ export class SidebarComponent implements OnInit {
 
   showSettings() {
     this.isViewingSettings = true;
+  }
+
+  deletePatient(id: number) {
+    this.patientService.deletePatient(id).subscribe(
+      () => {
+        this.router.navigate(['/patients']);
+      },
+      error => console.log(error)
+    );
   }
 }

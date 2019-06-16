@@ -53,4 +53,11 @@ export class PatientService {
         catchError(this.handleError)
       );
   }
+
+  deletePatient(id: number) {
+    return this.http.delete(`${this.baseUrl}/delete.php?id=${id}`).pipe(
+      map(res => console.log(res)),
+      catchError(this.handleError)
+    );
+  }
 }

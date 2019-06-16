@@ -10,6 +10,7 @@
     <div class="flex" *responsive="{sizes:{max:850}}">
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showSettings()"><img src="assets/img/icons/settings.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="deletePatient(patient?.id)"><img src="assets/img/icons/trash-3.svg" alt=""></a>
     </div>
   </header>
   <div class="header-bg">
@@ -22,6 +23,7 @@
     <div class="flex actions" *responsive="{sizes:{min:850}}">
       <a class="btn btn-grey" (click)="showEditingPatient()"><img src="assets/img/icons/edit-3.svg" alt=""></a>
       <a class="btn btn-grey" (click)="showSettings()"><img src="assets/img/icons/settings.svg" alt=""></a>
+      <a class="btn btn-grey" (click)="deletePatient(patient?.id)"><img src="assets/img/icons/trash-3.svg" alt=""></a>
     </div>
   </main>
 
