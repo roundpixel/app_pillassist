@@ -36,6 +36,25 @@ export class CalendarDayComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.patientService.patientsChanged.subscribe(patientsChanged => {
+      if (patientsChanged) {
+        this.patientService.getAll().subscribe(patients => {
+          this.route.params.subscribe(params => {
+            patients.forEach(patient => {
+              if (
+                patient.firstName === params.firstName &&
+                patient.lastName === params.lastName
+              ) {
+                this.patient = patient;
+                this.patientService.changePatient(patient);
+                this.getPills();
+              }
+            });
+          });
+        });
+      }
+    });
+
     this.patientService.getAll().subscribe(patients => {
       this.route.params.subscribe(params => {
         patients.forEach(patient => {

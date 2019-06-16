@@ -66,4 +66,13 @@ export class PatientService {
       catchError(this.handleError)
     );
   }
+
+  editPatient(id: number, patient: Patient) {
+    return this.http
+      .put(`${this.baseUrl}/edit.php?id=${id}`, { data: patient })
+      .pipe(
+        map(res => console.log(res)),
+        catchError(this.handleError)
+      );
+  }
 }

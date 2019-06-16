@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <form class="profile__info" (ngSubmit)="edit(f)">
+    <form class="profile__info" #f="ngForm" (ngSubmit)="edit(f)">
       <div class="col-2">
         <div class="input-group input-group--dark">
           <label for="firstName">Voornaam</label>

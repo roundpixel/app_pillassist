@@ -19,6 +19,30 @@ export class HistoryComponent implements OnInit {
   public pills;
 
   ngOnInit() {
+    this.patientService.patientsChanged.subscribe(patientsChanged => {
+      if (patientsChanged) {
+        this.patientService.getAll().subscribe(patients => {
+          this.route.params.subscribe(params => {
+            patients.forEach(patient => {
+              if (
+                patient.firstName === params.firstName &&
+                patient.lastName === params.lastName
+              ) {
+                this.patient = patient;
+                this.patientService.changePatient(patient);
+                this.pillService
+                  .getAllPills(this.patient.id)
+                  .subscribe(pills => {
+                    this.pills = pills;
+                    this.convertDates(this.pills);
+                  });
+              }
+            });
+          });
+        });
+      }
+    });
+
     this.patientService.getAll().subscribe(patients => {
       this.route.params.subscribe(params => {
         patients.forEach(patient => {

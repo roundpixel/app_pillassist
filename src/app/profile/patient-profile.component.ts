@@ -5,8 +5,10 @@ import {
   OnInit,
   Output
   } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-profile',
@@ -17,7 +19,7 @@ export class PatientProfileComponent implements OnInit {
   @Input() patient: Patient;
   @Output() closeEvent = new EventEmitter<boolean>();
 
-  constructor(private patientService: PatientService) {}
+  constructor(private patientService: PatientService, private router: Router) {}
 
   ngOnInit() {
     this.patientService.currentPatient.subscribe(patient => {
@@ -33,7 +35,17 @@ export class PatientProfileComponent implements OnInit {
     });
   }
 
-  edit(form) {
-    this.closeEvent.emit(true);
+  edit(form: NgForm) {
+    const val = form.value;
+
+    this.patientService.editPatient(this.patient.id, val).subscribe(() => {
+      this.patientService.changePatients();
+      this.router.navigate([
+        '/patient',
+        this.patient.firstName,
+        this.patient.lastName
+      ]);
+      this.closeEvent.emit();
+    });
   }
 }

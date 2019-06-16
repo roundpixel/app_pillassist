@@ -21,6 +21,24 @@ export class NavDesktopComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.patientService.patientsChanged.subscribe(patientsChanged => {
+      if (patientsChanged) {
+        this.patientService.getAll().subscribe(res => {
+          this.patients = res;
+          this.route.children[0].params.subscribe(params => {
+            this.patients.forEach(patient => {
+              if (
+                patient.firstName === params.firstName &&
+                patient.lastName === params.lastName
+              ) {
+                this.changePatient(patient);
+              }
+            });
+          });
+        });
+      }
+    });
+
     this.patientService.getAll().subscribe(res => {
       this.patients = res;
       this.route.children[0].params.subscribe(params => {
