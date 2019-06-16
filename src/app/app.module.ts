@@ -8,6 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -44,11 +46,11 @@ import { TabViewModule } from 'primeng/tabview';
     RegisterComponent,
     SidebarComponent,
     PatientProfileComponent,
-
     SettingsComponent,
     HistoryComponent
   ],
   imports: [
+    ConfirmDialogModule,
     TabViewModule,
     ReactiveFormsModule,
     AgendaModule,
@@ -73,7 +75,8 @@ import { TabViewModule } from 'primeng/tabview';
   providers: [
     { provide: LOCALE_ID, useValue: 'nl-BE' },
     PatientService,
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })

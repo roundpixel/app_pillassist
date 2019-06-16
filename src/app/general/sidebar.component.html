@@ -37,3 +37,5 @@
 <p-dialog appendTo="body" dismissableMask="true" [(visible)]='isViewingSettings' modal="true">
   <app-settings [patient]="patient" (closeEvent)="close()"></app-settings>
 </p-dialog>
+
+<p-confirmDialog appendTo="body" header="Patiënt verwijderen" icon="pi pi-exclamation-triangle"></p-confirmDialog>
