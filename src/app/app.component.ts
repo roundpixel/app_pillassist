@@ -22,7 +22,10 @@ export class AppComponent implements OnInit {
       const patients = res;
       this.route.children[0].params.subscribe(params => {
         patients.forEach(patient => {
-          if (patient.firstName === params.firstName) {
+          if (
+            patient.firstName === params.firstName &&
+            patient.lastName === params.lastName
+          ) {
             this.patient = patient;
             this.patientService.changePatient(patient);
           }

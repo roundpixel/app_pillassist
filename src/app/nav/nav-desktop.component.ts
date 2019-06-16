@@ -25,7 +25,10 @@ export class NavDesktopComponent implements OnInit {
       this.patients = res;
       this.route.children[0].params.subscribe(params => {
         this.patients.forEach(patient => {
-          if (patient.firstName === params.firstName) {
+          if (
+            patient.firstName === params.firstName &&
+            patient.lastName === params.lastName
+          ) {
             this.changePatient(patient);
           }
         });

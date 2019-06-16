@@ -39,7 +39,10 @@ export class CalendarDayComponent implements OnInit {
     this.patientService.getAll().subscribe(patients => {
       this.route.params.subscribe(params => {
         patients.forEach(patient => {
-          if (patient.firstName === params.firstName) {
+          if (
+            patient.firstName === params.firstName &&
+            patient.lastName === params.lastName
+          ) {
             this.patient = patient;
             this.patientService.changePatient(patient);
             this.getPills();
@@ -53,7 +56,10 @@ export class CalendarDayComponent implements OnInit {
         this.patientService.getAll().subscribe(patients => {
           this.route.params.subscribe(params => {
             patients.forEach(patient => {
-              if (patient.firstName === params.firstName) {
+              if (
+                patient.firstName === params.firstName &&
+                patient.lastName === params.lastName
+              ) {
                 this.patient = patient;
                 this.patientService.changePatient(patient);
                 this.getPills();
