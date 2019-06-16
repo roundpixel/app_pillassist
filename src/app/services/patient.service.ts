@@ -11,6 +11,7 @@ export class PatientService {
   private patientSource = new BehaviorSubject(new Patient());
   currentPatient = this.patientSource.asObservable();
   private baseUrl = 'http://localhost/api_pillassist/patient';
+  patientsChanged = new BehaviorSubject<boolean>(false);
 
   public patients = [];
 
@@ -28,6 +29,11 @@ export class PatientService {
       }),
       catchError(this.handleError)
     );
+  }
+
+  changePatients() {
+    this.patientsChanged.next(true);
+    this.patientsChanged.next(false);
   }
 
   private handleError(error: HttpErrorResponse) {
