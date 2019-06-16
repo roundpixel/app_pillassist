@@ -127,7 +127,9 @@
       <button class="btn btn-main" type="submit">
         <span>Toevoegen</span>
         <img src="assets/img/icons/arrow-right.svg" alt="arrow-right" class="icon"></button>
-      <a class="smaller-link" (click)="closeModal()">annuleer medicatie toevoegen</a>
+      <a *responsive="{sizes:{min:850}}" class="smaller-link" (click)="closeModal()">annuleer medicatie toevoegen</a>
+      <a *responsive="{sizes:{max:850}}" class="smaller-link smaller-link--m" (click)="goBack()">annuleer medicatie
+        toevoegen</a>
     </div>
   </form>
 </div>

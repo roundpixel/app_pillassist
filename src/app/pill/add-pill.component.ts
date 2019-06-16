@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   Component,
   EventEmitter,
@@ -5,8 +6,10 @@ import {
   OnInit,
   Output
   } from '@angular/core';
+import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { Patient } from '../shared/patient.model';
+import { PatientService } from './../services/patient.service';
 import { PillService } from './../services/pill.service';
 
 @Component({
@@ -34,6 +37,7 @@ export class AddPillComponent implements OnInit {
   public isEveryWeek: boolean;
   public isEveryMonth: boolean;
   public error: string;
+  public isMobile: boolean;
 
   public selectedDaysOfWeek: string[] = [];
 
@@ -41,9 +45,30 @@ export class AddPillComponent implements OnInit {
 
   @Output() closeEvent = new EventEmitter();
 
-  constructor(private pillService: PillService) {}
+  constructor(
+    private pillService: PillService,
+    private location: Location,
+    private patientService: PatientService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.route.url.subscribe(url => {
+      this.isMobile = url[0].path === 'add-pill' ? true : false;
+      if (this.isMobile) {
+        this.patientService.getAll().subscribe(patients => {
+          this.route.params.subscribe(params => {
+            patients.forEach(patient => {
+              if (patient.firstName === params.firstName) {
+                this.patient = patient;
+              }
+            });
+          });
+        });
+      }
+    });
+
     this.recurrences = [
       { label: 'Elke dag', value: 'everyDay' },
       { label: 'Elke week', value: 'everyWeek' },
@@ -89,6 +114,10 @@ export class AddPillComponent implements OnInit {
     this.closeEvent.emit();
   }
 
+  public goBack() {
+    this.location.back();
+  }
+
   public createPill(form: NgForm) {
     const val = form.value;
 
@@ -97,8 +126,16 @@ export class AddPillComponent implements OnInit {
       error => {
         console.log(error);
         if (error === 'Created') {
-          this.closeEvent.emit();
           this.pillService.changePills();
+          if (!this.isMobile) {
+            this.closeEvent.emit();
+          } else {
+            this.router.navigate([
+              '/schema',
+              this.patient.firstName,
+              this.patient.lastName
+            ]);
+          }
         } else {
           this.error =
             'Er is iets misgegaan, kijk even of je alle velden hebt ingevuld.';

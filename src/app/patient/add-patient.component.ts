@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   Component,
   EventEmitter,
@@ -13,7 +14,6 @@ import {
   } from '@angular/forms';
 import { Patient } from '../shared/patient.model';
 import { PatientService } from './../services/patient.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-patient',
@@ -24,6 +24,7 @@ export class AddPatientComponent implements OnInit {
   public addPatientForm: FormGroup;
   public patient = new Patient();
   public isLoading = false;
+  public isMobile: boolean;
 
   @Output() patientAdded = new EventEmitter();
   @Output() closeEvent = new EventEmitter();
@@ -31,10 +32,15 @@ export class AddPatientComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private patientService: PatientService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.route.url.subscribe(url => {
+      this.isMobile = url[0].path === 'add-patient' ? true : false;
+    });
+
     this.addPatientForm = this.formBuilder.group({
       firstName: [''],
       lastName: [''],
@@ -86,7 +92,12 @@ export class AddPatientComponent implements OnInit {
       () => {
         this.isLoading = false;
         this.patientAdded.emit();
-        this.closeModal();
+
+        if (this.isMobile) {
+          this.router.navigate(['/patients']);
+        } else {
+          this.closeModal();
+        }
       },
       error => {
         console.log(error);

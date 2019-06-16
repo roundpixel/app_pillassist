@@ -7,7 +7,7 @@
   </a>
   <div class="nav__link nav__link--hidden"></div>
   <div class="nav__link nav__link--plus">
-    <a [routerLink]="['/add-pill']" routerLinkActive="active">
+    <a [routerLink]="['/add-pill/', patient.firstName, patient.lastName]" routerLinkActive="active">
       <img class="icon--nav" src="assets/img/icons/plus-white.svg" alt="">
     </a>
   </div>

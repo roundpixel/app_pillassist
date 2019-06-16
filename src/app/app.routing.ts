@@ -46,7 +46,7 @@ const routes: Routes = [
     component: PatientProfileComponent
   },
   {
-    path: 'add-pill',
+    path: 'add-pill/:firstName/:lastName',
     canActivate: [AuthGuard],
     component: AddPillComponent
   },
