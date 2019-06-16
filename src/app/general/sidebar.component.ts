@@ -57,9 +57,7 @@ export class SidebarComponent implements OnInit {
   deletePatient(id: number) {
     this.patientService.deletePatient(id).subscribe(
       () => {
-        this.router.navigate(['/patients']).then(() => {
-          window.location.reload();
-        });
+        this.router.navigate(['/patients']);
       },
       error => console.log(error)
     );
