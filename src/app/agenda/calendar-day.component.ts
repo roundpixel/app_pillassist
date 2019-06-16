@@ -119,8 +119,6 @@ export class CalendarDayComponent implements OnInit {
         ]);
       });
 
-      // pills = pills.reduce((p, v, i) => (i !== index && p.push(v), p), []);
-
       this.pillSchema = pills;
     });
 
@@ -148,6 +146,18 @@ export class CalendarDayComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  public deletePillSchema(id) {
+    this.pillService.deletePill(id).subscribe(
+      () => {
+        if (this.pillSchema.length === 1) {
+          window.location.reload();
+        }
+        this.pillService.changePills();
+      },
+      error => console.log(error)
+    );
   }
 
   public converStringToDate([year, month, day]) {

@@ -67,8 +67,9 @@
             <div class="edit">
               <img class="icon" src="assets/img/icons/edit-2.svg" alt="edit"> <span>Bewerken</span>
             </div>
-            <div class="delete">
-              <img class="icon" src="assets/img/icons/trash-2.svg" alt="delete"> <span>Verwijderen</span>
+            <div class="delete" (click)="deletePillSchema(pill.id)">
+              <img class=" icon" src="assets/img/icons/trash-2.svg" alt="delete">
+              <span>Verwijderen</span>
             </div>
           </p-overlayPanel>
           <img class="icon icon-options" src="assets/img/icons/more-horizontal.svg" (click)="op.toggle($event)" />

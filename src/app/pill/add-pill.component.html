@@ -7,7 +7,9 @@
       <p class="light" *ngIf="!error">Hiermee wijzigt u het schema. </p>
       <p class="red" *ngIf="error">{{error}}</p>
     </div>
-    <img src=" assets/img/avatar.png" alt="" />
+    <ngx-avatar size="55" bgColor="#FFFFFF" fgColor="#35A6F5" name="{{patient?.firstName}}"
+      *responsive="{sizes:{max:850}}">
+    </ngx-avatar>
   </header>
   <div class="header-bg">
     <img src="assets/img/bollen.png" alt="" />

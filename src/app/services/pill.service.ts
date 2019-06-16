@@ -56,13 +56,20 @@ export class PillService {
 
   createPill(data, patientId: number): Observable<any> {
     return this.http
-      .post(`${this.baseUrl}/pill/create?patientId=${patientId}`, data)
+      .post(`${this.baseUrl}/pill/create.php?patientId=${patientId}`, data)
       .pipe(
         map(res => {
           console.log(res);
         }),
         catchError(this.handleError)
       );
+  }
+
+  deletePill(id: number) {
+    return this.http.delete(`${this.baseUrl}/pill/delete.php?id=${id}`).pipe(
+      map(res => console.log(res)),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {
