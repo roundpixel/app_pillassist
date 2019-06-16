@@ -33,7 +33,9 @@ export class LoginComponent implements OnInit {
             : '/patients';
 
           // Redirect the user
-          this.router.navigateByUrl(redirect).then(() => {});
+          this.router.navigateByUrl(redirect).then(() => {
+            window.location.reload();
+          });
         } else {
           this.loginError = 'Email en paswoord combinatie bestaat niet.';
         }
